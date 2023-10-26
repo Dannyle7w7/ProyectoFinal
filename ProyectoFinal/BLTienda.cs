@@ -9,6 +9,7 @@ namespace ProyectoFinal
 {
     internal class BLTienda
     {
+        int ID;
         private DataTable getUsuarioByID()
         {
             String Query = "select * from Usuario where ID='" + ID + "'";
