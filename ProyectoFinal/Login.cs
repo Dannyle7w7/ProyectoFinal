@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 // Hola Justin Test
 // Hola guapo
-// Goyo xD
+// Goyo xDcxczcxz
 namespace ProyectoFinal
 {
     public partial class FormLogin : Form
