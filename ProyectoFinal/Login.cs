@@ -8,9 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// Hola Justin Test
-// Hola guapo
-// Goyo xDcxczcxz
+
 namespace ProyectoFinal
 {
     public partial class FormLogin : Form
@@ -45,7 +43,8 @@ namespace ProyectoFinal
             else
             {
                 //Mejorar mesagge box
-                MessageBox.Show("Informacion incompelta");
+                MessageBox.Show("Lo siento, el nombre de usuario o la contraseña son incorrectos.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
     }
