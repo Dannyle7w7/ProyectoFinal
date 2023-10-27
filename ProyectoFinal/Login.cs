@@ -59,5 +59,22 @@ namespace ProyectoFinal
             }
 
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (txtUser.Text.Length > 0 && txtPass.Text.Length > 0)
+            {
+                this.Hide();
+                Menu menu= new Menu(); 
+                menu.Show(this);
+            }
+            else
+            {
+                //Mejorar mesagge box
+                MessageBox.Show("Lo siento, el nombre de usuario o la contraseña son incorrectos.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
     }
 }
