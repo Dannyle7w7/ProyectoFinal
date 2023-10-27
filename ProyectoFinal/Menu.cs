@@ -21,5 +21,10 @@ namespace ProyectoFinal
         {
 
         }
+
+        private void btnEquipo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
