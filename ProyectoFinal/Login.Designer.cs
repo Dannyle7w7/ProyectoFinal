@@ -36,9 +36,9 @@
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(103)))), ((int)(((byte)(242)))));
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Location = new System.Drawing.Point(126, 442);
+            this.btnLogin.Location = new System.Drawing.Point(38, 550);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(197, 45);
+            this.btnLogin.Size = new System.Drawing.Size(350, 50);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "btnLogin";
             this.btnLogin.UseVisualStyleBackColor = false;
