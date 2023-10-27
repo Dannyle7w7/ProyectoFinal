@@ -38,6 +38,7 @@
             this.chkMostrar = new System.Windows.Forms.CheckBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.Footer = new System.Windows.Forms.Panel();
             this.TitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -56,6 +57,7 @@
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Inicio de sesión";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.btnLogin_Paint);
             // 
             // TitleBar
             // 
@@ -88,6 +90,7 @@
             this.txtPass.ForeColor = System.Drawing.Color.Silver;
             this.txtPass.Location = new System.Drawing.Point(38, 289);
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(350, 33);
             this.txtPass.TabIndex = 5;
             // 
@@ -126,6 +129,7 @@
             this.chkMostrar.TabIndex = 8;
             this.chkMostrar.Text = "Mostrar";
             this.chkMostrar.UseVisualStyleBackColor = true;
+            this.chkMostrar.CheckedChanged += new System.EventHandler(this.chkMostrar_CheckedChanged);
             // 
             // btnMinimizar
             // 
@@ -136,6 +140,7 @@
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMinimizar.TabIndex = 9;
             this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnCerrar
             // 
@@ -146,6 +151,16 @@
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 10;
             this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // Footer
+            // 
+            this.Footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(43)))), ((int)(((byte)(73)))));
+            this.Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Footer.Location = new System.Drawing.Point(0, 670);
+            this.Footer.Name = "Footer";
+            this.Footer.Size = new System.Drawing.Size(430, 10);
+            this.Footer.TabIndex = 9;
             // 
             // FormLogin
             // 
@@ -153,6 +168,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(63)))), ((int)(((byte)(105)))));
             this.ClientSize = new System.Drawing.Size(430, 680);
+            this.Controls.Add(this.Footer);
             this.Controls.Add(this.chkMostrar);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblUsu);
@@ -185,6 +201,7 @@
         private System.Windows.Forms.CheckBox chkMostrar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnMinimizar;
+        private System.Windows.Forms.Panel Footer;
     }
 }
 
