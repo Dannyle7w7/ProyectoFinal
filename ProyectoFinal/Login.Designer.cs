@@ -48,11 +48,10 @@
             // TitleBar
             // 
             this.TitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(43)))), ((int)(((byte)(73)))));
-            this.TitleBar.Location = new System.Drawing.Point(-1, 0);
+            this.TitleBar.Location = new System.Drawing.Point(1, 2);
             this.TitleBar.Name = "TitleBar";
             this.TitleBar.Size = new System.Drawing.Size(288, 45);
-            this.TitleBar.TabIndex = 2;
-            this.TitleBar.Paint += new System.Windows.Forms.PaintEventHandler(this.TitleBar_Paint);
+            this.TitleBar.TabIndex = 3;
             // 
             // FormLogin
             // 
