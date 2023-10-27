@@ -18,10 +18,9 @@ namespace ProyectoFinal
             InitializeComponent();
         }
 
-       
+        private void TitleBar_Paint(object sender, PaintEventArgs e)
+        {
 
-    
-
-        
+        }
     }
 }
