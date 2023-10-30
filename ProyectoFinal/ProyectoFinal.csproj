@@ -34,8 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DAL">
-      <HintPath>..\..\..\..\Desktop\DAL\DAL\DAL\bin\Release\DAL.dll</HintPath>
+    <Reference Include="DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DALproyecto\DAL\DAL\obj\Debug\DAL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -65,6 +66,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Submenus\Trabajadores\ModificacionTrabajadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Submenus\Trabajadores\ModificacionTrabajadores.Designer.cs">
+      <DependentUpon>ModificacionTrabajadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Submenus\Trabajadores\Trabajadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Submenus\Trabajadores\Trabajadores.Designer.cs">
+      <DependentUpon>Trabajadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Submenus\Ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Submenus\Ventas.Designer.cs">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +100,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Submenus\Ventas.resx">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

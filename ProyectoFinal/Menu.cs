@@ -26,5 +26,19 @@ namespace ProyectoFinal
         {
 
         }
+
+        private void Menu_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Esta parte del codigo es para que al pulsar la teclas F
+            //estando en el menu pueudas moverte atraves del menu
+            //sin necisdad de hacer clic en algun boton
+           //Necesita que el keypreview del form este activado
+            switch (e.KeyCode)
+            {
+                case Keys.F12:
+
+                    break;
+            }
+        }
     }
 }
