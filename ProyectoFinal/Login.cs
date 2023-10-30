@@ -64,14 +64,23 @@ namespace ProyectoFinal
         {
             if (txtUser.Text.Length > 0 && txtPass.Text.Length > 0)
             {
-                this.Hide();
-                Menu menu= new Menu(); 
-                menu.Show(this);
+                BLTienda bl = new BLTienda();
+                if ( bl.ConsultaAcceso(txtUser.Text,txtPass.Text)==1)
+                {
+                    this.Hide();
+                    Menu menu = new Menu();
+                    menu.Show(this);
+                }
+                else
+                {
+                    MessageBox.Show("Lo siento, el nombre de usuario o la contraseña son incorrectos.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
             else
             {
                 //Mejorar mesagge box
-                MessageBox.Show("Lo siento, el nombre de usuario o la contraseña son incorrectos.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lo siento, el nombre de usuario o la contraseña tienen algun campo vacio.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
