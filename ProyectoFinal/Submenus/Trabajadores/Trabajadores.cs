@@ -16,5 +16,10 @@ namespace ProyectoFinal.Submenus.Trabajadores
         {
             InitializeComponent();
         }
+
+        private void Trabajadores_Load(object sender, EventArgs e)
+        {
+            rdTodos.Checked = true;
+        }
     }
 }

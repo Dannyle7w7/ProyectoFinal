@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinal.Submenus.Trabajadores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,10 @@ namespace ProyectoFinal
 
         private void btnEquipo_Click(object sender, EventArgs e)
         {
-
+            CerrarTodosLosMDIChildren();
+            Trabajadores form = new Trabajadores();
+            form.MdiParent = this;
+            form.Show();
         }
 
         private void Menu_KeyDown(object sender, KeyEventArgs e)
@@ -36,9 +40,18 @@ namespace ProyectoFinal
             switch (e.KeyCode)
             {
                 case Keys.F12:
-
+                    btnEquipo.PerformClick();
                     break;
             }
         }
+
+        private void CerrarTodosLosMDIChildren()
+        {
+            foreach (Form form in this.MdiChildren)
+            {
+                form.Close();
+            }
+        }
+
     }
 }
