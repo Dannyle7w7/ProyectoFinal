@@ -100,6 +100,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Submenus\Trabajadores\ModificacionTrabajadores.resx">
+      <DependentUpon>ModificacionTrabajadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Submenus\Trabajadores\Trabajadores.resx">
+      <DependentUpon>Trabajadores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Submenus\Ventas.resx">
       <DependentUpon>Ventas.cs</DependentUpon>
     </EmbeddedResource>
