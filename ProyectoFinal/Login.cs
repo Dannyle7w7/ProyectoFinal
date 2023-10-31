@@ -47,18 +47,7 @@ namespace ProyectoFinal
             this.Close();
         }
 
-        private void chkMostrar_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkMostrar.Checked == true)
-            {
-                txtPass.PasswordChar = Convert.ToChar(0);
-            }
-            else if (chkMostrar.Checked == false)
-            {
-                txtPass.PasswordChar = Convert.ToChar("*");
-            }
-
-        }
+ 
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -69,7 +58,10 @@ namespace ProyectoFinal
                 {
                     this.Hide();
                     Menu menu = new Menu();
+                    menu.Usuario = txtUser.Text;
+                    menu.imagen = pbPersona.Image;
                     menu.Show(this);
+                   
                 }
                 else
                 {
@@ -83,6 +75,48 @@ namespace ProyectoFinal
                 MessageBox.Show("Lo siento, el nombre de usuario o la contraseña tienen algun campo vacio.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+
+        }
+
+        private void rjMostrar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rjMostrar.Checked == true)
+            {
+                txtPass.PasswordChar = Convert.ToChar(0);
+            }
+            else if (rjMostrar.Checked == false)
+            {
+                txtPass.PasswordChar = Convert.ToChar("*");
+            }
+        }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtUser.Text))
+            {
+                BLTienda bl = new BLTienda();
+                System.Drawing.Image imagen = bl.ConsulaFoto(txtUser.Text);
+                if (imagen != null)
+                {
+                    pbPersona.Image = imagen;
+                }
+                else
+                {
+                    pbPersona.Image = pbPersona.InitialImage;
+                }
+
+
+            }
+            else
+            {
+                pbPersona.Image = pbPersona.InitialImage;
+
+            }
+
+        }
+
+        private void TitleBar_Paint_1(object sender, PaintEventArgs e)
+        {
 
         }
     }

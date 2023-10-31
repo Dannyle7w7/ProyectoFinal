@@ -13,6 +13,9 @@ namespace ProyectoFinal
 {
     public partial class Menu : Form
     {
+        //Variables globales 
+        public string Usuario;
+        public System.Drawing.Image imagen;
         public Menu()
         {
             InitializeComponent();
@@ -20,7 +23,8 @@ namespace ProyectoFinal
 
         private void Menu_Load(object sender, EventArgs e)
         {
-
+            pbUsuario.Image = imagen;
+            lblUsuario.Text = Usuario;
         }
 
         private void btnEquipo_Click(object sender, EventArgs e)
@@ -28,7 +32,10 @@ namespace ProyectoFinal
             CerrarTodosLosMDIChildren();
             Trabajadores form = new Trabajadores();
             form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
             form.Show();
+
+
         }
 
         private void Menu_KeyDown(object sender, KeyEventArgs e)
@@ -53,5 +60,9 @@ namespace ProyectoFinal
             }
         }
 
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

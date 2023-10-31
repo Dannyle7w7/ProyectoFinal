@@ -28,43 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.btAgregar = new System.Windows.Forms.Button();
             this.rdTodos = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rdActivo = new System.Windows.Forms.RadioButton();
             this.rdInactivo = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.plTop = new System.Windows.Forms.Panel();
+            this.tlpBusquedayAgregar = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpFiltros = new System.Windows.Forms.TableLayoutPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
+            this.tlpBusquedayAgregar.SuspendLayout();
+            this.tlpFiltros.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvDatos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 137);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(605, 295);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvDatos.AllowUserToAddRows = false;
+            this.dgvDatos.AllowUserToDeleteRows = false;
+            this.dgvDatos.AllowUserToResizeColumns = false;
+            this.dgvDatos.AllowUserToResizeRows = false;
+            this.dgvDatos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDatos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(214)))), ((int)(((byte)(180)))));
+            this.dgvDatos.ColumnHeadersHeight = 34;
+            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvDatos.Location = new System.Drawing.Point(17, 257);
+            this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.ReadOnly = true;
+            this.dgvDatos.RowHeadersWidth = 62;
+            this.dgvDatos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvDatos.RowTemplate.Height = 28;
+            this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatos.Size = new System.Drawing.Size(565, 314);
+            this.dgvDatos.TabIndex = 0;
+            this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             // 
-            // textBox1
+            // txtBusqueda
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 105);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(604, 26);
-            this.textBox1.TabIndex = 1;
+            this.txtBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBusqueda.Font = new System.Drawing.Font("Nirmala UI", 12F);
+            this.txtBusqueda.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtBusqueda.Location = new System.Drawing.Point(3, 20);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(562, 39);
+            this.txtBusqueda.TabIndex = 1;
+            this.txtBusqueda.Text = "Búsqueda";
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
+            this.txtBusqueda.Enter += new System.EventHandler(this.txtBusqueda_Enter);
+            this.txtBusqueda.Leave += new System.EventHandler(this.txtBusqueda_Leave);
             // 
             // btAgregar
             // 
-            this.btAgregar.Location = new System.Drawing.Point(627, 105);
+            this.btAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btAgregar.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAgregar.Location = new System.Drawing.Point(571, 3);
             this.btAgregar.Name = "btAgregar";
-            this.btAgregar.Size = new System.Drawing.Size(142, 30);
+            this.btAgregar.Size = new System.Drawing.Size(194, 74);
             this.btAgregar.TabIndex = 2;
-            this.btAgregar.Text = "Nuevo Empleado";
+            this.btAgregar.Text = "Nuevo\r\nEmpleado";
             this.btAgregar.UseVisualStyleBackColor = true;
+            this.btAgregar.Click += new System.EventHandler(this.btAgregar_Click);
             // 
             // rdTodos
             // 
@@ -76,68 +104,85 @@
             this.rdTodos.TabStop = true;
             this.rdTodos.Text = "Todos";
             this.rdTodos.UseVisualStyleBackColor = true;
+            this.rdTodos.CheckedChanged += new System.EventHandler(this.rdTodos_CheckedChanged);
             // 
-            // radioButton2
+            // rdActivo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(3, 39);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 24);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Activos";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.rdInactivo, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.rdTodos, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.radioButton2, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(631, 141);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(135, 110);
-            this.tableLayoutPanel1.TabIndex = 5;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(631, 266);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(117, 44);
-            this.radioButton3.TabIndex = 6;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Mostrar \r\nContraseña";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rdActivo.AutoSize = true;
+            this.rdActivo.Location = new System.Drawing.Point(3, 36);
+            this.rdActivo.Name = "rdActivo";
+            this.rdActivo.Size = new System.Drawing.Size(85, 24);
+            this.rdActivo.TabIndex = 4;
+            this.rdActivo.TabStop = true;
+            this.rdActivo.Text = "Activos";
+            this.rdActivo.UseVisualStyleBackColor = true;
+            this.rdActivo.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // rdInactivo
             // 
             this.rdInactivo.AutoSize = true;
-            this.rdInactivo.Location = new System.Drawing.Point(3, 75);
+            this.rdInactivo.Location = new System.Drawing.Point(3, 69);
             this.rdInactivo.Name = "rdInactivo";
             this.rdInactivo.Size = new System.Drawing.Size(89, 24);
             this.rdInactivo.TabIndex = 5;
             this.rdInactivo.TabStop = true;
             this.rdInactivo.Text = "Inactivo";
             this.rdInactivo.UseVisualStyleBackColor = true;
+            this.rdInactivo.CheckedChanged += new System.EventHandler(this.rdInactivo_CheckedChanged);
+            // 
+            // plTop
+            // 
+            this.plTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.plTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.plTop.Location = new System.Drawing.Point(0, 0);
+            this.plTop.Name = "plTop";
+            this.plTop.Size = new System.Drawing.Size(800, 150);
+            this.plTop.TabIndex = 7;
+            // 
+            // tlpBusquedayAgregar
+            // 
+            this.tlpBusquedayAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlpBusquedayAgregar.ColumnCount = 2;
+            this.tlpBusquedayAgregar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpBusquedayAgregar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tlpBusquedayAgregar.Controls.Add(this.btAgregar, 1, 0);
+            this.tlpBusquedayAgregar.Controls.Add(this.txtBusqueda, 0, 0);
+            this.tlpBusquedayAgregar.Location = new System.Drawing.Point(17, 171);
+            this.tlpBusquedayAgregar.Name = "tlpBusquedayAgregar";
+            this.tlpBusquedayAgregar.RowCount = 1;
+            this.tlpBusquedayAgregar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpBusquedayAgregar.Size = new System.Drawing.Size(768, 80);
+            this.tlpBusquedayAgregar.TabIndex = 8;
+            // 
+            // tlpFiltros
+            // 
+            this.tlpFiltros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlpFiltros.ColumnCount = 1;
+            this.tlpFiltros.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpFiltros.Controls.Add(this.rdTodos, 0, 0);
+            this.tlpFiltros.Controls.Add(this.rdInactivo, 0, 2);
+            this.tlpFiltros.Controls.Add(this.rdActivo, 0, 1);
+            this.tlpFiltros.Location = new System.Drawing.Point(588, 257);
+            this.tlpFiltros.Name = "tlpFiltros";
+            this.tlpFiltros.RowCount = 3;
+            this.tlpFiltros.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpFiltros.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpFiltros.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpFiltros.Size = new System.Drawing.Size(197, 100);
+            this.tlpFiltros.TabIndex = 9;
             // 
             // Trabajadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 444);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.ControlBox = false;
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.btAgregar);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.tlpFiltros);
+            this.Controls.Add(this.tlpBusquedayAgregar);
+            this.Controls.Add(this.plTop);
+            this.Controls.Add(this.dgvDatos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -145,25 +190,26 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trabajadores";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Trabajadores_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
+            this.tlpBusquedayAgregar.ResumeLayout(false);
+            this.tlpBusquedayAgregar.PerformLayout();
+            this.tlpFiltros.ResumeLayout(false);
+            this.tlpFiltros.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dgvDatos;
+        private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Button btAgregar;
         private System.Windows.Forms.RadioButton rdTodos;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton rdActivo;
         private System.Windows.Forms.RadioButton rdInactivo;
+        private System.Windows.Forms.Panel plTop;
+        private System.Windows.Forms.TableLayoutPanel tlpBusquedayAgregar;
+        private System.Windows.Forms.TableLayoutPanel tlpFiltros;
     }
 }

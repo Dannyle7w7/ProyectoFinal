@@ -37,16 +37,18 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.lblUsu = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
-            this.chkMostrar = new System.Windows.Forms.CheckBox();
             this.Footer = new System.Windows.Forms.Panel();
+            this.pbPersona = new System.Windows.Forms.PictureBox();
+            this.rjMostrar = new ProyectoFinal.Controles_Personalizados.RJToggleButton();
             this.TitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersona)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(103)))), ((int)(((byte)(242)))));
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(214)))), ((int)(((byte)(180)))));
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -54,7 +56,7 @@
             this.btnLogin.Location = new System.Drawing.Point(38, 551);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(350, 50);
-            this.btnLogin.TabIndex = 0;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Inicio de sesión";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -62,7 +64,7 @@
             // 
             // TitleBar
             // 
-            this.TitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(43)))), ((int)(((byte)(73)))));
+            this.TitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.TitleBar.Controls.Add(this.btnCerrar);
             this.TitleBar.Controls.Add(this.btnMinimizar);
             this.TitleBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -71,6 +73,7 @@
             this.TitleBar.Name = "TitleBar";
             this.TitleBar.Size = new System.Drawing.Size(430, 45);
             this.TitleBar.TabIndex = 3;
+            this.TitleBar.Paint += new System.Windows.Forms.PaintEventHandler(this.TitleBar_Paint_1);
             // 
             // btnCerrar
             // 
@@ -96,26 +99,27 @@
             // 
             // txtUser
             // 
-            this.txtUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(96)))), ((int)(((byte)(130)))));
+            this.txtUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(120)))), ((int)(((byte)(115)))));
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUser.Font = new System.Drawing.Font("Ebrima", 12F);
             this.txtUser.ForeColor = System.Drawing.Color.Silver;
-            this.txtUser.Location = new System.Drawing.Point(38, 218);
+            this.txtUser.Location = new System.Drawing.Point(38, 323);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(350, 33);
-            this.txtUser.TabIndex = 4;
+            this.txtUser.TabIndex = 0;
+            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
             // txtPass
             // 
-            this.txtPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(96)))), ((int)(((byte)(130)))));
+            this.txtPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(120)))), ((int)(((byte)(115)))));
             this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPass.Font = new System.Drawing.Font("Ebrima", 12F);
             this.txtPass.ForeColor = System.Drawing.Color.Silver;
-            this.txtPass.Location = new System.Drawing.Point(38, 289);
+            this.txtPass.Location = new System.Drawing.Point(38, 394);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(350, 33);
-            this.txtPass.TabIndex = 5;
+            this.txtPass.TabIndex = 1;
             // 
             // lblUsu
             // 
@@ -123,7 +127,7 @@
             this.lblUsu.BackColor = System.Drawing.Color.Transparent;
             this.lblUsu.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsu.ForeColor = System.Drawing.Color.Silver;
-            this.lblUsu.Location = new System.Drawing.Point(32, 171);
+            this.lblUsu.Location = new System.Drawing.Point(32, 276);
             this.lblUsu.Name = "lblUsu";
             this.lblUsu.Size = new System.Drawing.Size(121, 32);
             this.lblUsu.TabIndex = 6;
@@ -135,24 +139,11 @@
             this.lblPass.BackColor = System.Drawing.Color.Transparent;
             this.lblPass.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPass.ForeColor = System.Drawing.Color.Silver;
-            this.lblPass.Location = new System.Drawing.Point(32, 254);
+            this.lblPass.Location = new System.Drawing.Point(32, 359);
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(112, 32);
             this.lblPass.TabIndex = 7;
             this.lblPass.Text = "Password";
-            // 
-            // chkMostrar
-            // 
-            this.chkMostrar.AutoSize = true;
-            this.chkMostrar.Font = new System.Drawing.Font("Ebrima", 12F);
-            this.chkMostrar.ForeColor = System.Drawing.Color.Silver;
-            this.chkMostrar.Location = new System.Drawing.Point(38, 338);
-            this.chkMostrar.Name = "chkMostrar";
-            this.chkMostrar.Size = new System.Drawing.Size(122, 36);
-            this.chkMostrar.TabIndex = 8;
-            this.chkMostrar.Text = "Mostrar";
-            this.chkMostrar.UseVisualStyleBackColor = true;
-            this.chkMostrar.CheckedChanged += new System.EventHandler(this.chkMostrar_CheckedChanged);
             // 
             // Footer
             // 
@@ -163,14 +154,41 @@
             this.Footer.Size = new System.Drawing.Size(430, 10);
             this.Footer.TabIndex = 9;
             // 
+            // pbPersona
+            // 
+            this.pbPersona.Image = ((System.Drawing.Image)(resources.GetObject("pbPersona.Image")));
+            this.pbPersona.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbPersona.InitialImage")));
+            this.pbPersona.Location = new System.Drawing.Point(134, 64);
+            this.pbPersona.Name = "pbPersona";
+            this.pbPersona.Size = new System.Drawing.Size(150, 180);
+            this.pbPersona.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPersona.TabIndex = 11;
+            this.pbPersona.TabStop = false;
+            // 
+            // rjMostrar
+            // 
+            this.rjMostrar.AutoSize = true;
+            this.rjMostrar.Location = new System.Drawing.Point(38, 447);
+            this.rjMostrar.MinimumSize = new System.Drawing.Size(68, 33);
+            this.rjMostrar.Name = "rjMostrar";
+            this.rjMostrar.OffBackColor = System.Drawing.Color.Gray;
+            this.rjMostrar.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rjMostrar.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjMostrar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rjMostrar.Size = new System.Drawing.Size(68, 33);
+            this.rjMostrar.TabIndex = 10;
+            this.rjMostrar.UseVisualStyleBackColor = true;
+            this.rjMostrar.CheckedChanged += new System.EventHandler(this.rjMostrar_CheckedChanged);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(63)))), ((int)(((byte)(105)))));
+            this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(430, 680);
+            this.Controls.Add(this.pbPersona);
+            this.Controls.Add(this.rjMostrar);
             this.Controls.Add(this.Footer);
-            this.Controls.Add(this.chkMostrar);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblUsu);
             this.Controls.Add(this.txtPass);
@@ -178,6 +196,7 @@
             this.Controls.Add(this.TitleBar);
             this.Controls.Add(this.btnLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormLogin";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -186,6 +205,7 @@
             this.TitleBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersona)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,10 +219,11 @@
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label lblUsu;
         private System.Windows.Forms.Label lblPass;
-        private System.Windows.Forms.CheckBox chkMostrar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.Panel Footer;
+        private Controles_Personalizados.RJToggleButton rjMostrar;
+        private System.Windows.Forms.PictureBox pbPersona;
     }
 }
 
