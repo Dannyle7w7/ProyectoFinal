@@ -16,6 +16,8 @@ namespace ProyectoFinal
         //Variables globales 
         public string Usuario;
         public System.Drawing.Image imagen;
+
+       
         public Menu()
         {
             InitializeComponent();
@@ -29,13 +31,8 @@ namespace ProyectoFinal
 
         private void btnEquipo_Click(object sender, EventArgs e)
         {
-            CerrarTodosLosMDIChildren();
-            Trabajadores form = new Trabajadores();
-            form.MdiParent = this;
-            form.WindowState = FormWindowState.Maximized;
-            form.Show();
-
-
+            Trabajadores form = new Trabajadores(); 
+            form.ShowDialog();
         }
 
         private void Menu_KeyDown(object sender, KeyEventArgs e)
@@ -52,17 +49,25 @@ namespace ProyectoFinal
             }
         }
 
-        private void CerrarTodosLosMDIChildren()
+        private void EsconderTodosLosMDIChildren()
         {
             foreach (Form form in this.MdiChildren)
             {
-                form.Close();
+                form.Hide();
             }
         }
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+        
+
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+           
+
         }
     }
 }

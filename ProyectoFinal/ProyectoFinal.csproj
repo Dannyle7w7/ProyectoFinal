@@ -36,7 +36,7 @@
   <ItemGroup>
     <Reference Include="DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DALproyecto\DAL\DAL\obj\Debug\DAL.dll</HintPath>
+      <HintPath>..\DAL\DAL\obj\Release\DAL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -69,6 +69,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Submenus\Trabajadores\Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Submenus\Trabajadores\Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Submenus\Trabajadores\Devolucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Submenus\Trabajadores\Devolucion.Designer.cs">
+      <DependentUpon>Devolucion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Submenus\Trabajadores\ModificacionTrabajadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,10 +93,10 @@
     <Compile Include="Submenus\Trabajadores\Trabajadores.Designer.cs">
       <DependentUpon>Trabajadores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Submenus\Ventas.cs">
+    <Compile Include="Submenus\Trabajadores\Ventas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Submenus\Ventas.Designer.cs">
+    <Compile Include="Submenus\Trabajadores\Ventas.Designer.cs">
       <DependentUpon>Ventas.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Login.resx">
@@ -109,7 +121,7 @@
     <EmbeddedResource Include="Submenus\Trabajadores\Trabajadores.resx">
       <DependentUpon>Trabajadores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Submenus\Ventas.resx">
+    <EmbeddedResource Include="Submenus\Trabajadores\Ventas.resx">
       <DependentUpon>Ventas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
