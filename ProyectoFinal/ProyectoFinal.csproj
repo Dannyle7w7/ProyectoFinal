@@ -81,6 +81,18 @@
     <Compile Include="Submenus\Trabajadores\Devolucion.Designer.cs">
       <DependentUpon>Devolucion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Submenus\Trabajadores\Prodcutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Submenus\Trabajadores\Prodcutos.Designer.cs">
+      <DependentUpon>Prodcutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Submenus\Trabajadores\Proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Submenus\Trabajadores\Proveedores.Designer.cs">
+      <DependentUpon>Proveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Submenus\Trabajadores\ModificacionTrabajadores.cs">
       <SubType>Form</SubType>
     </Compile>
