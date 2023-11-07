@@ -34,13 +34,20 @@
             this.pbUsuario = new System.Windows.Forms.PictureBox();
             this.msQuitarBarra = new System.Windows.Forms.MenuStrip();
             this.plControles = new System.Windows.Forms.Panel();
+            this.btnClientes = new System.Windows.Forms.Button();
+            this.btnVenta = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
             this.plControles.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnEquipo
             // 
-            this.btnEquipo.Location = new System.Drawing.Point(170, 50);
+            this.btnEquipo.Location = new System.Drawing.Point(372, 16);
             this.btnEquipo.Name = "btnEquipo";
             this.btnEquipo.Size = new System.Drawing.Size(105, 32);
             this.btnEquipo.TabIndex = 2;
@@ -51,16 +58,17 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(129, 9);
+            this.lblUsuario.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblUsuario.Location = new System.Drawing.Point(129, 14);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(64, 20);
+            this.lblUsuario.Size = new System.Drawing.Size(92, 30);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Usuario";
             // 
             // pbUsuario
             // 
             this.pbUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pbUsuario.Image")));
-            this.pbUsuario.Location = new System.Drawing.Point(12, 7);
+            this.pbUsuario.Location = new System.Drawing.Point(12, 12);
             this.pbUsuario.Name = "pbUsuario";
             this.pbUsuario.Size = new System.Drawing.Size(111, 127);
             this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -80,6 +88,14 @@
             // 
             // plControles
             // 
+            this.plControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(120)))), ((int)(((byte)(115)))));
+            this.plControles.Controls.Add(this.button4);
+            this.plControles.Controls.Add(this.button3);
+            this.plControles.Controls.Add(this.button2);
+            this.plControles.Controls.Add(this.button1);
+            this.plControles.Controls.Add(this.label1);
+            this.plControles.Controls.Add(this.btnVenta);
+            this.plControles.Controls.Add(this.btnClientes);
             this.plControles.Controls.Add(this.pbUsuario);
             this.plControles.Controls.Add(this.btnEquipo);
             this.plControles.Controls.Add(this.lblUsuario);
@@ -88,6 +104,71 @@
             this.plControles.Name = "plControles";
             this.plControles.Size = new System.Drawing.Size(778, 150);
             this.plControles.TabIndex = 5;
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.Location = new System.Drawing.Point(241, 54);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(157, 32);
+            this.btnClientes.TabIndex = 3;
+            this.btnClientes.Text = "F11 Clientes";
+            this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
+            // btnVenta
+            // 
+            this.btnVenta.Location = new System.Drawing.Point(241, 16);
+            this.btnVenta.Name = "btnVenta";
+            this.btnVenta.Size = new System.Drawing.Size(105, 32);
+            this.btnVenta.TabIndex = 4;
+            this.btnVenta.Text = "F12 Venta";
+            this.btnVenta.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(129, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 30);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Usuario";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(241, 92);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(157, 32);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "F12 Inventario";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(404, 54);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(157, 32);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "F12 Inventario";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(404, 92);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(157, 32);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "F12 Inventario";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(576, 54);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(157, 32);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "F12 Inventario";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 
@@ -122,5 +203,12 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.MenuStrip msQuitarBarra;
         private System.Windows.Forms.Panel plControles;
+        private System.Windows.Forms.Button btnVenta;
+        private System.Windows.Forms.Button btnClientes;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

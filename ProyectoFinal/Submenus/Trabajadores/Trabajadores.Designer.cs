@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Trabajadores));
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.btAgregar = new System.Windows.Forms.Button();
@@ -37,9 +38,11 @@
             this.plTop = new System.Windows.Forms.Panel();
             this.tlpBusquedayAgregar = new System.Windows.Forms.TableLayoutPanel();
             this.tlpFiltros = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tlpBusquedayAgregar.SuspendLayout();
             this.tlpFiltros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDatos
@@ -99,7 +102,7 @@
             this.rdTodos.AutoSize = true;
             this.rdTodos.Location = new System.Drawing.Point(3, 3);
             this.rdTodos.Name = "rdTodos";
-            this.rdTodos.Size = new System.Drawing.Size(78, 24);
+            this.rdTodos.Size = new System.Drawing.Size(102, 35);
             this.rdTodos.TabIndex = 3;
             this.rdTodos.TabStop = true;
             this.rdTodos.Text = "Todos";
@@ -109,9 +112,9 @@
             // rdActivo
             // 
             this.rdActivo.AutoSize = true;
-            this.rdActivo.Location = new System.Drawing.Point(3, 36);
+            this.rdActivo.Location = new System.Drawing.Point(3, 44);
             this.rdActivo.Name = "rdActivo";
-            this.rdActivo.Size = new System.Drawing.Size(85, 24);
+            this.rdActivo.Size = new System.Drawing.Size(115, 35);
             this.rdActivo.TabIndex = 4;
             this.rdActivo.TabStop = true;
             this.rdActivo.Text = "Activos";
@@ -121,9 +124,9 @@
             // rdInactivo
             // 
             this.rdInactivo.AutoSize = true;
-            this.rdInactivo.Location = new System.Drawing.Point(3, 69);
+            this.rdInactivo.Location = new System.Drawing.Point(3, 85);
             this.rdInactivo.Name = "rdInactivo";
-            this.rdInactivo.Size = new System.Drawing.Size(89, 24);
+            this.rdInactivo.Size = new System.Drawing.Size(122, 36);
             this.rdInactivo.TabIndex = 5;
             this.rdInactivo.TabStop = true;
             this.rdInactivo.Text = "Inactivo";
@@ -163,14 +166,25 @@
             this.tlpFiltros.Controls.Add(this.rdTodos, 0, 0);
             this.tlpFiltros.Controls.Add(this.rdInactivo, 0, 2);
             this.tlpFiltros.Controls.Add(this.rdActivo, 0, 1);
+            this.tlpFiltros.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.tlpFiltros.Location = new System.Drawing.Point(588, 257);
             this.tlpFiltros.Name = "tlpFiltros";
             this.tlpFiltros.RowCount = 3;
             this.tlpFiltros.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpFiltros.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpFiltros.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpFiltros.Size = new System.Drawing.Size(197, 100);
+            this.tlpFiltros.Size = new System.Drawing.Size(197, 124);
             this.tlpFiltros.TabIndex = 9;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(611, 391);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(150, 180);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // Trabajadores
             // 
@@ -179,6 +193,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tlpFiltros);
             this.Controls.Add(this.tlpBusquedayAgregar);
             this.Controls.Add(this.plTop);
@@ -196,6 +211,7 @@
             this.tlpBusquedayAgregar.PerformLayout();
             this.tlpFiltros.ResumeLayout(false);
             this.tlpFiltros.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -211,5 +227,6 @@
         private System.Windows.Forms.Panel plTop;
         private System.Windows.Forms.TableLayoutPanel tlpBusquedayAgregar;
         private System.Windows.Forms.TableLayoutPanel tlpFiltros;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
