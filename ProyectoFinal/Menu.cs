@@ -31,7 +31,8 @@ namespace ProyectoFinal
 
         private void btnEquipo_Click(object sender, EventArgs e)
         {
-            Trabajadores form = new Trabajadores(); 
+            Trabajadores form = new Trabajadores();
+            form.Size = MaximumSize;
             form.ShowDialog();
         }
 
