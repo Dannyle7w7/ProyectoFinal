@@ -147,7 +147,7 @@ namespace ProyectoFinal
                 FROM Empleados 
                 WHERE Usuario LIKE '%' + @searchText + '%' 
                    OR Nombre LIKE '%' + @searchText + '%' 
-                   OR CONVERT(NVARCHAR(MAX), Id) LIKE '%' + @searchText + '%';
+                   OR CONVERT(NVARCHAR(MAX), IdEmpleados) LIKE '%' + @searchText + '%';
             END
             ELSE
                 SELECT NULL AS Resultado;";
@@ -180,7 +180,7 @@ namespace ProyectoFinal
                 FROM Empleados 
                 WHERE (Usuario LIKE '%' + @searchText + '%' 
                    OR Nombre LIKE '%' + @searchText + '%' 
-                   OR CONVERT(NVARCHAR(MAX), Id) LIKE '%' + @searchText + '%')
+                   OR CONVERT(NVARCHAR(MAX), IdEmpleados) LIKE '%' + @searchText + '%')
                    AND Estado = 1; -- Agregamos esta condición para filtrar por empleados activos.
             END
             ELSE
@@ -214,7 +214,7 @@ CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 FROM Empleados 
                 WHERE (Usuario LIKE '%' + @searchText + '%' 
                    OR Nombre LIKE '%' + @searchText + '%' 
-                   OR CONVERT(NVARCHAR(MAX), Id) LIKE '%' + @searchText + '%')
+                   OR CONVERT(NVARCHAR(MAX), IdEmpleados) LIKE '%' + @searchText + '%')
                    AND Estado = 0; -- Agregamos esta condición para filtrar por empleados activos.
             END
             ELSE
