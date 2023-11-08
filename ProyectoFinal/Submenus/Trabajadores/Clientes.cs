@@ -16,5 +16,10 @@ namespace ProyectoFinal.Submenus.Trabajadores
         {
             InitializeComponent();
         }
+
+        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

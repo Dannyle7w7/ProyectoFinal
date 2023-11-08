@@ -64,7 +64,7 @@ namespace ProyectoFinal
             return ms.ToArray();
         }
         public int ConsultaultimoID() {
-            string query = "SELECT MAX(IdEmpleados) FROM Empleados";
+            string query = "SELECT MAX(Id) FROM Empleados";
             DAL.DAL dal = new DAL.DAL();
             int resultado = Convert.ToInt32(dal.ConsultaEscalar(query));
             return resultado;
@@ -110,21 +110,21 @@ namespace ProyectoFinal
         //Estos son para todos sin buscar
         public DataTable ObtenerTodosLosEmpleados()
         {
-            string query = "SELECT IdEmpleados,Usuario,Nombre,Puesto,CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados";
+            string query = "SELECT Id,Usuario,Nombre,Puesto,CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados";
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
 
         public DataTable ObtenerTodosLosEmpleadosActivos()
         {
-            string query = "SELECT IdEmpleados, Usuario, Nombre,Puesto, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado = 1";
+            string query = "SELECT Id, Usuario, Nombre,Puesto, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado = 1";
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
 
         public DataTable ObtenerTodosLosEmpleadosInactivos()
         {
-            string query = "SELECT IdEmpleados, Usuario, Nombre,Puesto, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado =0";
+            string query = "SELECT Id, Usuario, Nombre,Puesto, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado =0";
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
@@ -141,7 +141,7 @@ namespace ProyectoFinal
 
             IF @searchText IS NOT NULL AND @searchText <> ''
             BEGIN
-                SELECT IdEmpleados, Usuario, Nombre,Puesto, 
+                SELECT Id, Usuario, Nombre,Puesto, 
                        CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,
                        CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 FROM Empleados 
@@ -174,7 +174,7 @@ namespace ProyectoFinal
 
             IF @searchText IS NOT NULL AND @searchText <> ''
             BEGIN
-                SELECT IdEmpleados, Usuario, Nombre, Puesto,
+                SELECT Id, Usuario, Nombre, Puesto,
                        CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado ,
                        CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 FROM Empleados 
@@ -208,7 +208,7 @@ namespace ProyectoFinal
 
             IF @searchText IS NOT NULL AND @searchText <> ''
             BEGIN
-                SELECT IdEmpleados, Usuario, Nombre, Puesto,
+                SELECT Id, Usuario, Nombre, Puesto,
                        CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado, 
 CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 FROM Empleados 

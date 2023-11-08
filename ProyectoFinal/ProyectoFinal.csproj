@@ -36,7 +36,7 @@
   <ItemGroup>
     <Reference Include="DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DAL\DAL\bin\Debug\DAL.dll</HintPath>
+      <HintPath>..\..\..\DAL2\DAL\DAL\bin\Debug\DAL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -81,18 +81,6 @@
     <Compile Include="Submenus\Trabajadores\Devolucion.Designer.cs">
       <DependentUpon>Devolucion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Submenus\Trabajadores\Prodcutos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Submenus\Trabajadores\Prodcutos.Designer.cs">
-      <DependentUpon>Prodcutos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Submenus\Trabajadores\Proveedores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Submenus\Trabajadores\Proveedores.Designer.cs">
-      <DependentUpon>Proveedores.cs</DependentUpon>
-    </Compile>
     <Compile Include="Submenus\Trabajadores\ModificacionTrabajadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +115,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Submenus\Trabajadores\Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Submenus\Trabajadores\ModificacionTrabajadores.resx">
       <DependentUpon>ModificacionTrabajadores.cs</DependentUpon>
     </EmbeddedResource>

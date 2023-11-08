@@ -33,7 +33,7 @@ namespace ProyectoFinal
         {
             Trabajadores form = new Trabajadores();
             form.Size = MaximumSize;
-            form.Show();
+            form.ShowDialog();
         }
 
         private void Menu_KeyDown(object sender, KeyEventArgs e)
