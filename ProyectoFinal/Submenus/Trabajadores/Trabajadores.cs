@@ -160,15 +160,6 @@ namespace ProyectoFinal.Submenus.Trabajadores
             }
         }
 
-        private void txtBusqueda_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtBusqueda.Text))
-            {
-                txtBusqueda.Text = "Búsqueda";
-                txtBusqueda.ForeColor = Color.Gray;
-            }
-        }
-
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
