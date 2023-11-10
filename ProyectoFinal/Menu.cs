@@ -17,7 +17,12 @@ namespace ProyectoFinal
         public string Usuario;
         public System.Drawing.Image imagen;
 
-       
+
+        //Todas las variables de forma y su estado
+        public bool EmpleadosAbierta = false;
+        Trabajadores form = new Trabajadores();
+
+
         public Menu()
         {
             InitializeComponent();
@@ -31,7 +36,17 @@ namespace ProyectoFinal
 
         private void btnEquipo_Click(object sender, EventArgs e)
         {
-
+         EsconderTodosLosMDIChildren();
+            if (EmpleadosAbierta == false)
+            {
+                form.MdiParent = this;
+                EmpleadosAbierta = true;
+                form.Show();
+            }
+            else
+            {
+                form.Show();
+            }
         }
 
         private void Menu_KeyDown(object sender, KeyEventArgs e)
@@ -42,7 +57,26 @@ namespace ProyectoFinal
            //Necesita que el keypreview del form este activado
             switch (e.KeyCode)
             {
-                case Keys.F12:
+                case Keys.F1:
+                    btnVenta.PerformClick();
+                    break;
+
+                case Keys.F2:
+                    btnClientes.PerformClick();
+                    break;
+                case Keys.F3:
+                    btnProveedores.PerformClick();
+                    break;
+                case Keys.F4:
+                    btnInventario.PerformClick();
+                    break;
+                case Keys.F5:
+                    btnCompras.PerformClick();
+                    break;
+                case Keys.F6:
+                    btnConfiguracion.PerformClick();
+                    break;
+                case Keys.F7:
                     btnEquipo.PerformClick();
                     break;
             }
