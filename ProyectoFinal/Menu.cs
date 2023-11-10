@@ -1,4 +1,5 @@
-﻿using ProyectoFinal.Submenus.Trabajadores;
+﻿using ProyectoFinal.Submenus;
+using ProyectoFinal.Submenus.Trabajadores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,25 @@ namespace ProyectoFinal
 
         //Todas las variables de forma y su estado
         public bool EmpleadosAbierta = false;
-        Trabajadores form = new Trabajadores();
+        Trabajadores formEmpleados = new Trabajadores();
+
+        public bool ProveedoresAbierta = false;
+        Proveedores formProveedores = new Proveedores();
+
+        public bool VentaAbierta = false;
+        Carrito formVenta = new Carrito();
+
+        public bool ClientesAbierta = false;
+        Clientes formClientes = new Clientes();
+
+        public bool InventarioAbierta = false;
+        Inventario formInventario = new Inventario();
+
+        public bool ComprasAbierta = false;
+        CompraProveedores formCompras = new CompraProveedores();
+
+        public bool ConfiguracionAbierta = false;
+        Configuracion formConfiguracion = new Configuracion();
 
 
         public Menu()
@@ -36,16 +55,17 @@ namespace ProyectoFinal
 
         private void btnEquipo_Click(object sender, EventArgs e)
         {
-         EsconderTodosLosMDIChildren();
+            formEmpleados.WindowState = FormWindowState.Maximized;  
+            EsconderTodosLosMDIChildren();
             if (EmpleadosAbierta == false)
             {
-                form.MdiParent = this;
+                formEmpleados.MdiParent = this;
                 EmpleadosAbierta = true;
-                form.Show();
+                formEmpleados.Show();
             }
             else
             {
-                form.Show();
+                formEmpleados.Show();
             }
         }
 
@@ -99,8 +119,35 @@ namespace ProyectoFinal
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-           
+            formClientes.WindowState = FormWindowState.Maximized;
+            EsconderTodosLosMDIChildren();
+            if (ClientesAbierta == false)
+            {
+                formClientes.MdiParent = this;
+                EmpleadosAbierta = true;
+                formClientes.Show();
+            }
+            else
+            {
+                formClientes.Show();
+            }
 
+        }
+
+        private void btnVenta_Click(object sender, EventArgs e)
+        {
+            formVenta.WindowState = FormWindowState.Maximized;
+            EsconderTodosLosMDIChildren();
+            if (VentaAbierta == false)
+            {
+                formVenta.MdiParent = this;
+                VentaAbierta = true;
+                formVenta.Show();
+            }
+            else
+            {
+                formVenta.Show();
+            }
         }
     }
 }

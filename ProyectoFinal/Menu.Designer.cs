@@ -159,6 +159,7 @@
             this.btnVenta.TabIndex = 4;
             this.btnVenta.Text = "F1 Venta";
             this.btnVenta.UseVisualStyleBackColor = true;
+            this.btnVenta.Click += new System.EventHandler(this.btnVenta_Click);
             // 
             // btnClientes
             // 

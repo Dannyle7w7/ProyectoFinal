@@ -69,23 +69,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Submenus\Trabajadores\Carrito.cs">
+    <Compile Include="Submenus\Configuracion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Submenus\Trabajadores\Carrito.Designer.cs">
+    <Compile Include="Submenus\Configuracion.Designer.cs">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Submenus\Carrito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Submenus\Carrito.Designer.cs">
       <DependentUpon>Carrito.cs</DependentUpon>
     </Compile>
-    <Compile Include="Submenus\Trabajadores\Clientes.cs">
+    <Compile Include="Submenus\Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Submenus\Trabajadores\Clientes.Designer.cs">
+    <Compile Include="Submenus\Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Submenus\Trabajadores\Devolucion.cs">
+    <Compile Include="Submenus\Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Submenus\Trabajadores\Devolucion.Designer.cs">
-      <DependentUpon>Devolucion.cs</DependentUpon>
+    <Compile Include="Submenus\Inventario.Designer.cs">
+      <DependentUpon>Inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Submenus\Proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Submenus\Proveedores.Designer.cs">
+      <DependentUpon>Proveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Submenus\Trabajadores\ModificacionTrabajadores.cs">
       <SubType>Form</SubType>
@@ -99,11 +111,11 @@
     <Compile Include="Submenus\Trabajadores\Trabajadores.Designer.cs">
       <DependentUpon>Trabajadores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Submenus\Trabajadores\Ventas.cs">
+    <Compile Include="Submenus\CompraProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Submenus\Trabajadores\Ventas.Designer.cs">
-      <DependentUpon>Ventas.cs</DependentUpon>
+    <Compile Include="Submenus\CompraProveedores.Designer.cs">
+      <DependentUpon>CompraProveedores.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -123,7 +135,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Submenus\Trabajadores\Clientes.resx">
+    <EmbeddedResource Include="Submenus\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Submenus\Trabajadores\ModificacionTrabajadores.resx">
@@ -132,8 +144,8 @@
     <EmbeddedResource Include="Submenus\Trabajadores\Trabajadores.resx">
       <DependentUpon>Trabajadores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Submenus\Trabajadores\Ventas.resx">
-      <DependentUpon>Ventas.cs</DependentUpon>
+    <EmbeddedResource Include="Submenus\CompraProveedores.resx">
+      <DependentUpon>CompraProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

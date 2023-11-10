@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal.Submenus
 {
-    public partial class Ventas : Form
+    public partial class Proveedores : Form
     {
-        public Ventas()
+        public Proveedores()
         {
             InitializeComponent();
         }

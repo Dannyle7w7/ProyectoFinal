@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProyectoFinal.Submenus.Trabajadores
+namespace ProyectoFinal.Submenus
 {
-    public partial class Devolucion : Form
+    public partial class Configuracion : Form
     {
-        public Devolucion()
+        public Configuracion()
         {
             InitializeComponent();
         }
