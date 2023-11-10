@@ -64,7 +64,7 @@ namespace ProyectoFinal
             return ms.ToArray();
         }
         public int ConsultaultimoID() {
-            string query = "SELECT MAX(Id) FROM Empleados";
+            string query = "SELECT MAX(IdEmpleados) FROM Empleados";
             DAL.DAL dal = new DAL.DAL();
             int resultado = Convert.ToInt32(dal.ConsultaEscalar(query));
             return resultado;

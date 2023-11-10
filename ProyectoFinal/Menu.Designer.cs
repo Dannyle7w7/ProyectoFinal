@@ -113,6 +113,7 @@
             this.btnConfiguracion.TabIndex = 9;
             this.btnConfiguracion.Text = "F6 Configuracion";
             this.btnConfiguracion.UseVisualStyleBackColor = true;
+            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
             // 
             // btnInventario
             // 
@@ -122,6 +123,7 @@
             this.btnInventario.TabIndex = 8;
             this.btnInventario.Text = "F4 Inventario";
             this.btnInventario.UseVisualStyleBackColor = true;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
             // btnCompras
             // 
@@ -131,6 +133,7 @@
             this.btnCompras.TabIndex = 7;
             this.btnCompras.Text = "F5 Compras";
             this.btnCompras.UseVisualStyleBackColor = true;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
             // btnProveedores
             // 

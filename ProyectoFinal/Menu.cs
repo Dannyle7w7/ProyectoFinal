@@ -53,21 +53,7 @@ namespace ProyectoFinal
             lblUsuario.Text = Usuario;
         }
 
-        private void btnEquipo_Click(object sender, EventArgs e)
-        {
-            formEmpleados.WindowState = FormWindowState.Maximized;  
-            EsconderTodosLosMDIChildren();
-            if (EmpleadosAbierta == false)
-            {
-                formEmpleados.MdiParent = this;
-                EmpleadosAbierta = true;
-                formEmpleados.Show();
-            }
-            else
-            {
-                formEmpleados.Show();
-            }
-        }
+       
 
         private void Menu_KeyDown(object sender, KeyEventArgs e)
         {
@@ -102,13 +88,7 @@ namespace ProyectoFinal
             }
         }
 
-        private void EsconderTodosLosMDIChildren()
-        {
-            foreach (Form form in this.MdiChildren)
-            {
-                form.Hide();
-            }
-        }
+       
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -117,21 +97,19 @@ namespace ProyectoFinal
         
 
 
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            formClientes.WindowState = FormWindowState.Maximized;
-            EsconderTodosLosMDIChildren();
-            if (ClientesAbierta == false)
-            {
-                formClientes.MdiParent = this;
-                EmpleadosAbierta = true;
-                formClientes.Show();
-            }
-            else
-            {
-                formClientes.Show();
-            }
+      
+        //Este código define los botones F que abren formularios
+        //hijos dentro del formulario principal. También define la
+        //función EsconderTodosLosMDIChildren, que oculta los formularios hijos que no
+        //están activos. Cada botón F verifica si el formulario hijo correspondiente está abierto
+        //o no, y lo muestra en estado maximizado.
 
+        private void EsconderTodosLosMDIChildren()
+        {
+            foreach (Form form in this.MdiChildren)
+            {
+                form.Hide();
+            }
         }
 
         private void btnVenta_Click(object sender, EventArgs e)
@@ -141,6 +119,7 @@ namespace ProyectoFinal
             if (VentaAbierta == false)
             {
                 formVenta.MdiParent = this;
+                formVenta.WindowState = FormWindowState.Maximized;
                 VentaAbierta = true;
                 formVenta.Show();
             }
@@ -149,5 +128,92 @@ namespace ProyectoFinal
                 formVenta.Show();
             }
         }
+
+
+        private void btnEquipo_Click(object sender, EventArgs e)
+        {
+            
+            EsconderTodosLosMDIChildren();
+            if (EmpleadosAbierta == false)
+            {
+                formEmpleados.MdiParent = this;
+                formEmpleados.WindowState = FormWindowState.Maximized;
+                EmpleadosAbierta = true;
+                formEmpleados.Show();
+            }
+            else
+            {
+                formEmpleados.Show();
+            }
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            
+            EsconderTodosLosMDIChildren();
+            if (ClientesAbierta == false)
+            {
+                formClientes.MdiParent = this;
+                ClientesAbierta = true;
+                formClientes.WindowState = FormWindowState.Maximized;
+                formClientes.Show();
+            }
+            else
+            {
+                formClientes.Show();
+            }
+
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            EsconderTodosLosMDIChildren();
+            if (InventarioAbierta == false)
+            {
+                formInventario.MdiParent = this;
+                formInventario.WindowState = FormWindowState.Maximized;
+                InventarioAbierta = true;
+                formInventario.Show();
+            }
+            else
+            {
+                formInventario.Show();
+            }
+        }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+      
+            EsconderTodosLosMDIChildren();
+            if (ComprasAbierta == false)
+            {
+                formCompras.MdiParent = this;
+                formCompras.WindowState = FormWindowState.Maximized;
+                ComprasAbierta = true;
+                formCompras.Show();
+            }
+            else
+            {
+                formCompras.Show();
+            }
+        }
+
+        private void btnConfiguracion_Click(object sender, EventArgs e)
+        {
+            EsconderTodosLosMDIChildren();
+            if (ConfiguracionAbierta == false)
+            {
+                formConfiguracion.MdiParent = this;
+                formConfiguracion.WindowState = FormWindowState.Maximized;
+                ConfiguracionAbierta = true;
+                formConfiguracion.Show();
+            }
+            else
+            {
+                formConfiguracion.Show();
+            }
+        }
+
+        ///AQUI TERMINAN LOS BOTONES
     }
 }
