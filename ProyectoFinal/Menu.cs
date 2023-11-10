@@ -31,13 +31,7 @@ namespace ProyectoFinal
 
         private void btnEquipo_Click(object sender, EventArgs e)
         {
-            Trabajadores form = new Trabajadores();
-            form.Size = MaximumSize;
-<<<<<<<<< Temporary merge branch 1
-            form.ShowDialog();
-=========
-            form.Show();
->>>>>>>>> Temporary merge branch 2
+
         }
 
         private void Menu_KeyDown(object sender, KeyEventArgs e)
