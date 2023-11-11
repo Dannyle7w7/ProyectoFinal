@@ -262,6 +262,7 @@
             this.rdActivo.Size = new System.Drawing.Size(68, 33);
             this.rdActivo.TabIndex = 28;
             this.rdActivo.UseVisualStyleBackColor = true;
+            this.rdActivo.CheckedChanged += new System.EventHandler(this.rdActivo_CheckedChanged);
             // 
             // rjMostrar
             // 
