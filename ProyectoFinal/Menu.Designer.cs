@@ -143,6 +143,7 @@
             this.btnProveedores.TabIndex = 6;
             this.btnProveedores.Text = "F3 Proveedores";
             this.btnProveedores.UseVisualStyleBackColor = true;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
             // label1
             // 
