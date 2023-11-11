@@ -214,6 +214,26 @@ namespace ProyectoFinal
             }
         }
 
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+
+            EsconderTodosLosMDIChildren();
+            if (ProveedoresAbierta == false)
+            {
+                formProveedores.MdiParent = this;
+                ProveedoresAbierta = true;
+                formProveedores.WindowState = FormWindowState.Maximized;
+                formProveedores.Show();
+            }
+            else
+            {
+                formProveedores.Show();
+            }
+
+
+
+        }
+
         ///AQUI TERMINAN LOS BOTONES
     }
 }

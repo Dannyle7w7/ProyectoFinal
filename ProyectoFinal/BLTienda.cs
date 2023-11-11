@@ -233,6 +233,82 @@ CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
         }
 
 
+
+
+        //ESTA PARTE ES PARA LA TABLA DE PROVEEDORES
+
+        public DataTable ObtenerProveedores()
+        {
+            string query = "SELECT * FROM Proveedores";
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query);
+        }
+
+
+        public void AgregarProveedor(string nombre, string direccion)
+        {
+            string query = "INSERT INTO Proveedores (Nombre, Dirrecion) VALUES (@nombre, @direccion)";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@nombre", nombre),
+        new SqlParameter("@direccion", direccion)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
+
+        public void EliminarProveedor(int idProveedor)
+        {
+            string query = "DELETE FROM Proveedores WHERE IdProveedores = @idProveedor";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@idProveedor", idProveedor)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
+
+        public void ModificarProveedor(int idProveedor, string nombre, string direccion)
+        {
+            string query = "UPDATE Proveedores SET Nombre = @nombre, Dirrecion = @direccion WHERE IdProveedores = @idProveedor";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@nombre", nombre),
+        new SqlParameter("@direccion", direccion),
+        new SqlParameter("@idProveedor", idProveedor)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
+
+
+        public DataRow ObtenerProveedorPorId(int idProveedor)
+        {
+            string query = "SELECT * FROM Proveedores WHERE IdProveedores = @idProveedor";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@idProveedor", idProveedor)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            DataTable resultado = dal.Consulta(query, parametros);
+
+            // Verificar si se encontró algún proveedor
+            if (resultado.Rows.Count > 0)
+            {
+                return resultado.Rows[0];
+            }
+            else
+            {
+                return null; // No se encontró ningún proveedor para el ID proporcionado
+            }
+        }
+
+
+
     }
-    
+
 }
