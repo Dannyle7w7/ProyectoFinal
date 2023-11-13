@@ -58,7 +58,7 @@
             this.dgvDatos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvDatos.RowTemplate.Height = 28;
             this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatos.Size = new System.Drawing.Size(378, 187);
+            this.dgvDatos.Size = new System.Drawing.Size(393, 211);
             this.dgvDatos.TabIndex = 11;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             // 
@@ -68,7 +68,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btAgregar.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAgregar.Location = new System.Drawing.Point(382, 2);
+            this.btAgregar.Location = new System.Drawing.Point(397, 2);
             this.btAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btAgregar.Name = "btAgregar";
             this.btAgregar.Size = new System.Drawing.Size(129, 48);
@@ -84,7 +84,7 @@
             this.txtBusqueda.Location = new System.Drawing.Point(2, 11);
             this.txtBusqueda.Margin = new System.Windows.Forms.Padding(2);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(376, 29);
+            this.txtBusqueda.Size = new System.Drawing.Size(391, 29);
             this.txtBusqueda.TabIndex = 1;
             this.txtBusqueda.Text = "Búsqueda";
             // 
@@ -102,7 +102,7 @@
             this.tlpBusquedayAgregar.Name = "tlpBusquedayAgregar";
             this.tlpBusquedayAgregar.RowCount = 1;
             this.tlpBusquedayAgregar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBusquedayAgregar.Size = new System.Drawing.Size(513, 52);
+            this.tlpBusquedayAgregar.Size = new System.Drawing.Size(528, 52);
             this.tlpBusquedayAgregar.TabIndex = 13;
             // 
             // plTop
@@ -112,14 +112,14 @@
             this.plTop.Location = new System.Drawing.Point(0, 0);
             this.plTop.Margin = new System.Windows.Forms.Padding(2);
             this.plTop.Name = "plTop";
-            this.plTop.Size = new System.Drawing.Size(518, 98);
+            this.plTop.Size = new System.Drawing.Size(533, 98);
             this.plTop.TabIndex = 12;
             // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 366);
+            this.ClientSize = new System.Drawing.Size(533, 390);
             this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.tlpBusquedayAgregar);
             this.Controls.Add(this.plTop);

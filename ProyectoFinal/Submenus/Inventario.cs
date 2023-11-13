@@ -16,5 +16,10 @@ namespace ProyectoFinal.Submenus
         {
             InitializeComponent();
         }
+
+        private void btAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

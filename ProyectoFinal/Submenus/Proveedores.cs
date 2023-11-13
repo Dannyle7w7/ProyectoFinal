@@ -16,5 +16,10 @@ namespace ProyectoFinal.Submenus
         {
             InitializeComponent();
         }
+
+        private void Proveedores_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

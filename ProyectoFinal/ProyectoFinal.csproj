@@ -135,11 +135,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Submenus\Carrito.resx">
+      <DependentUpon>Carrito.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Submenus\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Submenus\Configuracion.resx">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Submenus\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Submenus\Proveedores.resx">
+      <DependentUpon>Proveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Submenus\Trabajadores\ModificacionTrabajadores.resx">
       <DependentUpon>ModificacionTrabajadores.cs</DependentUpon>
