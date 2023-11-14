@@ -38,7 +38,7 @@
             this.btnInventario = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblPuesto = new System.Windows.Forms.Label();
             this.btnVenta = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
@@ -93,7 +93,7 @@
             this.plControles.Controls.Add(this.btnInventario);
             this.plControles.Controls.Add(this.btnCompras);
             this.plControles.Controls.Add(this.btnProveedores);
-            this.plControles.Controls.Add(this.label1);
+            this.plControles.Controls.Add(this.lblPuesto);
             this.plControles.Controls.Add(this.btnVenta);
             this.plControles.Controls.Add(this.btnClientes);
             this.plControles.Controls.Add(this.pbUsuario);
@@ -145,15 +145,15 @@
             this.btnProveedores.UseVisualStyleBackColor = true;
             this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
-            // label1
+            // lblPuesto
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(129, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 30);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Usuario";
+            this.lblPuesto.AutoSize = true;
+            this.lblPuesto.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblPuesto.Location = new System.Drawing.Point(129, 48);
+            this.lblPuesto.Name = "lblPuesto";
+            this.lblPuesto.Size = new System.Drawing.Size(92, 30);
+            this.lblPuesto.TabIndex = 5;
+            this.lblPuesto.Text = "Usuario";
             // 
             // btnVenta
             // 
@@ -210,7 +210,7 @@
         private System.Windows.Forms.Panel plControles;
         private System.Windows.Forms.Button btnVenta;
         private System.Windows.Forms.Button btnClientes;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPuesto;
         private System.Windows.Forms.Button btnConfiguracion;
         private System.Windows.Forms.Button btnInventario;
         private System.Windows.Forms.Button btnCompras;

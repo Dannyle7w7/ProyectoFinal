@@ -32,6 +32,25 @@ namespace ProyectoFinal
             return getConsultaAcceso(usu, pass);
         }
 
+        private int getConsultaPuesto(String usu, String pass)
+        {
+            string query = "SELECT  FROM Empleados WHERE Usuario = @nombreUsuario AND Contraseña = @contraseña";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@nombreUsuario", usu),
+                 new SqlParameter("@contraseña", pass)
+             };
+            DAL.DAL dal = new DAL.DAL();
+            int resultado = Convert.ToInt32(dal.ConsultaEscalar(query, parametros));
+
+            return resultado;
+        }
+
+        public int ConsultaPuesto(String usu, String pass)
+        {
+            return getConsultaAcceso(usu, pass);
+        }
+
         private void GuardarEmpleado(string usuario, string contraseña, string nombre, byte[] imagen, bool estado, int puesto)
         {
             string query = "INSERT INTO Empleados (Usuario, Contraseña, Nombre, Foto, Estado,Puesto) VALUES (@usuario, @contraseña, @nombre, @foto, @estado,@puesto)";
