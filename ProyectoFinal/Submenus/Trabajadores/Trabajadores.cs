@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -163,6 +164,30 @@ namespace ProyectoFinal.Submenus.Trabajadores
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dgvDatos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvDatos.SelectedRows.Count > 0)
+            {
+
+                BLTienda bl = new BLTienda();
+                System.Drawing.Image imagen = bl.ConsulaFotoID(Convert.ToString(dgvDatos.SelectedRows[0].Cells["IDEmpleados"].Value));
+                if (imagen != null)
+                {
+                    pbTrabajadores.Image = imagen;
+                }
+                else
+                {
+                    pbTrabajadores.Image = pbTrabajadores.InitialImage;
+                }
+
+            }
+            else
+            {
+                // En caso de que no haya filas seleccionadas este mas de una, se mostrara la imagen de inicio
+                pbTrabajadores.Image=pbTrabajadores.InitialImage;
+            }
         }
     }
 }

@@ -38,11 +38,11 @@
             this.plTop = new System.Windows.Forms.Panel();
             this.tlpBusquedayAgregar = new System.Windows.Forms.TableLayoutPanel();
             this.tlpFiltros = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbTrabajadores = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tlpBusquedayAgregar.SuspendLayout();
             this.tlpFiltros.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTrabajadores)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDatos
@@ -68,6 +68,7 @@
             this.dgvDatos.Size = new System.Drawing.Size(566, 314);
             this.dgvDatos.TabIndex = 0;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
+            this.dgvDatos.SelectionChanged += new System.EventHandler(this.dgvDatos_SelectionChanged);
             // 
             // txtBusqueda
             // 
@@ -175,15 +176,18 @@
             this.tlpFiltros.Size = new System.Drawing.Size(196, 125);
             this.tlpFiltros.TabIndex = 9;
             // 
-            // pictureBox1
+            // pbTrabajadores
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(610, 391);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 180);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            this.pbTrabajadores.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbTrabajadores.Image = ((System.Drawing.Image)(resources.GetObject("pbTrabajadores.Image")));
+            this.pbTrabajadores.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbTrabajadores.InitialImage")));
+            this.pbTrabajadores.Location = new System.Drawing.Point(589, 390);
+            this.pbTrabajadores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbTrabajadores.Name = "pbTrabajadores";
+            this.pbTrabajadores.Size = new System.Drawing.Size(192, 181);
+            this.pbTrabajadores.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbTrabajadores.TabIndex = 10;
+            this.pbTrabajadores.TabStop = false;
             // 
             // Trabajadores
             // 
@@ -192,7 +196,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.ControlBox = false;
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbTrabajadores);
             this.Controls.Add(this.tlpFiltros);
             this.Controls.Add(this.tlpBusquedayAgregar);
             this.Controls.Add(this.plTop);
@@ -210,7 +214,7 @@
             this.tlpBusquedayAgregar.PerformLayout();
             this.tlpFiltros.ResumeLayout(false);
             this.tlpFiltros.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTrabajadores)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -226,6 +230,6 @@
         private System.Windows.Forms.Panel plTop;
         private System.Windows.Forms.TableLayoutPanel tlpBusquedayAgregar;
         private System.Windows.Forms.TableLayoutPanel tlpFiltros;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbTrabajadores;
     }
 }

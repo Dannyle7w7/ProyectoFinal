@@ -154,5 +154,16 @@ namespace ProyectoFinal.Submenus.Trabajadores
 
             }
         }
+
+        private void rdActivo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdActivo.Checked == true)
+            {
+                lblActivo.Text = "Estado: Activo";
+            }else if (rdActivo.Checked==false)
+            {
+                lblActivo.Text = "Estado:Inactivo";
+            }
+        }
     }
 }
