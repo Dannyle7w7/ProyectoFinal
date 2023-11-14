@@ -97,6 +97,34 @@ namespace ProyectoFinal
             return getFoto(usu);
         }
 
+        private System.Drawing.Image getIDFoto(String ID)
+        {
+            string query = "SELECT Foto FROM Empleados WHERE IdEmpleados = @id ";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@id", ID)
+             };
+            DAL.DAL dal = new DAL.DAL();
+            byte[] imagenBytes = dal.ConsultaEscalar(query, parametros) as byte[];
+
+            if (imagenBytes != null && imagenBytes.Length > 0)
+            {
+                // Ahora, convertimos el arreglo de bytes a una imagen
+                System.Drawing.Image foto = ByteArrayToImage(imagenBytes);
+                return foto;
+            }
+            else
+            {
+                // Si no se encontró ninguna imagen, puedes devolver null o algún valor predeterminado.
+                return null;
+            }
+        }
+
+        public System.Drawing.Image ConsulaFotoID(String ID)
+        {
+            return getIDFoto(ID);
+        }
+
         private System.Drawing.Image ByteArrayToImage(byte[] byteArray)
         {
             System.IO.MemoryStream ms = new System.IO.MemoryStream(byteArray);
@@ -110,21 +138,21 @@ namespace ProyectoFinal
         //Estos son para todos sin buscar
         public DataTable ObtenerTodosLosEmpleados()
         {
-            string query = "SELECT IdEmpleados,Usuario,Nombre,Puesto,CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados";
+            string query = "SELECT IdEmpleados,Usuario,Nombre,CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados";
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
 
         public DataTable ObtenerTodosLosEmpleadosActivos()
         {
-            string query = "SELECT IdEmpleados, Usuario, Nombre,Puesto, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado = 1";
+            string query = "SELECT IdEmpleados, Usuario, Nombre, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado = 1";
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
 
         public DataTable ObtenerTodosLosEmpleadosInactivos()
         {
-            string query = "SELECT IdEmpleados, Usuario, Nombre,Puesto, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado =0";
+            string query = "SELECT IdEmpleados, Usuario, Nombre, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado =0";
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
@@ -141,7 +169,7 @@ namespace ProyectoFinal
 
             IF @searchText IS NOT NULL AND @searchText <> ''
             BEGIN
-                SELECT IdEmpleados, Usuario, Nombre,Puesto, 
+                SELECT IdEmpleados, Usuario, Nombre, 
                        CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,
                        CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 FROM Empleados 
@@ -174,7 +202,7 @@ namespace ProyectoFinal
 
             IF @searchText IS NOT NULL AND @searchText <> ''
             BEGIN
-                SELECT IdEmpleados, Usuario, Nombre, Puesto,
+                SELECT IdEmpleados, Usuario, Nombre,
                        CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado ,
                        CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 FROM Empleados 
@@ -208,7 +236,7 @@ namespace ProyectoFinal
 
             IF @searchText IS NOT NULL AND @searchText <> ''
             BEGIN
-                SELECT IdEmpleados, Usuario, Nombre, Puesto,
+                SELECT IdEmpleados, Usuario, Nombre,
                        CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado, 
 CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 FROM Empleados 
