@@ -47,9 +47,10 @@
             // 
             // btnEquipo
             // 
-            this.btnEquipo.Location = new System.Drawing.Point(404, 92);
+            this.btnEquipo.Location = new System.Drawing.Point(359, 74);
+            this.btnEquipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEquipo.Name = "btnEquipo";
-            this.btnEquipo.Size = new System.Drawing.Size(157, 32);
+            this.btnEquipo.Size = new System.Drawing.Size(140, 26);
             this.btnEquipo.TabIndex = 2;
             this.btnEquipo.Text = "F7 Equipo";
             this.btnEquipo.UseVisualStyleBackColor = true;
@@ -59,29 +60,30 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblUsuario.Location = new System.Drawing.Point(129, 14);
+            this.lblUsuario.Location = new System.Drawing.Point(115, 11);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(92, 30);
+            this.lblUsuario.Size = new System.Drawing.Size(81, 25);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Usuario";
             // 
             // pbUsuario
             // 
             this.pbUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pbUsuario.Image")));
-            this.pbUsuario.Location = new System.Drawing.Point(12, 12);
+            this.pbUsuario.Location = new System.Drawing.Point(11, 10);
+            this.pbUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbUsuario.Name = "pbUsuario";
-            this.pbUsuario.Size = new System.Drawing.Size(111, 127);
+            this.pbUsuario.Size = new System.Drawing.Size(99, 102);
             this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbUsuario.TabIndex = 0;
             this.pbUsuario.TabStop = false;
             // 
             // msQuitarBarra
             // 
-            this.msQuitarBarra.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.msQuitarBarra.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.msQuitarBarra.Location = new System.Drawing.Point(0, 0);
             this.msQuitarBarra.Name = "msQuitarBarra";
-            this.msQuitarBarra.Size = new System.Drawing.Size(778, 36);
+            this.msQuitarBarra.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.msQuitarBarra.Size = new System.Drawing.Size(692, 29);
             this.msQuitarBarra.TabIndex = 3;
             this.msQuitarBarra.Text = "menuStrip1";
             this.msQuitarBarra.Visible = false;
@@ -101,15 +103,17 @@
             this.plControles.Controls.Add(this.lblUsuario);
             this.plControles.Dock = System.Windows.Forms.DockStyle.Top;
             this.plControles.Location = new System.Drawing.Point(0, 0);
+            this.plControles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.plControles.Name = "plControles";
-            this.plControles.Size = new System.Drawing.Size(778, 150);
+            this.plControles.Size = new System.Drawing.Size(692, 120);
             this.plControles.TabIndex = 5;
             // 
             // btnConfiguracion
             // 
-            this.btnConfiguracion.Location = new System.Drawing.Point(576, 54);
+            this.btnConfiguracion.Location = new System.Drawing.Point(512, 43);
+            this.btnConfiguracion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfiguracion.Name = "btnConfiguracion";
-            this.btnConfiguracion.Size = new System.Drawing.Size(157, 32);
+            this.btnConfiguracion.Size = new System.Drawing.Size(140, 26);
             this.btnConfiguracion.TabIndex = 9;
             this.btnConfiguracion.Text = "F6 Configuracion";
             this.btnConfiguracion.UseVisualStyleBackColor = true;
@@ -117,9 +121,10 @@
             // 
             // btnInventario
             // 
-            this.btnInventario.Location = new System.Drawing.Point(241, 54);
+            this.btnInventario.Location = new System.Drawing.Point(214, 43);
+            this.btnInventario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Size = new System.Drawing.Size(157, 32);
+            this.btnInventario.Size = new System.Drawing.Size(140, 26);
             this.btnInventario.TabIndex = 8;
             this.btnInventario.Text = "F4 Inventario";
             this.btnInventario.UseVisualStyleBackColor = true;
@@ -127,9 +132,10 @@
             // 
             // btnCompras
             // 
-            this.btnCompras.Location = new System.Drawing.Point(404, 54);
+            this.btnCompras.Location = new System.Drawing.Point(359, 43);
+            this.btnCompras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCompras.Name = "btnCompras";
-            this.btnCompras.Size = new System.Drawing.Size(157, 32);
+            this.btnCompras.Size = new System.Drawing.Size(140, 26);
             this.btnCompras.TabIndex = 7;
             this.btnCompras.Text = "F5 Compras";
             this.btnCompras.UseVisualStyleBackColor = true;
@@ -137,9 +143,10 @@
             // 
             // btnProveedores
             // 
-            this.btnProveedores.Location = new System.Drawing.Point(576, 16);
+            this.btnProveedores.Location = new System.Drawing.Point(512, 13);
+            this.btnProveedores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProveedores.Name = "btnProveedores";
-            this.btnProveedores.Size = new System.Drawing.Size(157, 32);
+            this.btnProveedores.Size = new System.Drawing.Size(140, 26);
             this.btnProveedores.TabIndex = 6;
             this.btnProveedores.Text = "F3 Proveedores";
             this.btnProveedores.UseVisualStyleBackColor = true;
@@ -157,9 +164,10 @@
             // 
             // btnVenta
             // 
-            this.btnVenta.Location = new System.Drawing.Point(241, 16);
+            this.btnVenta.Location = new System.Drawing.Point(214, 13);
+            this.btnVenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVenta.Name = "btnVenta";
-            this.btnVenta.Size = new System.Drawing.Size(157, 32);
+            this.btnVenta.Size = new System.Drawing.Size(140, 26);
             this.btnVenta.TabIndex = 4;
             this.btnVenta.Text = "F1 Venta";
             this.btnVenta.UseVisualStyleBackColor = true;
@@ -167,9 +175,10 @@
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(404, 16);
+            this.btnClientes.Location = new System.Drawing.Point(359, 13);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(157, 32);
+            this.btnClientes.Size = new System.Drawing.Size(140, 26);
             this.btnClientes.TabIndex = 3;
             this.btnClientes.Text = "F2 Clientes";
             this.btnClientes.UseVisualStyleBackColor = true;
@@ -177,9 +186,9 @@
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 544);
+            this.ClientSize = new System.Drawing.Size(692, 435);
             this.Controls.Add(this.plControles);
             this.Controls.Add(this.msQuitarBarra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -187,6 +196,7 @@
             this.IsMdiContainer = true;
             this.KeyPreview = true;
             this.MainMenuStrip = this.msQuitarBarra;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
