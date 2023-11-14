@@ -6,7 +6,7 @@ namespace DAL
 {
     public class DAL
     {
-        private string CadenaConexion= "Persist Security Info=False;User ID=sa;Password=Alecota;Initial Catalog=UACHFINAL;Server=DannyleZephyrus";
+        private string CadenaConexion= "Persist Security Info=False;User ID=sa;Password=sa;Initial Catalog=UACHFINAL;Server=DESKTOP-T0DO141\\SQLEXPRESS";
 
         public DataTable Consulta(string query, SqlParameter[] parametros = null)
         {
