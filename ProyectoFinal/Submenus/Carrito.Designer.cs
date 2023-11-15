@@ -51,6 +51,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.BtnCobrar = new System.Windows.Forms.Button();
+            this.BtnCancelar = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.Dvg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,26 +74,26 @@
             // 
             this.Dvg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(214)))), ((int)(((byte)(180)))));
             this.Dvg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dvg.Location = new System.Drawing.Point(889, 179);
+            this.Dvg.Location = new System.Drawing.Point(665, 179);
             this.Dvg.Name = "Dvg";
-            this.Dvg.Size = new System.Drawing.Size(1018, 428);
+            this.Dvg.Size = new System.Drawing.Size(1242, 428);
             this.Dvg.TabIndex = 17;
             // 
             // dataGridView2
             // 
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(214)))), ((int)(((byte)(180)))));
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(889, 735);
+            this.dataGridView2.Location = new System.Drawing.Point(665, 735);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1018, 237);
+            this.dataGridView2.Size = new System.Drawing.Size(1242, 237);
             this.dataGridView2.TabIndex = 18;
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.textBox1.Location = new System.Drawing.Point(1146, 128);
+            this.textBox1.Location = new System.Drawing.Point(921, 128);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(594, 29);
+            this.textBox1.Size = new System.Drawing.Size(819, 29);
             this.textBox1.TabIndex = 19;
             // 
             // button1
@@ -105,16 +111,16 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.textBox2.Location = new System.Drawing.Point(1146, 678);
+            this.textBox2.Location = new System.Drawing.Point(921, 678);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(594, 29);
+            this.textBox2.Size = new System.Drawing.Size(819, 29);
             this.textBox2.TabIndex = 21;
             // 
             // BtnAgregar
             // 
             this.BtnAgregar.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BtnAgregar.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnAgregar.Location = new System.Drawing.Point(889, 626);
+            this.BtnAgregar.Location = new System.Drawing.Point(748, 629);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(149, 29);
             this.BtnAgregar.TabIndex = 23;
@@ -124,7 +130,7 @@
             // BtnModificar
             // 
             this.BtnModificar.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnModificar.Location = new System.Drawing.Point(1062, 626);
+            this.BtnModificar.Location = new System.Drawing.Point(921, 629);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(149, 29);
             this.BtnModificar.TabIndex = 24;
@@ -134,7 +140,7 @@
             // BtnEliminar
             // 
             this.BtnEliminar.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnEliminar.Location = new System.Drawing.Point(1235, 626);
+            this.BtnEliminar.Location = new System.Drawing.Point(1094, 629);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(149, 29);
             this.BtnEliminar.TabIndex = 25;
@@ -146,7 +152,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(1049, 129);
+            this.label1.Location = new System.Drawing.Point(820, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 25);
             this.label1.TabIndex = 26;
@@ -157,7 +163,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label2.Location = new System.Drawing.Point(1049, 678);
+            this.label2.Location = new System.Drawing.Point(811, 682);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 25);
             this.label2.TabIndex = 27;
@@ -180,7 +186,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 20F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label3.Location = new System.Drawing.Point(41, 129);
+            this.label3.Location = new System.Drawing.Point(68, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(192, 37);
             this.label3.TabIndex = 29;
@@ -191,7 +197,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(40, 179);
+            this.label4.Location = new System.Drawing.Point(67, 179);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 41);
             this.label4.TabIndex = 30;
@@ -202,7 +208,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Nirmala UI", 20F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label5.Location = new System.Drawing.Point(41, 247);
+            this.label5.Location = new System.Drawing.Point(68, 247);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(253, 37);
             this.label5.TabIndex = 31;
@@ -211,7 +217,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
-            this.textBox3.Location = new System.Drawing.Point(81, 304);
+            this.textBox3.Location = new System.Drawing.Point(108, 304);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(405, 47);
             this.textBox3.TabIndex = 32;
@@ -220,7 +226,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Bold);
-            this.radioButton1.Location = new System.Drawing.Point(84, 369);
+            this.radioButton1.Location = new System.Drawing.Point(111, 369);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(95, 32);
             this.radioButton1.TabIndex = 33;
@@ -233,7 +239,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(40, 304);
+            this.label6.Location = new System.Drawing.Point(67, 304);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 41);
             this.label6.TabIndex = 34;
@@ -243,7 +249,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Bold);
-            this.radioButton2.Location = new System.Drawing.Point(185, 369);
+            this.radioButton2.Location = new System.Drawing.Point(212, 369);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(107, 32);
             this.radioButton2.TabIndex = 35;
@@ -256,7 +262,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(40, 476);
+            this.label7.Location = new System.Drawing.Point(67, 498);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 41);
             this.label7.TabIndex = 37;
@@ -267,7 +273,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Nirmala UI", 20F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label8.Location = new System.Drawing.Point(41, 426);
+            this.label8.Location = new System.Drawing.Point(68, 448);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(123, 37);
             this.label8.TabIndex = 36;
@@ -278,7 +284,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Nirmala UI", 20F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label9.Location = new System.Drawing.Point(41, 547);
+            this.label9.Location = new System.Drawing.Point(68, 569);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(165, 37);
             this.label9.TabIndex = 38;
@@ -289,17 +295,79 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(40, 607);
+            this.label10.Location = new System.Drawing.Point(67, 629);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(35, 41);
             this.label10.TabIndex = 39;
             this.label10.Text = "$";
+            // 
+            // BtnCobrar
+            // 
+            this.BtnCobrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(214)))), ((int)(((byte)(180)))));
+            this.BtnCobrar.Font = new System.Drawing.Font("Nirmala UI", 20F, System.Drawing.FontStyle.Bold);
+            this.BtnCobrar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtnCobrar.Location = new System.Drawing.Point(61, 735);
+            this.BtnCobrar.Name = "BtnCobrar";
+            this.BtnCobrar.Size = new System.Drawing.Size(130, 50);
+            this.BtnCobrar.TabIndex = 40;
+            this.BtnCobrar.Text = "Cobrar";
+            this.BtnCobrar.UseVisualStyleBackColor = false;
+            // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnCancelar.Font = new System.Drawing.Font("Nirmala UI", 20F, System.Drawing.FontStyle.Bold);
+            this.BtnCancelar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtnCancelar.Location = new System.Drawing.Point(231, 735);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(130, 50);
+            this.BtnCancelar.TabIndex = 41;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(101, 179);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 41);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "0.00";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(101, 498);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 41);
+            this.label12.TabIndex = 43;
+            this.label12.Text = "0.00";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(101, 629);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(77, 41);
+            this.label13.TabIndex = 44;
+            this.label13.Text = "0.00";
             // 
             // Carrito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1940, 984);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.BtnCancelar);
+            this.Controls.Add(this.BtnCobrar);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
@@ -357,5 +425,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button BtnCobrar;
+        private System.Windows.Forms.Button BtnCancelar;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }
