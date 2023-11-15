@@ -154,6 +154,36 @@ namespace ProyectoFinal
 
         ///Todo estos codigos es para el filtro de busqueda de la forma empleados
 
+        public DataTable ObtenerTodosLosProveedores()
+        {
+            string query = "SELECT IdProveedores,Nombre,Dirrecion FROM Proveedores";
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query);
+        }
+
+        public DataTable ObtenerTodosLosInventarios()
+        {
+            string query = "SELECT IdProductos,Cantidad,Nombre,Precio,Descuento,Descripcion,Marca FROM Productos";
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query);
+        }
+
+        public DataTable ObtenerTodosLosClientes()
+        {
+            
+            string query = "SELECT IdClientes,Nombre,RFC,[Razon Social],Calle,NumExt,NumInt,Colonia,Municipio,[Codigo Postal],Estado,[Regimen Fiscal],[Uso de CFDI],Telefono,Correo FROM Clientes";
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query);
+        }
+
+        public DataTable ObtenerTodasLasVentas()
+        {
+            string query = "Select IdCompras,Fecha,Total,IdClientes,IdEmpleados,IdMetodoPago,IdDetalleCompras From Compras";
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query);
+        }
+
+
         //Estos son para todos sin buscar
         public DataTable ObtenerTodosLosEmpleados()
         {
