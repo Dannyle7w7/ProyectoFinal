@@ -48,7 +48,7 @@ namespace ProyectoFinal
 
         public int ConsultaPuesto(String usu, String pass)
         {
-            return getConsultaAcceso(usu, pass);
+            return getConsultaPuesto(usu, pass);
         }
 
         private void GuardarEmpleado(string usuario, string contraseña, string nombre, byte[] imagen, bool estado, int puesto)
