@@ -17,6 +17,7 @@ namespace ProyectoFinal
         //Variables globales 
         public string Usuario;
         public System.Drawing.Image imagen;
+        public string Puesto;
 
 
         //Todas las variables de forma y su estado

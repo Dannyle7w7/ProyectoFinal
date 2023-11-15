@@ -32,6 +32,25 @@ namespace ProyectoFinal
             return getConsultaAcceso(usu, pass);
         }
 
+        private int getConsultaPuesto(String usu, String pass)
+        {
+            string query = "SELECT  FROM Empleados WHERE Usuario = @nombreUsuario AND Contraseña = @contraseña";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@nombreUsuario", usu),
+                 new SqlParameter("@contraseña", pass)
+             };
+            DAL.DAL dal = new DAL.DAL();
+            int resultado = Convert.ToInt32(dal.ConsultaEscalar(query, parametros));
+
+            return resultado;
+        }
+
+        public int ConsultaPuesto(String usu, String pass)
+        {
+            return getConsultaAcceso(usu, pass);
+        }
+
         private void GuardarEmpleado(string usuario, string contraseña, string nombre, byte[] imagen, bool estado, int puesto)
         {
             string query = "INSERT INTO Empleados (Usuario, Contraseña, Nombre, Foto, Estado,Puesto) VALUES (@usuario, @contraseña, @nombre, @foto, @estado,@puesto)";
@@ -97,6 +116,34 @@ namespace ProyectoFinal
             return getFoto(usu);
         }
 
+        private System.Drawing.Image getIDFoto(String ID)
+        {
+            string query = "SELECT Foto FROM Empleados WHERE IdEmpleados = @id ";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@id", ID)
+             };
+            DAL.DAL dal = new DAL.DAL();
+            byte[] imagenBytes = dal.ConsultaEscalar(query, parametros) as byte[];
+
+            if (imagenBytes != null && imagenBytes.Length > 0)
+            {
+                // Ahora, convertimos el arreglo de bytes a una imagen
+                System.Drawing.Image foto = ByteArrayToImage(imagenBytes);
+                return foto;
+            }
+            else
+            {
+                // Si no se encontró ninguna imagen, puedes devolver null o algún valor predeterminado.
+                return null;
+            }
+        }
+
+        public System.Drawing.Image ConsulaFotoID(String ID)
+        {
+            return getIDFoto(ID);
+        }
+
         private System.Drawing.Image ByteArrayToImage(byte[] byteArray)
         {
             System.IO.MemoryStream ms = new System.IO.MemoryStream(byteArray);
@@ -140,21 +187,21 @@ namespace ProyectoFinal
         //Estos son para todos sin buscar
         public DataTable ObtenerTodosLosEmpleados()
         {
-            string query = "SELECT IdEmpleados,Usuario,Nombre,Puesto,CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados";
+            string query = "SELECT IdEmpleados,Usuario,Nombre,CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados";
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
 
         public DataTable ObtenerTodosLosEmpleadosActivos()
         {
-            string query = "SELECT IdEmpleados, Usuario, Nombre,Puesto, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado = 1";
+            string query = "SELECT IdEmpleados, Usuario, Nombre, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado = 1";
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
 
         public DataTable ObtenerTodosLosEmpleadosInactivos()
         {
-            string query = "SELECT IdEmpleados, Usuario, Nombre,Puesto, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado =0";
+            string query = "SELECT IdEmpleados, Usuario, Nombre, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado =0";
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
@@ -171,7 +218,7 @@ namespace ProyectoFinal
 
             IF @searchText IS NOT NULL AND @searchText <> ''
             BEGIN
-                SELECT IdEmpleados, Usuario, Nombre,Puesto, 
+                SELECT IdEmpleados, Usuario, Nombre, 
                        CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,
                        CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 FROM Empleados 
@@ -204,7 +251,7 @@ namespace ProyectoFinal
 
             IF @searchText IS NOT NULL AND @searchText <> ''
             BEGIN
-                SELECT IdEmpleados, Usuario, Nombre, Puesto,
+                SELECT IdEmpleados, Usuario, Nombre,
                        CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado ,
                        CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 FROM Empleados 
@@ -238,9 +285,9 @@ namespace ProyectoFinal
 
             IF @searchText IS NOT NULL AND @searchText <> ''
             BEGIN
-                SELECT IdEmpleados, Usuario, Nombre, Puesto,
-                        CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado, 
-                        CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
+                SELECT IdEmpleados, Usuario, Nombre,
+                       CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado, 
+CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 FROM Empleados 
                 WHERE (Usuario LIKE '%' + @searchText + '%' 
                    OR Nombre LIKE '%' + @searchText + '%' 
@@ -263,6 +310,82 @@ namespace ProyectoFinal
         }
 
 
+
+
+        //ESTA PARTE ES PARA LA TABLA DE PROVEEDORES
+
+        public DataTable ObtenerProveedores()
+        {
+            string query = "SELECT * FROM Proveedores";
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query);
+        }
+
+
+        public void AgregarProveedor(string nombre, string direccion)
+        {
+            string query = "INSERT INTO Proveedores (Nombre, Dirrecion) VALUES (@nombre, @direccion)";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@nombre", nombre),
+        new SqlParameter("@direccion", direccion)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
+
+        public void EliminarProveedor(int idProveedor)
+        {
+            string query = "DELETE FROM Proveedores WHERE IdProveedores = @idProveedor";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@idProveedor", idProveedor)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
+
+        public void ModificarProveedor(int idProveedor, string nombre, string direccion)
+        {
+            string query = "UPDATE Proveedores SET Nombre = @nombre, Dirrecion = @direccion WHERE IdProveedores = @idProveedor";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@nombre", nombre),
+        new SqlParameter("@direccion", direccion),
+        new SqlParameter("@idProveedor", idProveedor)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
+
+
+        public DataRow ObtenerProveedorPorId(int idProveedor)
+        {
+            string query = "SELECT * FROM Proveedores WHERE IdProveedores = @idProveedor";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@idProveedor", idProveedor)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            DataTable resultado = dal.Consulta(query, parametros);
+
+            // Verificar si se encontró algún proveedor
+            if (resultado.Rows.Count > 0)
+            {
+                return resultado.Rows[0];
+            }
+            else
+            {
+                return null; // No se encontró ningún proveedor para el ID proporcionado
+            }
+        }
+
+
+
     }
-    
+
 }
