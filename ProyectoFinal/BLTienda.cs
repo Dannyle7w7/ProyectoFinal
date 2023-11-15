@@ -34,7 +34,7 @@ namespace ProyectoFinal
 
         private int getConsultaPuesto(String usu, String pass)
         {
-            string query = "SELECT  FROM Empleados WHERE Usuario = @nombreUsuario AND Contraseña = @contraseña";
+            string query = "SELECT Puesto FROM Empleados WHERE Usuario = @nombreUsuario AND Contraseña = @contraseña";
             SqlParameter[] parametros = new SqlParameter[]
             {
                 new SqlParameter("@nombreUsuario", usu),
