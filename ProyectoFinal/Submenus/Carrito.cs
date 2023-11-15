@@ -16,5 +16,11 @@ namespace ProyectoFinal.Submenus.Trabajadores
         {
             InitializeComponent();
         }
+
+        private void Carrito_Load(object sender, EventArgs e)
+        {
+            BLTienda bl = new BLTienda();
+            dgvDatos.DataSource = bl.ObtenerTodasLasVentas();
+        }
     }
 }

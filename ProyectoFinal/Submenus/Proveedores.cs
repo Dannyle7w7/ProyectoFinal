@@ -19,7 +19,9 @@ namespace ProyectoFinal.Submenus
 
         private void Proveedores_Load(object sender, EventArgs e)
         {
-
+            BLTienda bl = new BLTienda();
+            dgvDatos.DataSource = bl.ObtenerTodosLosProveedores();
+            
         }
     }
 }

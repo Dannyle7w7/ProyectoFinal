@@ -125,6 +125,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Carrito";
             this.Text = "Carrito";
+            this.Load += new System.EventHandler(this.Carrito_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.tlpBusquedayAgregar.ResumeLayout(false);
             this.tlpBusquedayAgregar.PerformLayout();

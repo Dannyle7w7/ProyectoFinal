@@ -125,6 +125,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inventario";
             this.Text = "Inventario";
+            this.Load += new System.EventHandler(this.Inventario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.tlpBusquedayAgregar.ResumeLayout(false);
             this.tlpBusquedayAgregar.PerformLayout();
