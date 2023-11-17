@@ -17,9 +17,11 @@ namespace ProyectoFinal.Submenus
             InitializeComponent();
         }
 
-        private void btAgregar_Click(object sender, EventArgs e)
-        {
 
+        private void Inventario_Load(object sender, EventArgs e)
+        {
+            BLTienda bl = new BLTienda();
+            dgvDatos.DataSource = bl.ObtenerTodosLosInventarios();
         }
     }
 }

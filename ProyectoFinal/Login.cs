@@ -54,12 +54,22 @@ namespace ProyectoFinal
             if (txtUser.Text.Length > 0 && txtPass.Text.Length > 0)
             {
                 BLTienda bl = new BLTienda();
-                if ( bl.ConsultaAcceso(txtUser.Text,txtPass.Text)==1)
+                if (bl.ConsultaAcceso(txtUser.Text, txtPass.Text) == 1)
                 {
                     this.Hide();
                     Menu menu = new Menu();
                     menu.Usuario = txtUser.Text;
                     menu.imagen = pbPersona.Image;
+
+                    if (bl.ConsultaPuesto(txtUser.Text, txtPass.Text) == 0)
+                    {
+                        menu.Puesto =;
+                    } else if (bl.ConsultaPuesto(txtUser.Text, txtPass.Text) == 1) {
+                        menu.Puesto =;
+
+                    }
+                    
+                    
                     menu.Show(this);
                    
                 }

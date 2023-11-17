@@ -38,7 +38,7 @@
             this.btnInventario = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblPuesto = new System.Windows.Forms.Label();
             this.btnVenta = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
@@ -47,10 +47,10 @@
             // 
             // btnEquipo
             // 
-            this.btnEquipo.Location = new System.Drawing.Point(359, 74);
+            this.btnEquipo.Location = new System.Drawing.Point(404, 92);
             this.btnEquipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEquipo.Name = "btnEquipo";
-            this.btnEquipo.Size = new System.Drawing.Size(140, 26);
+            this.btnEquipo.Size = new System.Drawing.Size(158, 32);
             this.btnEquipo.TabIndex = 2;
             this.btnEquipo.Text = "F7 Equipo";
             this.btnEquipo.UseVisualStyleBackColor = true;
@@ -60,30 +60,31 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblUsuario.Location = new System.Drawing.Point(115, 11);
+            this.lblUsuario.Location = new System.Drawing.Point(129, 14);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(81, 25);
+            this.lblUsuario.Size = new System.Drawing.Size(92, 30);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Usuario";
             // 
             // pbUsuario
             // 
             this.pbUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pbUsuario.Image")));
-            this.pbUsuario.Location = new System.Drawing.Point(11, 10);
+            this.pbUsuario.Location = new System.Drawing.Point(12, 12);
             this.pbUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbUsuario.Name = "pbUsuario";
-            this.pbUsuario.Size = new System.Drawing.Size(99, 102);
+            this.pbUsuario.Size = new System.Drawing.Size(111, 128);
             this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbUsuario.TabIndex = 0;
             this.pbUsuario.TabStop = false;
             // 
             // msQuitarBarra
             // 
+            this.msQuitarBarra.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.msQuitarBarra.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.msQuitarBarra.Location = new System.Drawing.Point(0, 0);
             this.msQuitarBarra.Name = "msQuitarBarra";
-            this.msQuitarBarra.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.msQuitarBarra.Size = new System.Drawing.Size(692, 29);
+            this.msQuitarBarra.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
+            this.msQuitarBarra.Size = new System.Drawing.Size(778, 36);
             this.msQuitarBarra.TabIndex = 3;
             this.msQuitarBarra.Text = "menuStrip1";
             this.msQuitarBarra.Visible = false;
@@ -95,7 +96,7 @@
             this.plControles.Controls.Add(this.btnInventario);
             this.plControles.Controls.Add(this.btnCompras);
             this.plControles.Controls.Add(this.btnProveedores);
-            this.plControles.Controls.Add(this.label1);
+            this.plControles.Controls.Add(this.lblPuesto);
             this.plControles.Controls.Add(this.btnVenta);
             this.plControles.Controls.Add(this.btnClientes);
             this.plControles.Controls.Add(this.pbUsuario);
@@ -105,15 +106,15 @@
             this.plControles.Location = new System.Drawing.Point(0, 0);
             this.plControles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.plControles.Name = "plControles";
-            this.plControles.Size = new System.Drawing.Size(692, 120);
+            this.plControles.Size = new System.Drawing.Size(778, 150);
             this.plControles.TabIndex = 5;
             // 
             // btnConfiguracion
             // 
-            this.btnConfiguracion.Location = new System.Drawing.Point(512, 43);
+            this.btnConfiguracion.Location = new System.Drawing.Point(576, 54);
             this.btnConfiguracion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfiguracion.Name = "btnConfiguracion";
-            this.btnConfiguracion.Size = new System.Drawing.Size(140, 26);
+            this.btnConfiguracion.Size = new System.Drawing.Size(158, 32);
             this.btnConfiguracion.TabIndex = 9;
             this.btnConfiguracion.Text = "F6 Configuracion";
             this.btnConfiguracion.UseVisualStyleBackColor = true;
@@ -121,10 +122,10 @@
             // 
             // btnInventario
             // 
-            this.btnInventario.Location = new System.Drawing.Point(214, 43);
+            this.btnInventario.Location = new System.Drawing.Point(241, 54);
             this.btnInventario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Size = new System.Drawing.Size(140, 26);
+            this.btnInventario.Size = new System.Drawing.Size(158, 32);
             this.btnInventario.TabIndex = 8;
             this.btnInventario.Text = "F4 Inventario";
             this.btnInventario.UseVisualStyleBackColor = true;
@@ -132,10 +133,10 @@
             // 
             // btnCompras
             // 
-            this.btnCompras.Location = new System.Drawing.Point(359, 43);
+            this.btnCompras.Location = new System.Drawing.Point(404, 54);
             this.btnCompras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCompras.Name = "btnCompras";
-            this.btnCompras.Size = new System.Drawing.Size(140, 26);
+            this.btnCompras.Size = new System.Drawing.Size(158, 32);
             this.btnCompras.TabIndex = 7;
             this.btnCompras.Text = "F5 Compras";
             this.btnCompras.UseVisualStyleBackColor = true;
@@ -143,31 +144,31 @@
             // 
             // btnProveedores
             // 
-            this.btnProveedores.Location = new System.Drawing.Point(512, 13);
+            this.btnProveedores.Location = new System.Drawing.Point(576, 16);
             this.btnProveedores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProveedores.Name = "btnProveedores";
-            this.btnProveedores.Size = new System.Drawing.Size(140, 26);
+            this.btnProveedores.Size = new System.Drawing.Size(158, 32);
             this.btnProveedores.TabIndex = 6;
             this.btnProveedores.Text = "F3 Proveedores";
             this.btnProveedores.UseVisualStyleBackColor = true;
             this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
-            // label1
+            // lblPuesto
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(115, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 25);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Usuario";
+            this.lblPuesto.AutoSize = true;
+            this.lblPuesto.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblPuesto.Location = new System.Drawing.Point(129, 56);
+            this.lblPuesto.Name = "lblPuesto";
+            this.lblPuesto.Size = new System.Drawing.Size(92, 30);
+            this.lblPuesto.TabIndex = 5;
+            this.lblPuesto.Text = "Usuario";
             // 
             // btnVenta
             // 
-            this.btnVenta.Location = new System.Drawing.Point(214, 13);
+            this.btnVenta.Location = new System.Drawing.Point(241, 16);
             this.btnVenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVenta.Name = "btnVenta";
-            this.btnVenta.Size = new System.Drawing.Size(140, 26);
+            this.btnVenta.Size = new System.Drawing.Size(158, 32);
             this.btnVenta.TabIndex = 4;
             this.btnVenta.Text = "F1 Venta";
             this.btnVenta.UseVisualStyleBackColor = true;
@@ -175,10 +176,10 @@
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(359, 13);
+            this.btnClientes.Location = new System.Drawing.Point(404, 16);
             this.btnClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(140, 26);
+            this.btnClientes.Size = new System.Drawing.Size(158, 32);
             this.btnClientes.TabIndex = 3;
             this.btnClientes.Text = "F2 Clientes";
             this.btnClientes.UseVisualStyleBackColor = true;
@@ -186,9 +187,9 @@
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 435);
+            this.ClientSize = new System.Drawing.Size(778, 544);
             this.Controls.Add(this.plControles);
             this.Controls.Add(this.msQuitarBarra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -220,7 +221,7 @@
         private System.Windows.Forms.Panel plControles;
         private System.Windows.Forms.Button btnVenta;
         private System.Windows.Forms.Button btnClientes;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPuesto;
         private System.Windows.Forms.Button btnConfiguracion;
         private System.Windows.Forms.Button btnInventario;
         private System.Windows.Forms.Button btnCompras;

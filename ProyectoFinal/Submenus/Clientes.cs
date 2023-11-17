@@ -17,9 +17,11 @@ namespace ProyectoFinal.Submenus.Trabajadores
             InitializeComponent();
         }
 
-        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+        private void Clientes_Load(object sender, EventArgs e)
+        {
+            BLTienda bl = new BLTienda();
+            dgvDatos.DataSource = bl.ObtenerTodosLosClientes();
         }
     }
 }
