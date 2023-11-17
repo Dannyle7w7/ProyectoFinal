@@ -22,5 +22,14 @@ namespace ProyectoFinal.Submenus.Trabajadores
             BLTienda bl = new BLTienda();
             Dvg.DataSource = bl.ObtenerTodasLasVentas();
         }
+        private void Clientes_Load(object sender, EventArgs e)
+        {
+            BLTienda bl = new BLTienda();
+            dgvclientes.DataSource = bl.ObtenerTodosLosClientes();
+        }
+        private void BtnCobrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
