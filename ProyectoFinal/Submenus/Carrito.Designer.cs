@@ -313,7 +313,7 @@
             this.BtnCobrar.TabIndex = 40;
             this.BtnCobrar.Text = "Cobrar";
             this.BtnCobrar.UseVisualStyleBackColor = false;
-            this.BtnCobrar.Click += new System.EventHandler(this.BtnCobrar_Click);
+            //this.BtnCobrar.Click += new System.EventHandler(this.BtnCobrar_Click);
             // 
             // BtnCancelar
             // 
