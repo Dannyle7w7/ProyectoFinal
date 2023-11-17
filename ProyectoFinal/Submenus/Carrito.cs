@@ -20,21 +20,7 @@ namespace ProyectoFinal.Submenus.Trabajadores
         private void Carrito_Load(object sender, EventArgs e)
         {
             BLTienda bl = new BLTienda();
-            DvgCarrito.DataSource = bl.ObtenerTodasLasVentas();
-        }
-        private void Clientes_Load(object sender, EventArgs e)
-        {
-            BLTienda bl = new BLTienda();
-            dgvclientes.DataSource = bl.ObtenerTodosLosClientes();
-        }
-        private void BtnCobrar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvclientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            Dvg.DataSource = bl.ObtenerTodasLasVentas();
         }
         private void Clientes_Load(object sender, EventArgs e)
         {
