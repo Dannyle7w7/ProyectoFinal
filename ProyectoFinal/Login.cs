@@ -69,7 +69,6 @@ namespace ProyectoFinal
 
                     }
                     
-                    
                     menu.Show(this);
                    
                 }
