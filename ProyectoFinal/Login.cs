@@ -61,7 +61,6 @@ namespace ProyectoFinal
                     menu.Usuario = txtUser.Text;
                     menu.imagen = pbPersona.Image;
 
-            
                     
                     
                     menu.Show(this);

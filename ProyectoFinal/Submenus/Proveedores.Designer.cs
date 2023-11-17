@@ -71,7 +71,7 @@
             this.DgvProv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DgvProv.RowTemplate.Height = 28;
             this.DgvProv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvProv.Size = new System.Drawing.Size(597, 352);
+            this.DgvProv.Size = new System.Drawing.Size(523, 377);
             this.DgvProv.TabIndex = 12;
             this.DgvProv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDatos_CellContentClick);
             this.DgvProv.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DgvDatos_MouseDoubleClick);
@@ -83,7 +83,7 @@
             this.plTop.Location = new System.Drawing.Point(0, 0);
             this.plTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.plTop.Name = "plTop";
-            this.plTop.Size = new System.Drawing.Size(1025, 121);
+            this.plTop.Size = new System.Drawing.Size(951, 121);
             this.plTop.TabIndex = 13;
             // 
             // label4
@@ -118,7 +118,7 @@
             // TxtNombre
             // 
             this.TxtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.TxtNombre.Location = new System.Drawing.Point(3, 121);
+            this.TxtNombre.Location = new System.Drawing.Point(3, 108);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(256, 30);
             this.TxtNombre.TabIndex = 20;
@@ -126,7 +126,7 @@
             // TxtID
             // 
             this.TxtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.TxtID.Location = new System.Drawing.Point(3, 31);
+            this.TxtID.Location = new System.Drawing.Point(3, 33);
             this.TxtID.Name = "TxtID";
             this.TxtID.Size = new System.Drawing.Size(256, 30);
             this.TxtID.TabIndex = 19;
@@ -136,7 +136,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(3, 157);
+            this.label3.Location = new System.Drawing.Point(3, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 25);
             this.label3.TabIndex = 18;
@@ -146,7 +146,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(3, 89);
+            this.label2.Location = new System.Drawing.Point(3, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 25);
             this.label2.TabIndex = 17;
@@ -231,7 +231,7 @@
             // TxtDireccion
             // 
             this.TxtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.TxtDireccion.Location = new System.Drawing.Point(3, 192);
+            this.TxtDireccion.Location = new System.Drawing.Point(3, 183);
             this.TxtDireccion.Name = "TxtDireccion";
             this.TxtDireccion.Size = new System.Drawing.Size(256, 30);
             this.TxtDireccion.TabIndex = 21;
@@ -243,7 +243,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(655, 150);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(581, 150);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.55319F));
@@ -255,7 +255,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1025, 534);
+            this.ClientSize = new System.Drawing.Size(951, 559);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.plTop);
