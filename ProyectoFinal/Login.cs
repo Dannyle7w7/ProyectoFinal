@@ -63,9 +63,9 @@ namespace ProyectoFinal
 
                     if (bl.ConsultaPuesto(txtUser.Text, txtPass.Text) == 0)
                     {
-                        menu.Puesto =;
+                        menu.Puesto ="";
                     } else if (bl.ConsultaPuesto(txtUser.Text, txtPass.Text) == 1) {
-                        menu.Puesto =;
+                        menu.Puesto ="";
 
                     }
                     

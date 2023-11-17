@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.plTop = new System.Windows.Forms.Panel();
-            this.Dvg = new System.Windows.Forms.DataGridView();
+            this.dgvclientes = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -56,7 +56,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.Dvg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvclientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,14 +70,15 @@
             this.plTop.Size = new System.Drawing.Size(1940, 98);
             this.plTop.TabIndex = 15;
             // 
-            // Dvg
+            // dgvclientes
             // 
-            this.Dvg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(214)))), ((int)(((byte)(180)))));
-            this.Dvg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dvg.Location = new System.Drawing.Point(665, 179);
-            this.Dvg.Name = "Dvg";
-            this.Dvg.Size = new System.Drawing.Size(1242, 428);
-            this.Dvg.TabIndex = 17;
+            this.dgvclientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(214)))), ((int)(((byte)(180)))));
+            this.dgvclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvclientes.Location = new System.Drawing.Point(665, 179);
+            this.dgvclientes.Name = "dgvclientes";
+            this.dgvclientes.Size = new System.Drawing.Size(1242, 428);
+            this.dgvclientes.TabIndex = 17;
+            this.dgvclientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dvg_CellContentClick);
             // 
             // dataGridView2
             // 
@@ -389,12 +390,12 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.Dvg);
+            this.Controls.Add(this.dgvclientes);
             this.Controls.Add(this.plTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Carrito";
             this.Text = "Carrito";
-            ((System.ComponentModel.ISupportInitialize)(this.Dvg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvclientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -403,7 +404,7 @@
 
         #endregion
         private System.Windows.Forms.Panel plTop;
-        private System.Windows.Forms.DataGridView Dvg;
+        private System.Windows.Forms.DataGridView dgvclientes;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
