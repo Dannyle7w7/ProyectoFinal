@@ -335,6 +335,16 @@ CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
             }
         }
 
+        public bool ExisteProveedor(int id)
+        {
+            // Lógica para verificar si el proveedor con el ID dado existe en la base de datos
+            // Aquí asumimos que tienes un método ObtenerProveedorPorId en tu clase BLTienda
+            DataRow proveedor = ObtenerProveedorPorId(id);
+
+            // Devolver true si el proveedor existe, false en caso contrario
+            return proveedor != null;
+        }
+
 
 
     }
