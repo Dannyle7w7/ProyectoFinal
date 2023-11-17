@@ -52,6 +52,17 @@ namespace ProyectoFinal
         {
             pbUsuario.Image = imagen;
             lblUsuario.Text = Usuario;
+            lblPuesto.Text = Puesto;
+
+            if (lblPuesto.Text=="Empleado")
+            {
+                btnEquipo.Enabled = false;
+                btnEquipo.Visible= false;   
+            }
+            else
+            {
+
+            }
         }
 
        
@@ -72,18 +83,21 @@ namespace ProyectoFinal
                     btnClientes.PerformClick();
                     break;
                 case Keys.F3:
-                    btnProveedores.PerformClick();
-                    break;
-                case Keys.F4:
                     btnInventario.PerformClick();
                     break;
-                case Keys.F5:
-                    btnCompras.PerformClick();
-                    break;
-                case Keys.F6:
+                case Keys.F4:
                     btnConfiguracion.PerformClick();
                     break;
+                case Keys.F5:
+                    btnCerrarsesion.PerformClick();
+                    break;
+                case Keys.F6:
+                    btnCompras.PerformClick();
+                    break;
                 case Keys.F7:
+                    btnProveedores.PerformClick();
+                    break;
+                case Keys.F8:
                     btnEquipo.PerformClick();
                     break;
             }
@@ -229,6 +243,16 @@ namespace ProyectoFinal
             {
                 formProveedores.Show();
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         ///AQUI TERMINAN LOS BOTONES
