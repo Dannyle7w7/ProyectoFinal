@@ -61,7 +61,13 @@ namespace ProyectoFinal
                     menu.Usuario = txtUser.Text;
                     menu.imagen = pbPersona.Image;
 
-                    
+                    if (bl.ConsultaPuesto(txtUser.Text, txtPass.Text) == 0)
+                    {
+                        menu.Puesto ="fd";
+                    } else if (bl.ConsultaPuesto(txtUser.Text, txtPass.Text) == 1) {
+                        menu.Puesto ="fd";
+
+                    }
                     
                     menu.Show(this);
                    
