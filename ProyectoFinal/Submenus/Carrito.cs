@@ -17,10 +17,19 @@ namespace ProyectoFinal.Submenus.Trabajadores
             InitializeComponent();
         }
 
-        private void Carrito_Load(object sender, EventArgs e)
+       
+        private void Clientes_Load(object sender, EventArgs e)
         {
             BLTienda bl = new BLTienda();
-            Dvg.DataSource = bl.ObtenerTodasLasVentas();
+            DvgClientesLista.DataSource = bl.ObtenerTodosLosClientes();
+
+            BLTienda bl1 = new BLTienda();
+            DvgAcomulacioncarrito.DataSource = bl.ObtenerTodasLasVentas();
+        }
+
+        private void DvgAcomulacioncarrito_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
