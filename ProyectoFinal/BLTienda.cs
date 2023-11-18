@@ -144,7 +144,7 @@ namespace ProyectoFinal
             return getIDFoto(ID);
         }
 
-        private System.Drawing.Image ByteArrayToImage(byte[] byteArray)
+        public System.Drawing.Image ByteArrayToImage(byte[] byteArray)
         {
             System.IO.MemoryStream ms = new System.IO.MemoryStream(byteArray);
             System.Drawing.Image imagen = System.Drawing.Image.FromStream(ms);
@@ -195,7 +195,7 @@ namespace ProyectoFinal
 
         public DataTable ObtenerEmpleadoIDparaUPDATE(string ID)
         {
-            string query = "Select  Usuario,Puesto,Nombre,Contraseña,Estado,Foto from Empleados where IdEmpleados=@id ";
+            string query = "Select  Usuario,Puesto,Nombre,Contraseña,Estado from Empleados where IdEmpleados=@id ";
             SqlParameter[] parametros = new SqlParameter[]
             {
                 new SqlParameter("@id", ID)

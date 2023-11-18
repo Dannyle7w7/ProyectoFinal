@@ -100,11 +100,21 @@ namespace ProyectoFinal.Submenus.Trabajadores
                 {
                     rdActivo.Checked= false;
                 }
+
+
+                System.Drawing.Image imagen = bl.ConsulaFotoID(Convert.ToString(ID));
+                if (imagen != null)
+                {
+                    pbFoto.Image = imagen;
+                }
+                else
+                {
+                    pbFoto.Image = pbFoto.InitialImage;
+                }
+
+
             }
-            else
-            {
-                
-            }
+          
             
         }
 
