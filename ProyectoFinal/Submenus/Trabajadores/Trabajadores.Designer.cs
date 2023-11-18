@@ -58,7 +58,7 @@
             this.dgvDatos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(214)))), ((int)(((byte)(180)))));
             this.dgvDatos.ColumnHeadersHeight = 34;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvDatos.Location = new System.Drawing.Point(16, 257);
+            this.dgvDatos.Location = new System.Drawing.Point(19, 257);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.ReadOnly = true;
             this.dgvDatos.RowHeadersWidth = 62;

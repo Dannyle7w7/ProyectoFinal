@@ -84,6 +84,27 @@ namespace ProyectoFinal.Submenus.Trabajadores
             AjustarTextoBoton(btnModificar);
             cbNivel.SelectedIndex=0;
             txtID.Text = Convert.ToString(ID);
+            BLTienda bl = new BLTienda();
+            if (bl.ExistenciaID(Convert.ToString(ID)) == true)
+            {
+                DataTable empleadoData = bl.ObtenerEmpleadoIDparaUPDATE(Convert.ToString(ID));
+                txtUsuario.Text = Convert.ToString(empleadoData.Rows[0]["Usuario"]);
+                txtContra.Text = Convert.ToString(empleadoData.Rows[0]["Contraseña"]);
+                txtNombre.Text = Convert.ToString(empleadoData.Rows[0]["Nombre"]);
+                cbNivel.SelectedIndex = Convert.ToInt32(empleadoData.Rows[0]["Puesto"]);
+                if (Convert.ToInt32(empleadoData.Rows[0]["Estado"])==1)
+                {
+                    rdActivo.Checked = true;
+                }
+                else
+                {
+                    rdActivo.Checked= false;
+                }
+            }
+            else
+            {
+                
+            }
             
         }
 

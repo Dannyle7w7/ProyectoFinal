@@ -163,6 +163,18 @@ namespace ProyectoFinal.Submenus.Trabajadores
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Verifica si el clic se hizo en una celda y no en el encabezado de la columna
+            if (e.RowIndex >= 0)
+            {
+                // Obtiene el valor de la primera celda de la fila seleccionada (supongamos que el ID está en la primera columna)
+                DataGridViewRow row =dgvDatos.Rows[e.RowIndex];
+                string idValue = row.Cells[0].Value.ToString();
+
+                BLTienda bl = new BLTienda();
+                ModificacionTrabajadores form = new ModificacionTrabajadores();
+                form.ID = Convert.ToInt32(idValue);
+                form.ShowDialog();
+            }
 
         }
 

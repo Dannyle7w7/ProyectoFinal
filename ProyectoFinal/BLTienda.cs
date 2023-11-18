@@ -182,26 +182,45 @@ namespace ProyectoFinal
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
+        public bool ExistenciaID(string ID)
+        {
+            string query = "SELECT COUNT(*) AS Existencia FROM Empleados WHERE IdEmpleados = @id ";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@id", ID)
+             };
+            DAL.DAL dal = new DAL.DAL();
+            return Convert.ToBoolean(dal.ConsultaEscalar(query,parametros));
+        }
 
-
+        public DataTable ObtenerEmpleadoIDparaUPDATE(string ID)
+        {
+            string query = "Select  Usuario,Puesto,Nombre,Contraseña,Estado,Foto from Empleados where IdEmpleados=@id ";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@id", ID)
+             };
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query,parametros);
+        }
         //Estos son para todos sin buscar
         public DataTable ObtenerTodosLosEmpleados()
         {
-            string query = "SELECT IdEmpleados,Usuario,Nombre,CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados";
+            string query = "SELECT IdEmpleados,Usuario,Nombre,CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados";
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
 
         public DataTable ObtenerTodosLosEmpleadosActivos()
         {
-            string query = "SELECT IdEmpleados, Usuario, Nombre, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado = 1";
+            string query = "SELECT IdEmpleados, Usuario, Nombre, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado = 1";
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
 
         public DataTable ObtenerTodosLosEmpleadosInactivos()
         {
-            string query = "SELECT IdEmpleados, Usuario, Nombre, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado =0";
+            string query = "SELECT IdEmpleados, Usuario, Nombre, CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto FROM Empleados WHERE Estado =0";
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
@@ -220,7 +239,7 @@ namespace ProyectoFinal
             BEGIN
                 SELECT IdEmpleados, Usuario, Nombre, 
                        CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado,
-                       CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
+                       CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 FROM Empleados 
                 WHERE Usuario LIKE '%' + @searchText + '%' 
                    OR Nombre LIKE '%' + @searchText + '%' 
@@ -253,7 +272,7 @@ namespace ProyectoFinal
             BEGIN
                 SELECT IdEmpleados, Usuario, Nombre,
                        CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado ,
-                       CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
+                       CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 FROM Empleados 
                 WHERE (Usuario LIKE '%' + @searchText + '%' 
                    OR Nombre LIKE '%' + @searchText + '%' 
@@ -287,7 +306,7 @@ namespace ProyectoFinal
             BEGIN
                 SELECT IdEmpleados, Usuario, Nombre,
                        CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END AS Estado, 
-CASE WHEN Puesto = 1 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
+CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 FROM Empleados 
                 WHERE (Usuario LIKE '%' + @searchText + '%' 
                    OR Nombre LIKE '%' + @searchText + '%' 
