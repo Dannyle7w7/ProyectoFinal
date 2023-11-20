@@ -15,7 +15,7 @@ namespace ProyectoFinal
 
         private int getConsultaAcceso(String usu, String pass)
         {
-            string query = "SELECT COUNT(*) FROM Empleados WHERE Usuario = @nombreUsuario AND Contraseña = @contraseña";
+            string query = "SELECT COUNT(*) FROM Empleados WHERE Usuario = @nombreUsuario AND Contraseña = @contraseña And Estado=1";
             SqlParameter[] parametros = new SqlParameter[]
             {
                 new SqlParameter("@nombreUsuario", usu),
@@ -31,8 +31,21 @@ namespace ProyectoFinal
         {
             return getConsultaAcceso(usu, pass);
         }
+        public int UsuarioExistencia(String usu)
+        {
+            string query = "SELECT COUNT(*) FROM Empleados WHERE Usuario = @nombreUsuario ";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@nombreUsuario", usu),
+           
+             };
+            DAL.DAL dal = new DAL.DAL();
+            int resultado = Convert.ToInt32(dal.ConsultaEscalar(query, parametros));
 
-        private int getConsultaPuesto(String usu, String pass)
+            return resultado;
+        }
+
+            private int getConsultaPuesto(String usu, String pass)
         {
             string query = "SELECT Puesto FROM Empleados WHERE Usuario = @nombreUsuario AND Contraseña = @contraseña";
             SqlParameter[] parametros = new SqlParameter[]
@@ -75,6 +88,30 @@ namespace ProyectoFinal
             GuardarEmpleado(usuario, contraseña, nombre, imagenBytes, estado, puesto);
         }
 
+        private void ActualizarEmpleado(string id, string usuario, string contraseña, string nombre, byte[] imagen, bool estado, int puesto)
+        {
+            string query = "UPDATE Empleados SET Usuario = @usuario, Contraseña = @contraseña, Nombre = @nombre, Foto = @foto, Estado = @estado, Puesto = @puesto WHERE Id = @id";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@usuario", usuario),
+        new SqlParameter("@contraseña", contraseña),
+        new SqlParameter("@nombre", nombre),
+        new SqlParameter("@foto", SqlDbType.VarBinary) { Value = imagen },
+        new SqlParameter("@estado", estado),
+        new SqlParameter("@puesto", puesto),
+        new SqlParameter("@id", id)
+            };
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros); // Utilizamos el método de transacción del DAL
+        }
+
+        public void PushActualizarEmpleado(string id ,string usuario, string contraseña, string nombre, System.Drawing.Image foto, bool estado, int puesto)
+        {
+            // Convertimos la imagen a un arreglo de bytes
+            byte[] imagenBytes = ImageToByteArray(foto);
+
+            ActualizarEmpleado(id ,usuario, contraseña, nombre, imagenBytes, estado, puesto);
+        }
         // Convierte una imagen a un arreglo de bytes
         private byte[] ImageToByteArray(System.Drawing.Image imagen)
         {

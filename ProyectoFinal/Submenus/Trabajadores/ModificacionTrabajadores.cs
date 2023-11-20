@@ -23,13 +23,23 @@ namespace ProyectoFinal.Submenus.Trabajadores
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+
             if (txtUsuario.Text!="Usuario" && txtNombre.Text != "Nombre" && txtContra.Text != "Cantraseña")
             {
                 BLTienda bl = new BLTienda();
                 System.Drawing.Image foto = pbFoto.Image;
-                bl.GuardarEmpleado(txtUsuario.Text, txtContra.Text, txtNombre.Text, foto, rdActivo.Checked, cbNivel.SelectedIndex + 1);
-                MessageBox.Show("Empleado guardado correctamente.");
-                this.Close();
+                if (bl.UsuarioExistencia(txtUsuario.Text) == 1)
+                {
+                    MessageBox.Show("Este usuario ya esta siendo usado.");
+
+                }
+                else
+                {
+                    bl.GuardarEmpleado(txtUsuario.Text, txtContra.Text, txtNombre.Text, foto, rdActivo.Checked, cbNivel.SelectedIndex + 1);
+                    MessageBox.Show("Empleado guardado correctamente.");
+                    this.Close();
+                }
+                
             }
             else
             {

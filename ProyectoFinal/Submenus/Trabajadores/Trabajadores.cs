@@ -173,6 +173,7 @@ namespace ProyectoFinal.Submenus.Trabajadores
                 BLTienda bl = new BLTienda();
                 ModificacionTrabajadores form = new ModificacionTrabajadores();
                 form.ID = Convert.ToInt32(idValue);
+                
                 form.ShowDialog();
             }
 

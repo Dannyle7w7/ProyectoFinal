@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Carrito));
             this.plTop = new System.Windows.Forms.Panel();
             this.DvgAcomulacioncarrito = new System.Windows.Forms.DataGridView();
             this.DvgClientesLista = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.BtnCodigo = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.BtnModificar = new System.Windows.Forms.Button();
@@ -44,9 +45,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.RbTarjeta = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.RbEfectivo = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,8 +57,18 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DvgAcomulacioncarrito)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DvgClientesLista)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // plTop
@@ -89,25 +100,26 @@
             this.DvgClientesLista.Size = new System.Drawing.Size(1242, 237);
             this.DvgClientesLista.TabIndex = 18;
             // 
-            // textBox1
+            // TxtCodigo
             // 
-            this.textBox1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.textBox1.Location = new System.Drawing.Point(921, 128);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(819, 29);
-            this.textBox1.TabIndex = 19;
+            this.TxtCodigo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
+            this.TxtCodigo.Location = new System.Drawing.Point(921, 128);
+            this.TxtCodigo.Name = "TxtCodigo";
+            this.TxtCodigo.Size = new System.Drawing.Size(819, 29);
+            this.TxtCodigo.TabIndex = 19;
             // 
-            // button1
+            // BtnCodigo
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(1746, 125);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 32);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BtnCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
+            this.BtnCodigo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
+            this.BtnCodigo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtnCodigo.Location = new System.Drawing.Point(1746, 125);
+            this.BtnCodigo.Name = "BtnCodigo";
+            this.BtnCodigo.Size = new System.Drawing.Size(130, 32);
+            this.BtnCodigo.TabIndex = 20;
+            this.BtnCodigo.Text = "Buscar";
+            this.BtnCodigo.UseVisualStyleBackColor = false;
+            this.BtnCodigo.Click += new System.EventHandler(this.BtnCodigo_Click);
             // 
             // textBox2
             // 
@@ -127,6 +139,7 @@
             this.BtnAgregar.TabIndex = 23;
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // BtnModificar
             // 
@@ -223,17 +236,17 @@
             this.textBox3.Size = new System.Drawing.Size(405, 47);
             this.textBox3.TabIndex = 32;
             // 
-            // radioButton1
+            // RbTarjeta
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Bold);
-            this.radioButton1.Location = new System.Drawing.Point(111, 369);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(95, 32);
-            this.radioButton1.TabIndex = 33;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Tarjeta";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.RbTarjeta.AutoSize = true;
+            this.RbTarjeta.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Bold);
+            this.RbTarjeta.Location = new System.Drawing.Point(123, 366);
+            this.RbTarjeta.Name = "RbTarjeta";
+            this.RbTarjeta.Size = new System.Drawing.Size(95, 32);
+            this.RbTarjeta.TabIndex = 33;
+            this.RbTarjeta.TabStop = true;
+            this.RbTarjeta.Text = "Tarjeta";
+            this.RbTarjeta.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -246,24 +259,24 @@
             this.label6.TabIndex = 34;
             this.label6.Text = "$";
             // 
-            // radioButton2
+            // RbEfectivo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Bold);
-            this.radioButton2.Location = new System.Drawing.Point(212, 369);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(107, 32);
-            this.radioButton2.TabIndex = 35;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Efectivo";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.RbEfectivo.AutoSize = true;
+            this.RbEfectivo.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Bold);
+            this.RbEfectivo.Location = new System.Drawing.Point(281, 366);
+            this.RbEfectivo.Name = "RbEfectivo";
+            this.RbEfectivo.Size = new System.Drawing.Size(107, 32);
+            this.RbEfectivo.TabIndex = 35;
+            this.RbEfectivo.TabStop = true;
+            this.RbEfectivo.Text = "Efectivo";
+            this.RbEfectivo.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(67, 498);
+            this.label7.Location = new System.Drawing.Point(67, 517);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 41);
             this.label7.TabIndex = 37;
@@ -274,7 +287,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Nirmala UI", 20F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label8.Location = new System.Drawing.Point(68, 448);
+            this.label8.Location = new System.Drawing.Point(67, 466);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(123, 37);
             this.label8.TabIndex = 36;
@@ -285,7 +298,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Nirmala UI", 20F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label9.Location = new System.Drawing.Point(68, 569);
+            this.label9.Location = new System.Drawing.Point(68, 588);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(165, 37);
             this.label9.TabIndex = 38;
@@ -296,7 +309,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(67, 629);
+            this.label10.Location = new System.Drawing.Point(67, 648);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(35, 41);
             this.label10.TabIndex = 39;
@@ -307,19 +320,20 @@
             this.BtnCobrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(214)))), ((int)(((byte)(180)))));
             this.BtnCobrar.Font = new System.Drawing.Font("Nirmala UI", 20F, System.Drawing.FontStyle.Bold);
             this.BtnCobrar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtnCobrar.Location = new System.Drawing.Point(61, 735);
+            this.BtnCobrar.Location = new System.Drawing.Point(61, 754);
             this.BtnCobrar.Name = "BtnCobrar";
             this.BtnCobrar.Size = new System.Drawing.Size(130, 50);
             this.BtnCobrar.TabIndex = 40;
             this.BtnCobrar.Text = "Cobrar";
             this.BtnCobrar.UseVisualStyleBackColor = false;
+            this.BtnCobrar.Click += new System.EventHandler(this.BtnCobrar_Click);
             // 
             // BtnCancelar
             // 
             this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnCancelar.Font = new System.Drawing.Font("Nirmala UI", 20F, System.Drawing.FontStyle.Bold);
             this.BtnCancelar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtnCancelar.Location = new System.Drawing.Point(231, 735);
+            this.BtnCancelar.Location = new System.Drawing.Point(231, 754);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(130, 50);
             this.BtnCancelar.TabIndex = 41;
@@ -342,7 +356,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(101, 498);
+            this.label12.Location = new System.Drawing.Point(101, 517);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(77, 41);
             this.label12.TabIndex = 43;
@@ -353,17 +367,81 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(101, 629);
+            this.label13.Location = new System.Drawing.Point(101, 648);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(77, 41);
             this.label13.TabIndex = 44;
             this.label13.Text = "0.00";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.ErrorImage")));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(124, 404);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(44, 28);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 48;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.ErrorImage")));
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.InitialImage")));
+            this.pictureBox4.Location = new System.Drawing.Point(174, 404);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(44, 28);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 46;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(74, 404);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(44, 28);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 45;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(307, 404);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 49;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.ErrorImage")));
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
+            this.pictureBox5.Location = new System.Drawing.Point(224, 404);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(44, 28);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 50;
+            this.pictureBox5.TabStop = false;
             // 
             // Carrito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1940, 984);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -373,9 +451,9 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.RbEfectivo);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.RbTarjeta);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -387,8 +465,8 @@
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BtnCodigo);
+            this.Controls.Add(this.TxtCodigo);
             this.Controls.Add(this.DvgClientesLista);
             this.Controls.Add(this.DvgAcomulacioncarrito);
             this.Controls.Add(this.plTop);
@@ -398,6 +476,11 @@
             this.Load += new System.EventHandler(this.Clientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DvgAcomulacioncarrito)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DvgClientesLista)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,8 +490,8 @@
         private System.Windows.Forms.Panel plTop;
         private System.Windows.Forms.DataGridView DvgAcomulacioncarrito;
         private System.Windows.Forms.DataGridView DvgClientesLista;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox TxtCodigo;
+        private System.Windows.Forms.Button BtnCodigo;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.Button BtnModificar;
@@ -420,9 +503,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton RbTarjeta;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton RbEfectivo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -432,5 +515,10 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
