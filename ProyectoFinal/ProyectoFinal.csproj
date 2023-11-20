@@ -74,10 +74,10 @@
     <Compile Include="Submenus\Configuracion.Designer.cs">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Submenus\Carrito.cs">
+    <Compile Include="Submenus\Carrito\Carrito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Submenus\Carrito.Designer.cs">
+    <Compile Include="Submenus\Carrito\Carrito.Designer.cs">
       <DependentUpon>Carrito.cs</DependentUpon>
     </Compile>
     <Compile Include="Submenus\Clientes.cs">
@@ -97,6 +97,12 @@
     </Compile>
     <Compile Include="Submenus\Proveedores.Designer.cs">
       <DependentUpon>Proveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Submenus\Carrito\Tarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Submenus\Carrito\Tarjeta.Designer.cs">
+      <DependentUpon>Tarjeta.cs</DependentUpon>
     </Compile>
     <Compile Include="Submenus\Trabajadores\ModificacionTrabajadores.cs">
       <SubType>Form</SubType>
@@ -134,7 +140,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Submenus\Carrito.resx">
+    <EmbeddedResource Include="Submenus\Carrito\Carrito.resx">
       <DependentUpon>Carrito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Submenus\Clientes.resx">
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Submenus\Proveedores.resx">
       <DependentUpon>Proveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Submenus\Carrito\Tarjeta.resx">
+      <DependentUpon>Tarjeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Submenus\Trabajadores\ModificacionTrabajadores.resx">
       <DependentUpon>ModificacionTrabajadores.cs</DependentUpon>
