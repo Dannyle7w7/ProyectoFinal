@@ -52,7 +52,6 @@
             BtnRGB = new Button();
             label10 = new Label();
             btnCalcular = new Button();
-            txtCantidadTotalLitros = new TextBox();
             lblResultadoBlack = new Label();
             lblResultadoYellow = new Label();
             lblResultadoMagenta = new Label();
@@ -65,6 +64,7 @@
             label14 = new Label();
             lbcodigo = new Label();
             BtnEnviaraCarrito = new Button();
+            txtCantidadTotalLitros = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)NupCyan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NupMagenta).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NupBlack).BeginInit();
@@ -290,15 +290,6 @@
             btnCalcular.UseVisualStyleBackColor = true;
             btnCalcular.Click += btnCalcular_Click;
             // 
-            // txtCantidadTotalLitros
-            // 
-            txtCantidadTotalLitros.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCantidadTotalLitros.Location = new Point(39, 533);
-            txtCantidadTotalLitros.Name = "txtCantidadTotalLitros";
-            txtCantidadTotalLitros.Size = new Size(161, 27);
-            txtCantidadTotalLitros.TabIndex = 23;
-            txtCantidadTotalLitros.TextChanged += txtCantidadTotalMl_TextChanged;
-            // 
             // lblResultadoBlack
             // 
             lblResultadoBlack.AutoSize = true;
@@ -413,11 +404,21 @@
             BtnEnviaraCarrito.Text = "Enviar a Carrito";
             BtnEnviaraCarrito.UseVisualStyleBackColor = true;
             // 
+            // txtCantidadTotalLitros
+            // 
+            txtCantidadTotalLitros.FormattingEnabled = true;
+            txtCantidadTotalLitros.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" });
+            txtCantidadTotalLitros.Location = new Point(39, 538);
+            txtCantidadTotalLitros.Name = "txtCantidadTotalLitros";
+            txtCantidadTotalLitros.Size = new Size(166, 23);
+            txtCantidadTotalLitros.TabIndex = 36;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(555, 579);
+            Controls.Add(txtCantidadTotalLitros);
             Controls.Add(BtnEnviaraCarrito);
             Controls.Add(lbcodigo);
             Controls.Add(label14);
@@ -430,7 +431,6 @@
             Controls.Add(lblResultadoYellow);
             Controls.Add(lblResultadoMagenta);
             Controls.Add(lblResultadoCyan);
-            Controls.Add(txtCantidadTotalLitros);
             Controls.Add(btnCalcular);
             Controls.Add(label10);
             Controls.Add(BtnRGB);
@@ -495,7 +495,6 @@
         private Button BtnRGB;
         private Label label10;
         private Button btnCalcular;
-        private TextBox txtCantidadTotalLitros;
         private Label lblResultadoBlack;
         private Label lblResultadoYellow;
         private Label lblResultadoMagenta;
@@ -508,5 +507,6 @@
         private Label label14;
         private Label lbcodigo;
         private Button BtnEnviaraCarrito;
+        private ComboBox txtCantidadTotalLitros;
     }
 }
