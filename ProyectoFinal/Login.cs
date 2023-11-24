@@ -74,7 +74,7 @@ namespace ProyectoFinal
                 }
                 else
                 {
-                    MessageBox.Show("Lo siento, el nombre de usuario o la contraseña son incorrectos.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lo siento, el nombre de usuario/contraseña son incorrectos o el usuario no esta activo.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
             }

@@ -33,6 +33,8 @@ namespace ProyectoFinal.Submenus.Trabajadores
             BLTienda bl =new BLTienda();
             ModificacionTrabajadores form =new ModificacionTrabajadores();
             form.ID = bl.ConsultaultimoID()+1;
+            form.btnModificar.Enabled = false;
+            form.btnModificar.Hide();
             form.ShowDialog();
             if (txtBusqueda.Text == "Búsqueda")
             {
@@ -159,6 +161,7 @@ namespace ProyectoFinal.Submenus.Trabajadores
                 txtBusqueda.Text = "";
                 txtBusqueda.ForeColor = Color.Black;
             }
+
         }
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -173,7 +176,46 @@ namespace ProyectoFinal.Submenus.Trabajadores
                 BLTienda bl = new BLTienda();
                 ModificacionTrabajadores form = new ModificacionTrabajadores();
                 form.ID = Convert.ToInt32(idValue);
+                form.btnAgregar.Hide();
+                form.btnAgregar.Enabled = false;   
+                form.txtNombre.ForeColor= Color.Black;
+                form.txtUsuario.ForeColor = Color.Black;
+                form.txtContra.ForeColor = Color.Black;
                 form.ShowDialog();
+                if (txtBusqueda.Text == "Búsqueda")
+                {
+                    if (rdTodos.Checked == true)
+                    {
+                        dgvDatos.DataSource = bl.ObtenerTodosLosEmpleados();
+
+
+                    }
+                    else if (rdActivo.Checked == true)
+                    {
+                        dgvDatos.DataSource = bl.ObtenerTodosLosEmpleadosActivos();
+
+                    }
+                    else if (rdInactivo.Checked == true)
+                    {
+                        dgvDatos.DataSource = bl.ObtenerTodosLosEmpleadosInactivos();
+                    }
+                }
+                else if (txtBusqueda.Text != "Búsqueda" && txtBusqueda.Text.Length > 0)
+                {
+                    if (rdTodos.Checked == true)
+                    {
+                        dgvDatos.DataSource = bl.BuscarEmpleados(txtBusqueda.Text);
+                    }
+                    else if (rdActivo.Checked == true)
+                    {
+                        dgvDatos.DataSource = bl.BuscarEmpleadosActivos(txtBusqueda.Text);
+                    }
+                    else if (rdInactivo.Checked == true)
+                    {
+                        dgvDatos.DataSource = bl.BuscarEmpleadosInactivos(txtBusqueda.Text);
+
+                    }
+                }
             }
 
         }

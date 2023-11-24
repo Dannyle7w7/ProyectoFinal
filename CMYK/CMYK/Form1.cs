@@ -77,25 +77,25 @@ namespace CMYK
                         }
                         else
                         {
-                            
+
                         }
                     }
                     else
                     {
-                       
+
                     }
                 }
                 else
                 {
-                    
+
                 }
             }
             catch (Exception)
             {
-                
+
             }
         }
-        
+
         private void btnGenerateColor_Click(object sender, EventArgs e)
         {
             int cyan = (int)NupCyan.Value;
@@ -285,7 +285,7 @@ namespace CMYK
             BtnRGB.PerformClick();
             PanelColordef.BackColor = clr;
             lbcodigo.Text = $": {Decimal.Text}";
-            
+
 
 
 
@@ -305,14 +305,14 @@ namespace CMYK
             NupRed.Text = clr.R.ToString();
             NupGreen.Text = clr.G.ToString();
             NupBlue.Text = clr.B.ToString();
-            
+
 
         }
-        
 
-      
 
-      
+
+
+
 
 
         private void txtCantidadTotalMl_TextChanged(object sender, EventArgs e)
