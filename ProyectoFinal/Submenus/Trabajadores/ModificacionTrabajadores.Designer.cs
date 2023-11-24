@@ -60,7 +60,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAgregar.Location = new System.Drawing.Point(204, 454);
+            this.btnAgregar.Location = new System.Drawing.Point(161, 463);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(201, 78);
             this.btnAgregar.TabIndex = 1;
@@ -88,6 +88,7 @@
             this.txtUsuario.Size = new System.Drawing.Size(276, 39);
             this.txtUsuario.TabIndex = 4;
             this.txtUsuario.Text = "Usuario";
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
@@ -326,12 +327,12 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.TextBox txtContra;
+        public System.Windows.Forms.Button btnAgregar;
+        public System.Windows.Forms.Button btnModificar;
+        public System.Windows.Forms.TextBox txtUsuario;
+        public System.Windows.Forms.TextBox txtNombre;
+        public System.Windows.Forms.TextBox txtID;
+        public System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.Button btnFoto;
         private System.Windows.Forms.PictureBox pbFoto;
         private System.Windows.Forms.Label lblTitulo;

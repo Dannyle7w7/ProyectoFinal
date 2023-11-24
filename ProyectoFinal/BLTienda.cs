@@ -90,7 +90,7 @@ namespace ProyectoFinal
 
         private void ActualizarEmpleado(string id, string usuario, string contraseña, string nombre, byte[] imagen, bool estado, int puesto)
         {
-            string query = "UPDATE Empleados SET Usuario = @usuario, Contraseña = @contraseña, Nombre = @nombre, Foto = @foto, Estado = @estado, Puesto = @puesto WHERE Id = @id";
+            string query = "UPDATE Empleados SET Usuario = @usuario, Contraseña = @contraseña, Nombre = @nombre, Foto = @foto, Estado = @estado, Puesto = @puesto WHERE IdEmpleados = @id";
             SqlParameter[] parametros = new SqlParameter[]
             {
         new SqlParameter("@usuario", usuario),

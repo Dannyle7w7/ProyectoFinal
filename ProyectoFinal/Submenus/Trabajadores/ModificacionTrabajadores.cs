@@ -18,13 +18,13 @@ namespace ProyectoFinal.Submenus.Trabajadores
         public ModificacionTrabajadores()
         {
             InitializeComponent();
-
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
-            if (txtUsuario.Text!="Usuario" && txtNombre.Text != "Nombre" && txtContra.Text != "Cantraseña")
+            if (txtUsuario.Text!="Usuario" && txtNombre.Text != "Nombre" && txtContra.Text != "Contraseña")
             {
                 BLTienda bl = new BLTienda();
                 System.Drawing.Image foto = pbFoto.Image;
@@ -53,7 +53,22 @@ namespace ProyectoFinal.Submenus.Trabajadores
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (txtUsuario.Text != "Usuario" && txtNombre.Text != "Nombre" && txtContra.Text != "Contraseña")
+            {
+                BLTienda bl = new BLTienda();
+                System.Drawing.Image foto = pbFoto.Image;
+                
+                    bl.PushActualizarEmpleado(txtID.Text,txtUsuario.Text, txtContra.Text, txtNombre.Text, foto, rdActivo.Checked, cbNivel.SelectedIndex + 1);
+                    MessageBox.Show("Empleado Actualizado correctamente.");
+                    this.Close();
+                
 
+            }
+            else
+            {
+                MessageBox.Show("Dato faltantes");
+
+            }
         }
 
         private void btnFoto_Click(object sender, EventArgs e)
@@ -205,6 +220,11 @@ namespace ProyectoFinal.Submenus.Trabajadores
             {
                 lblActivo.Text = "Estado:Inactivo";
             }
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
