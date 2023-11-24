@@ -40,19 +40,19 @@
             this.BtnCargar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.LblMarca = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtID = new System.Windows.Forms.TextBox();
+            this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.LblNombre = new System.Windows.Forms.Label();
             this.TxtCantidad = new System.Windows.Forms.TextBox();
-            this.TxtNombre = new System.Windows.Forms.TextBox();
             this.LblPrecio = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.TxtPrecio = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.TxtDescuento = new System.Windows.Forms.TextBox();
             this.LblDescripcion = new System.Windows.Forms.Label();
             this.TxtDescripcion = new System.Windows.Forms.TextBox();
-            this.LblMarca = new System.Windows.Forms.Label();
             this.TxtMarca = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tlpBusquedayAgregar.SuspendLayout();
@@ -262,6 +262,17 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(125, 439);
             this.tableLayoutPanel2.TabIndex = 26;
             // 
+            // LblMarca
+            // 
+            this.LblMarca.AutoSize = true;
+            this.LblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LblMarca.Location = new System.Drawing.Point(2, 373);
+            this.LblMarca.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblMarca.Name = "LblMarca";
+            this.LblMarca.Size = new System.Drawing.Size(53, 20);
+            this.LblMarca.TabIndex = 28;
+            this.LblMarca.Text = "Marca";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -281,6 +292,15 @@
             this.TxtID.Name = "TxtID";
             this.TxtID.Size = new System.Drawing.Size(121, 26);
             this.TxtID.TabIndex = 19;
+            // 
+            // TxtNombre
+            // 
+            this.TxtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TxtNombre.Location = new System.Drawing.Point(2, 148);
+            this.TxtNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtNombre.Name = "TxtNombre";
+            this.TxtNombre.Size = new System.Drawing.Size(121, 26);
+            this.TxtNombre.TabIndex = 21;
             // 
             // label2
             // 
@@ -313,15 +333,6 @@
             this.TxtCantidad.Size = new System.Drawing.Size(121, 26);
             this.TxtCantidad.TabIndex = 20;
             // 
-            // TxtNombre
-            // 
-            this.TxtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.TxtNombre.Location = new System.Drawing.Point(2, 148);
-            this.TxtNombre.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(121, 26);
-            this.TxtNombre.TabIndex = 21;
-            // 
             // LblPrecio
             // 
             this.LblPrecio.AutoSize = true;
@@ -333,6 +344,15 @@
             this.LblPrecio.TabIndex = 23;
             this.LblPrecio.Text = "Precio";
             // 
+            // TxtPrecio
+            // 
+            this.TxtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TxtPrecio.Location = new System.Drawing.Point(2, 205);
+            this.TxtPrecio.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtPrecio.Name = "TxtPrecio";
+            this.TxtPrecio.Size = new System.Drawing.Size(121, 26);
+            this.TxtPrecio.TabIndex = 22;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -343,15 +363,6 @@
             this.label3.Size = new System.Drawing.Size(87, 20);
             this.label3.TabIndex = 24;
             this.label3.Text = "Descuento";
-            // 
-            // TxtPrecio
-            // 
-            this.TxtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.TxtPrecio.Location = new System.Drawing.Point(2, 205);
-            this.TxtPrecio.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtPrecio.Name = "TxtPrecio";
-            this.TxtPrecio.Size = new System.Drawing.Size(121, 26);
-            this.TxtPrecio.TabIndex = 22;
             // 
             // TxtDescuento
             // 
@@ -381,17 +392,6 @@
             this.TxtDescripcion.Name = "TxtDescripcion";
             this.TxtDescripcion.Size = new System.Drawing.Size(121, 26);
             this.TxtDescripcion.TabIndex = 27;
-            // 
-            // LblMarca
-            // 
-            this.LblMarca.AutoSize = true;
-            this.LblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LblMarca.Location = new System.Drawing.Point(2, 373);
-            this.LblMarca.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LblMarca.Name = "LblMarca";
-            this.LblMarca.Size = new System.Drawing.Size(53, 20);
-            this.LblMarca.TabIndex = 28;
-            this.LblMarca.Text = "Marca";
             // 
             // TxtMarca
             // 
