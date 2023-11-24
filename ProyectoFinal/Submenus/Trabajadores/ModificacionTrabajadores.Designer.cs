@@ -1,6 +1,6 @@
 ﻿namespace ProyectoFinal.Submenus.Trabajadores
 {
-    partial class ModificacionTrabajadores
+    partial class Configuracion
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificacionTrabajadores));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuracion));
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.txtUsuario = new System.Windows.Forms.TextBox();

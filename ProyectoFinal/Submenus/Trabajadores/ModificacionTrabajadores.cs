@@ -11,11 +11,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProyectoFinal.Submenus.Trabajadores
 {
-    public partial class ModificacionTrabajadores : Form
+    public partial class Configuracion : Form
     {
         public int ID=0;
       
-        public ModificacionTrabajadores()
+        public Configuracion()
         {
             InitializeComponent();
             

@@ -338,6 +338,7 @@
             this.btnCerrarsesion.TabIndex = 10;
             this.btnCerrarsesion.Text = "F5 Cerrar sesión";
             this.btnCerrarsesion.UseVisualStyleBackColor = false;
+            this.btnCerrarsesion.Click += new System.EventHandler(this.btnCerrarsesion_Click);
             // 
             // Menu
             // 
