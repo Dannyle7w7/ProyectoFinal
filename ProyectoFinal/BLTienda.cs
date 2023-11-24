@@ -67,7 +67,7 @@ namespace ProyectoFinal
             dal.Transaccion(query, parametros); // Utilizamos el método de transacción del DAL
         }
 
-        private void GuardarCliente(string nombre, string direccion, string RazonSocial , string Calle, int NumeroExterior, int NumeroInterior, string Colonia, string Municipio, int CP, string Estado, string RegimenFiscal, string CFDI, int Telefono, string Correo)
+        public void GuardarCliente(string nombre, string direccion, string RazonSocial , string Calle, string NumeroExterior, string NumeroInterior, string Colonia, string Municipio, string CP, string Estado, string RegimenFiscal, string CFDI, string Telefono, string Correo)
         {
             string query = "INSERT INTO Clientes (Nombre, Direccion, RazonSocial, Calle, NumeroExterior, NumeroInterior, Colonia, Municipio, CP, Estado, RegimenFiscal, CFDI, Telefono, Correo) VALUES (@Nombre, @Direccion, @RazonSocial, @Calle, @NumeroExterior, @NumeroInterior, @Colonia, @Municipio, @CP, @Estado, @RegimenFiscal, @CFDI, @Telefono, @Correo)";
             SqlParameter[] parametros = new SqlParameter[]
