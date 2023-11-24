@@ -44,8 +44,20 @@ namespace ProyectoFinal
 
             return resultado;
         }
+        public int UsuarioExistenciaconmismoID(String usu,String id)
+        {
+            string query = "SELECT COUNT(*) FROM Empleados WHERE Usuario = @nombreUsuario and IdEmpleados= @id ";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@nombreUsuario", usu),
+                new SqlParameter("@id", id),
+             };
+            DAL.DAL dal = new DAL.DAL();
+            int resultado = Convert.ToInt32(dal.ConsultaEscalar(query, parametros));
 
-            private int getConsultaPuesto(String usu, String pass)
+            return resultado;
+        }
+        private int getConsultaPuesto(String usu, String pass)
         {
             string query = "SELECT Puesto FROM Empleados WHERE Usuario = @nombreUsuario AND Contraseña = @contraseña";
             SqlParameter[] parametros = new SqlParameter[]
