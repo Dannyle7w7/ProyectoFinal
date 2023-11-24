@@ -92,6 +92,32 @@ namespace ProyectoFinal
             dal.Transaccion(query, parametros); // Utilizamos el método de transacción del DAL
         }
 
+        public void GuardarCliente(string nombre, string direccion, string RazonSocial , string Calle, string NumeroExterior, string NumeroInterior, string Colonia, string Municipio, string CP, string Estado, string RegimenFiscal, string CFDI, string Telefono, string Correo)
+        {
+            string query = "INSERT INTO Clientes (Nombre, Direccion, RazonSocial, Calle, NumeroExterior, NumeroInterior, Colonia, Municipio, CP, Estado, RegimenFiscal, CFDI, Telefono, Correo) VALUES (@Nombre, @Direccion, @RazonSocial, @Calle, @NumeroExterior, @NumeroInterior, @Colonia, @Municipio, @CP, @Estado, @RegimenFiscal, @CFDI, @Telefono, @Correo)";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+            new SqlParameter("@Nombre", nombre),
+            new SqlParameter("@direccion", direccion),
+            new SqlParameter("@RazonSocial", RazonSocial),
+            new SqlParameter("@Calle", Calle),
+            new SqlParameter("@NumeroExterior", NumeroExterior),
+            new SqlParameter("@NumeroInterior", NumeroInterior),
+            new SqlParameter("@Colonia", Colonia),
+            new SqlParameter("@Municipio", Municipio),
+            new SqlParameter("@CP", CP),
+            new SqlParameter("@Estado", Estado),
+            new SqlParameter("@RefimenFiscal", RegimenFiscal),
+            new SqlParameter("@CFDI", CFDI),
+            new SqlParameter("@Telefono", Telefono),
+            new SqlParameter("@Correo", Correo),
+
+
+            };
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros); // Utilizamos el método de transacción del DAL
+        }
+
         public void GuardarEmpleado(string usuario, string contraseña, string nombre, System.Drawing.Image foto, bool estado, int puesto)
         {
             // Convertimos la imagen a un arreglo de bytes
