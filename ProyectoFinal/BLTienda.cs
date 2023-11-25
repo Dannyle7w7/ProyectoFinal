@@ -92,13 +92,14 @@ namespace ProyectoFinal
             dal.Transaccion(query, parametros); // Utilizamos el método de transacción del DAL
         }
 
-        public void GuardarCliente(string nombre, string direccion, string RazonSocial , string Calle, string NumeroExterior, string NumeroInterior, string Colonia, string Municipio, string CP, string Estado, string RegimenFiscal, string CFDI, string Telefono, string Correo)
+        public void GuardarCliente(string nombre, string Rfc, string RazonSocial , string Calle, string NumeroExterior, string NumeroInterior, string Colonia, string Municipio, string CP, string Estado, string RegimenFiscal, string CFDI, string Telefono, string Correo)
         {
-            string query = "INSERT INTO Clientes (Nombre, Direccion, RazonSocial, Calle, NumeroExterior, NumeroInterior, Colonia, Municipio, CP, Estado, RegimenFiscal, CFDI, Telefono, Correo) VALUES (@Nombre, @Direccion, @RazonSocial, @Calle, @NumeroExterior, @NumeroInterior, @Colonia, @Municipio, @CP, @Estado, @RegimenFiscal, @CFDI, @Telefono, @Correo)";
+            string query = "INSERT INTO Clientes (Nombre, RFC, [Razon Social], Calle, NumExt, NumInt, Colonia, Municipio, [Codigo Postal], Estado, [Regimen Fiscal], [Uso de CFDI], Telefono, Correo) VALUES (@Nombre, @Rfc, @RazonSocial, @Calle, @NumeroExterior, @NumeroInterior, @Colonia, @Municipio, @CP, @Estado, @RegimenFiscal, @CFDI, @Telefono, @Correo)";
+
             SqlParameter[] parametros = new SqlParameter[]
             {
             new SqlParameter("@Nombre", nombre),
-            new SqlParameter("@direccion", direccion),
+            new SqlParameter("@Rfc", Rfc),
             new SqlParameter("@RazonSocial", RazonSocial),
             new SqlParameter("@Calle", Calle),
             new SqlParameter("@NumeroExterior", NumeroExterior),
@@ -107,7 +108,7 @@ namespace ProyectoFinal
             new SqlParameter("@Municipio", Municipio),
             new SqlParameter("@CP", CP),
             new SqlParameter("@Estado", Estado),
-            new SqlParameter("@RefimenFiscal", RegimenFiscal),
+            new SqlParameter("@RegimenFiscal", RegimenFiscal),
             new SqlParameter("@CFDI", CFDI),
             new SqlParameter("@Telefono", Telefono),
             new SqlParameter("@Correo", Correo),
@@ -518,7 +519,7 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
         }
         public void ModificarCliente(int idClientes, string nombre, string Rfc, string RazonSocial, string Calle, string NumeroExterior, string NumeroInterior, string Colonia, string Municipio, string CP, string Estado, string RegimenFiscal, string CFDI, string Telefono, string Correo )
         {
-            string query = "UPDATE Clientes SET Nombre = @nombre, RFC = @Rfc, [Razon Social] = @RaSocial, Calle = @Calle, NumExt = @NumExt, NumInt = @NumInt, Colonia = @Colonia, Municipio = @Municipio, [Codigo Postal] = @CP, Estado = @Estado, [Regimen Fiscal] = @RegimenFiscal, CFDI = @CFDI, Telefono = @Telefono, Correo = @Correo,  WHERE IdClientes = @idclientes";
+            string query = "UPDATE Clientes SET Nombre = @nombre, RFC = @Rfc, [Razon Social] = @RaSocial, Calle = @Calle, NumExt = @NumExt, NumInt = @NumInt, Colonia = @Colonia, Municipio = @Municipio, [Codigo Postal] = @CP, Estado = @Estado, [Regimen Fiscal] = @RegimenFiscal, [Uso de CFDI] = @CFDI, Telefono = @Telefono, Correo = @Correo,  WHERE IdClientes = @idclientes";
             SqlParameter[] parametros = new SqlParameter[]
             {
         new SqlParameter("@nombre", nombre),

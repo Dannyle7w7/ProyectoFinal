@@ -57,7 +57,7 @@ namespace ProyectoFinal.Submenus.Trabajadores
                 string Correo = txtCorreo.Text;
 
                 // Verificar que tanto el nombre como la dirección no estén en blanco
-                if (!string.IsNullOrEmpty(nombre) && !string.IsNullOrEmpty(direccion) && !string.IsNullOrEmpty(RazonSocial) && !string.IsNullOrEmpty(Calle)&& !string.IsNullOrEmpty(Calle) && !string.IsNullOrEmpty(NumeroExterior) && !string.IsNullOrEmpty(NumeroInterior) && !string.IsNullOrEmpty(Colonia) && !string.IsNullOrEmpty(Municipio) && !string.IsNullOrEmpty(CP) && !string.IsNullOrEmpty(Estado) && !string.IsNullOrEmpty(RegimenFiscal) && !string.IsNullOrEmpty(Telefono) && !string.IsNullOrEmpty(Correo))
+                if (nombre.Length!=0 && direccion.Length!=0 && RazonSocial.Length!=0 && Calle.Length!=0 && NumeroExterior.Length!=0 && NumeroInterior.Length!=0 && Colonia.Length!=0 && Municipio.Length!=0  && CP.Length!=0 && Estado.Length!=0 && RegimenFiscal.Length!=0)
                 {
                     BLTienda tienda = new BLTienda();
                     tienda.GuardarCliente(nombre, direccion,RazonSocial,Calle,NumeroExterior,NumeroInterior,Colonia,Municipio,CP,CFDI,Estado,RegimenFiscal,Telefono,Correo);
