@@ -35,7 +35,7 @@ namespace ProyectoFinal.Submenus.Trabajadores
                 }
                 else
                 {
-                    bl.GuardarEmpleado(txtUsuario.Text, txtContra.Text, txtNombre.Text, foto, rdActivo.Checked, cbNivel.SelectedIndex + 1);
+                    bl.GuardarEmpleado(txtUsuario.Text, txtContra.Text, txtNombre.Text, foto, rdActivo.Checked, cbNivel.SelectedIndex   );
                     MessageBox.Show("Empleado guardado correctamente.");
                     this.Close();
                 }
@@ -57,12 +57,25 @@ namespace ProyectoFinal.Submenus.Trabajadores
             {
                 BLTienda bl = new BLTienda();
                 System.Drawing.Image foto = pbFoto.Image;
-                
-                    bl.PushActualizarEmpleado(txtID.Text,txtUsuario.Text, txtContra.Text, txtNombre.Text, foto, rdActivo.Checked, cbNivel.SelectedIndex + 1);
+                if (bl.UsuarioExistencia(txtUsuario.Text) == 1)
+                {
+                    if (bl.UsuarioExistenciaconmismoID(txtUsuario.Text,txtID.Text) == 1) {
+                        bl.PushActualizarEmpleado(txtID.Text, txtUsuario.Text, txtContra.Text, txtNombre.Text, foto, rdActivo.Checked, cbNivel.SelectedIndex );
+                        MessageBox.Show("Empleado Actualizado correctamente.");
+                        this.Close();
+
+                    } else{
+                        MessageBox.Show("Este usuario ya esta siendo usado.");
+                    }
+
+                }
+                else
+                {
+                    
+                    bl.PushActualizarEmpleado(txtID.Text, txtUsuario.Text, txtContra.Text, txtNombre.Text, foto, rdActivo.Checked, cbNivel.SelectedIndex );
                     MessageBox.Show("Empleado Actualizado correctamente.");
                     this.Close();
-                
-
+                }
             }
             else
             {
