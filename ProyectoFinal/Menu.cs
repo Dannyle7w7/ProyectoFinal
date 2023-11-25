@@ -255,6 +255,13 @@ namespace ProyectoFinal
 
         }
 
+        private void btnCerrarsesion_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormLogin form = new FormLogin();   
+            form.Show();
+        }
+
         ///AQUI TERMINAN LOS BOTONES
     }
 }
