@@ -117,6 +117,17 @@ namespace ProyectoFinal
             DAL.DAL dal = new DAL.DAL();
             dal.Transaccion(query, parametros); // Utilizamos el método de transacción del DAL
         }
+        public void EliminarCliente(int idcliente)
+        {
+            string query = "DELETE FROM Clientes WHERE IdClientes = @idCliente";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@idCliente", idcliente)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
 
         public void GuardarEmpleado(string usuario, string contraseña, string nombre, System.Drawing.Image foto, bool estado, int puesto)
         {
@@ -441,6 +452,7 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
             dal.Transaccion(query, parametros);
         }
 
+
         public void ModificarProveedor(int idProveedor, string nombre, string direccion)
         {
             string query = "UPDATE Proveedores SET Nombre = @nombre, Dirrecion = @direccion WHERE IdProveedores = @idProveedor";
@@ -477,6 +489,57 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 return null; // No se encontró ningún proveedor para el ID proporcionado
             }
         }
+        public DataRow ObtenerClientePorId(int idcliente)
+        {
+            string query = "SELECT * FROM Clientes WHERE IdClientes = @idCliente";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@idCliente", idcliente)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            DataTable resultado = dal.Consulta(query, parametros);
+
+            // Verificar si se encontró algún proveedor
+            if (resultado.Rows.Count > 0)
+            {
+                return resultado.Rows[0];
+            }
+            else
+            {
+                return null; // No se encontró ningún proveedor para el ID proporcionado
+            }
+        }
+        public DataTable ObtenerClientes()
+        {
+            string query = "SELECT * FROM Clientes";
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query);
+        }
+        public void ModificarCliente(int idClientes, string nombre, string Rfc, string RazonSocial, string Calle, string NumeroExterior, string NumeroInterior, string Colonia, string Municipio, string CP, string Estado, string RegimenFiscal, string CFDI, string Telefono, string Correo )
+        {
+            string query = "UPDATE Clientes SET Nombre = @nombre, RFC = @Rfc, [Razon Social] = @RaSocial, Calle = @Calle, NumExt = @NumExt, NumInt = @NumInt, Colonia = @Colonia, Municipio = @Municipio, [Codigo Postal] = @CP, Estado = @Estado, [Regimen Fiscal] = @RegimenFiscal, CFDI = @CFDI, Telefono = @Telefono, Correo = @Correo,  WHERE IdClientes = @idclientes";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@nombre", nombre),
+        new SqlParameter("@Rfc", Rfc),
+        new SqlParameter("@RaSocial", RazonSocial),
+        new SqlParameter("@Calle", Calle),
+        new SqlParameter("@NumExt", NumeroExterior),
+        new SqlParameter("@NumInt", NumeroInterior),
+        new SqlParameter("@Colonia", Colonia),
+        new SqlParameter("@Municipio", Municipio),
+        new SqlParameter("@CP", CP),
+        new SqlParameter("@Estado", Estado),
+        new SqlParameter("@RegimenFiscal", RegimenFiscal),
+        new SqlParameter("@CFDI", CFDI),
+        new SqlParameter("@Telefono", Telefono),
+        new SqlParameter("@Correo", Correo)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
 
         public bool ExisteProveedor(int id)
         {
@@ -486,6 +549,15 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
 
             // Devolver true si el proveedor existe, false en caso contrario
             return proveedor != null;
+        }
+        public bool ExisteCliente(int id)
+        {
+            // Lógica para verificar si el proveedor con el ID dado existe en la base de datos
+            // Aquí asumimos que tienes un método ObtenerProveedorPorId en tu clase BLTienda
+            DataRow cliente = ObtenerClientePorId(id);
+
+            // Devolver true si el proveedor existe, false en caso contrario
+            return cliente != null;
         }
 
 

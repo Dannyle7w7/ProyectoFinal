@@ -198,5 +198,10 @@ namespace ProyectoFinal.Submenus
         {
 
         }
+
+        private void plTop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

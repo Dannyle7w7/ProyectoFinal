@@ -85,6 +85,7 @@
             this.plTop.Name = "plTop";
             this.plTop.Size = new System.Drawing.Size(951, 121);
             this.plTop.TabIndex = 13;
+            this.plTop.Paint += new System.Windows.Forms.PaintEventHandler(this.plTop_Paint);
             // 
             // label4
             // 
