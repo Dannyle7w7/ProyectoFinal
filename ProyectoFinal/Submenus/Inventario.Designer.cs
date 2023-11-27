@@ -30,9 +30,6 @@
         {
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.plTop = new System.Windows.Forms.Panel();
-            this.tlpBusquedayAgregar = new System.Windows.Forms.TableLayoutPanel();
-            this.btAgregar = new System.Windows.Forms.Button();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnModificar = new System.Windows.Forms.Button();
@@ -55,7 +52,6 @@
             this.TxtDescripcion = new System.Windows.Forms.TextBox();
             this.TxtMarca = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
-            this.tlpBusquedayAgregar.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -84,6 +80,7 @@
             this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatos.Size = new System.Drawing.Size(579, 532);
             this.dgvDatos.TabIndex = 14;
+            this.dgvDatos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvDatos_MouseDoubleClick);
             // 
             // plTop
             // 
@@ -92,51 +89,8 @@
             this.plTop.Location = new System.Drawing.Point(0, 0);
             this.plTop.Margin = new System.Windows.Forms.Padding(2);
             this.plTop.Name = "plTop";
-            this.plTop.Size = new System.Drawing.Size(736, 82);
+            this.plTop.Size = new System.Drawing.Size(736, 123);
             this.plTop.TabIndex = 15;
-            // 
-            // tlpBusquedayAgregar
-            // 
-            this.tlpBusquedayAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlpBusquedayAgregar.ColumnCount = 2;
-            this.tlpBusquedayAgregar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBusquedayAgregar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
-            this.tlpBusquedayAgregar.Controls.Add(this.btAgregar, 1, 0);
-            this.tlpBusquedayAgregar.Controls.Add(this.txtBusqueda, 0, 0);
-            this.tlpBusquedayAgregar.Location = new System.Drawing.Point(11, 86);
-            this.tlpBusquedayAgregar.Margin = new System.Windows.Forms.Padding(2);
-            this.tlpBusquedayAgregar.Name = "tlpBusquedayAgregar";
-            this.tlpBusquedayAgregar.RowCount = 1;
-            this.tlpBusquedayAgregar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBusquedayAgregar.Size = new System.Drawing.Size(714, 52);
-            this.tlpBusquedayAgregar.TabIndex = 17;
-            // 
-            // btAgregar
-            // 
-            this.btAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btAgregar.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAgregar.Location = new System.Drawing.Point(583, 2);
-            this.btAgregar.Margin = new System.Windows.Forms.Padding(2);
-            this.btAgregar.Name = "btAgregar";
-            this.btAgregar.Size = new System.Drawing.Size(129, 48);
-            this.btAgregar.TabIndex = 2;
-            this.btAgregar.Text = "Nuevo Inventario";
-            this.btAgregar.UseVisualStyleBackColor = true;
-            // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusqueda.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.txtBusqueda.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtBusqueda.Location = new System.Drawing.Point(2, 11);
-            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(2);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(577, 29);
-            this.txtBusqueda.TabIndex = 1;
-            this.txtBusqueda.Text = "Búsqueda";
             // 
             // tableLayoutPanel3
             // 
@@ -184,6 +138,7 @@
             this.BtnModificar.TabIndex = 22;
             this.BtnModificar.Text = "Modificar";
             this.BtnModificar.UseVisualStyleBackColor = true;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // BtnEliminar
             // 
@@ -194,6 +149,7 @@
             this.BtnEliminar.TabIndex = 15;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnCargar
             // 
@@ -204,6 +160,7 @@
             this.BtnCargar.TabIndex = 23;
             this.BtnCargar.Text = "Cargar";
             this.BtnCargar.UseVisualStyleBackColor = true;
+            this.BtnCargar.Click += new System.EventHandler(this.BtnCargar_Click);
             // 
             // BtnAgregar
             // 
@@ -214,6 +171,7 @@
             this.BtnAgregar.TabIndex = 14;
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = true;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -292,6 +250,7 @@
             this.TxtID.Name = "TxtID";
             this.TxtID.Size = new System.Drawing.Size(121, 26);
             this.TxtID.TabIndex = 19;
+            this.TxtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtID_KeyPress);
             // 
             // TxtNombre
             // 
@@ -408,7 +367,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 700);
             this.Controls.Add(this.tableLayoutPanel3);
-            this.Controls.Add(this.tlpBusquedayAgregar);
             this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.plTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -416,8 +374,6 @@
             this.Text = "uq";
             this.Load += new System.EventHandler(this.Inventario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
-            this.tlpBusquedayAgregar.ResumeLayout(false);
-            this.tlpBusquedayAgregar.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -430,9 +386,6 @@
 
         private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.Panel plTop;
-        private System.Windows.Forms.TableLayoutPanel tlpBusquedayAgregar;
-        private System.Windows.Forms.Button btAgregar;
-        private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button BtnModificar;

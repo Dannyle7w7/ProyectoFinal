@@ -31,41 +31,41 @@ namespace ProyectoFinal.Submenus
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
- // Verificar si el campo de ID está vacío antes de intentar asignar un valor
-    if (string.IsNullOrEmpty(TxtID.Text))
-    {
-        string nombre = TxtNombre.Text;
-        string direccion = TxtDireccion.Text;
+            // Verificar si el campo de ID está vacío antes de intentar asignar un valor
+            if (string.IsNullOrEmpty(TxtID.Text))
+            {
+                string nombre = TxtNombre.Text;
+                string direccion = TxtDireccion.Text;
 
-        // Verificar que tanto el nombre como la dirección no estén en blanco
-        if (!string.IsNullOrEmpty(nombre) && !string.IsNullOrEmpty(direccion))
-        {
-            BLTienda tienda = new BLTienda();
-            tienda.AgregarProveedor(nombre, direccion);
+                // Verificar que tanto el nombre como la dirección no estén en blanco
+                if (!string.IsNullOrEmpty(nombre) && !string.IsNullOrEmpty(direccion))
+                {
+                    BLTienda tienda = new BLTienda();
+                    tienda.AgregarProveedor(nombre, direccion);
 
-            // Actualizar el DataGridView después de agregar un proveedor
-            DataTable dtProveedores = tienda.ObtenerProveedores();
-            DgvProv.DataSource = dtProveedores;
+                    // Actualizar el DataGridView después de agregar un proveedor
+                    DataTable dtProveedores = tienda.ObtenerProveedores();
+                    DgvProv.DataSource = dtProveedores;
 
-            // Limpiar los TextBox después de agregar un proveedor
-            TxtID.Text = "";
-            TxtNombre.Text = "";
-            TxtDireccion.Text = "";
+                    // Limpiar los TextBox después de agregar un proveedor
+                    TxtID.Text = "";
+                    TxtNombre.Text = "";
+                    TxtDireccion.Text = "";
 
-            // Mostrar mensaje informativo sobre la asignación automática del ID
-            MessageBox.Show("Proveedor agregado correctamente. El ID se asigna automáticamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        else
-        {
-            // Mostrar un mensaje indicando que tanto el nombre como la dirección deben ser ingresados
-            MessageBox.Show("Por favor, ingrese un nombre y una dirección para el proveedor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-    }
-    else
-    {
-        // Mostrar un mensaje indicando que el ID se asigna automáticamente y no debe ser ingresado por el usuario
-        MessageBox.Show("El ID se asigna automáticamente. Por favor, deje el campo ID vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-    }
+                    // Mostrar mensaje informativo sobre la asignación automática del ID
+                    MessageBox.Show("Proveedor agregado correctamente. El ID se asigna automáticamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // Mostrar un mensaje indicando que tanto el nombre como la dirección deben ser ingresados
+                    MessageBox.Show("Por favor, ingrese un nombre y una dirección para el proveedor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                // Mostrar un mensaje indicando que el ID se asigna automáticamente y no debe ser ingresado por el usuario
+                MessageBox.Show("El ID se asigna automáticamente. Por favor, deje el campo ID vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
 

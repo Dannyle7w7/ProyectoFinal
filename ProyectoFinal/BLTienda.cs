@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using ProyectoFinal.Submenus;
 
 namespace ProyectoFinal
 {
@@ -415,6 +416,54 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
             return null; // Si el texto de búsqueda es vacío o nulo, retornamos null
         }
 
+        // PARTE INVENTARIO
+
+        public void AgregarInventario(string cantidad, string nombre, string precio, string descuento, string descripcion, string marca)
+        {
+            string query = "INSERT INTO Productos (Cantidad, Nombre, Precio, Descuento, Descripcion, Marca) VALUES (@cantidad, @nombre, @precio, @descuento, @descripcion, @marca)";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@cantidad", cantidad),
+                new SqlParameter("@nombre", nombre),
+                new SqlParameter("@precio", precio),
+                new SqlParameter("@descuento", descuento),
+                new SqlParameter("@descripcion", descripcion),
+                new SqlParameter("@marca", marca)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
+
+        public void EliminarInvenario(int idInventario)
+        {
+            string query = "DELETE FROM Productos WHERE idProductos = @idInventario";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@idInventario", idInventario)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
+
+        public void ModificarInventario(int id, string cantidad, string nombre, string precio, string descuento, string descripcion, string marca)
+        {
+            string query = "UPDATE Productos SET Cantidad = @cantidad, Nombre = @nombre, Precio = @precio, Descuento = @descuento, Descripcion = @Descripcion, Marca = @marca WHERE idProductos = @idProductos";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@cantidad", cantidad),
+                new SqlParameter("@nombre", nombre),
+                new SqlParameter("@precio", precio),
+                new SqlParameter("@descuento", descuento),
+                new SqlParameter("@descripcion", descripcion),
+                new SqlParameter("@marca", marca),
+                new SqlParameter("@idProductos", id)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
 
 
 
@@ -468,6 +517,27 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
             dal.Transaccion(query, parametros);
         }
 
+        public DataRow ObtenerInventarioPorID(int idInventario)
+        {
+            string query = "SELECT * FROM Productos WHERE idProductos = @idInventario";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@idInventario", idInventario)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            DataTable resultado = dal.Consulta(query, parametros);
+
+            // Verificar si se encontró algún proveedor
+            if (resultado.Rows.Count > 0)
+            {
+                return resultado.Rows[0];
+            }
+            else
+            {
+                return null; // No se encontró ningún proveedor para el ID proporcionado
+            }
+        }
 
         public DataRow ObtenerProveedorPorId(int idProveedor)
         {
@@ -542,6 +612,17 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
             dal.Transaccion(query, parametros);
         }
 
+
+        public bool ExisteInventario(int id)
+        {
+            // Lógica para verificar si el proveedor con el ID dado existe en la base de datos
+            // Aquí asumimos que tienes un método ObtenerProveedorPorId en tu clase BLTienda
+            DataRow proveedor = ObtenerInventarioPorID(id);
+
+            // Devolver true si el proveedor existe, false en caso contrario
+            return proveedor != null;
+        }
+
         public bool ExisteProveedor(int id)
         {
             // Lógica para verificar si el proveedor con el ID dado existe en la base de datos
@@ -551,6 +632,7 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
             // Devolver true si el proveedor existe, false en caso contrario
             return proveedor != null;
         }
+
         public bool ExisteCliente(int id)
         {
             // Lógica para verificar si el proveedor con el ID dado existe en la base de datos
