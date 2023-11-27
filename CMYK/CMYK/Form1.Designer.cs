@@ -403,6 +403,7 @@
             BtnEnviaraCarrito.TabIndex = 35;
             BtnEnviaraCarrito.Text = "Enviar a Carrito";
             BtnEnviaraCarrito.UseVisualStyleBackColor = true;
+            BtnEnviaraCarrito.Click += BtnEnviaraCarrito_Click;
             // 
             // txtCantidadTotalLitros
             // 

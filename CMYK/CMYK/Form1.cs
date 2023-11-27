@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using DAL;
+using System.Data;
 
 namespace CMYK
 {
@@ -13,6 +16,10 @@ namespace CMYK
         private Dictionary<char, double> cmykToMlRatio;
         private System.Windows.Forms.Timer timerSimulacionClic;
         private static Mutex mutex = new Mutex(true, "{F47B8362-E150-4F52-B82A-17C8EF6D9078}");
+        private Excel.Application excelApp;
+        private Excel.Workbook workbook;
+        private Excel.Worksheet worksheet;
+        private string rutaCompleta;
 
 
 
@@ -39,6 +46,7 @@ namespace CMYK
                 { 'Y', 0.01 },  // Porcentaje de amarillo convertido a mililitros
                 { 'K', 0.01 }   // Porcentaje de negro convertido a mililitros
             };
+            txtCantidadTotalLitros.SelectedIndexChanged += (s, args) => btnCalcular.PerformClick();
         }
 
         private void TimerSimulacionClic_Tick(object sender, EventArgs e)
@@ -129,6 +137,12 @@ namespace CMYK
             // Mostrar el color en el Panel
             PanelColor.BackColor = generatedColor;
             PanelColordef.BackColor = PanelColor.BackColor;
+
+            if (txtCantidadTotalLitros.SelectedIndex >= 0)
+            {
+                // Simular un clic en el botón btnCalcular
+                btnCalcular.PerformClick();
+            }
         }
 
 
@@ -173,6 +187,11 @@ namespace CMYK
             else
             {
                 MessageBox.Show("Por favor, ingrese un valor hexadecimal válido", "Error");
+            }
+            if (txtCantidadTotalLitros.SelectedIndex >= 0)
+            {
+                // Simular un clic en el botón btnCalcular
+                btnCalcular.PerformClick();
             }
         }
 
@@ -228,20 +247,30 @@ namespace CMYK
             PanelColor.BackColor = Color.FromArgb(red, green, blue);
 
             BtnGenerar.PerformClick();
+            if (txtCantidadTotalLitros.SelectedIndex >= 0)
+            {
+                // Simular un clic en el botón btnCalcular
+                btnCalcular.PerformClick();
+            }
 
         }
 
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
+            
             // Obtener los valores de los controles NumericUpDown
             double cyan = (double)NupCyan.Value;
             double magenta = (double)NupMagenta.Value;
             double yellow = (double)NupYellow.Value;
             double black = (double)NupBlack.Value;
+            if (txtCantidadTotalLitros.SelectedIndex >= 0)
+            {
+                string selectedValue = txtCantidadTotalLitros.SelectedItem.ToString();
+            }
 
-            // Obtener la cantidad total de litros desde el TextBox
-            double cantidadTotalLitros;
+                // Obtener la cantidad total de litros desde el TextBox
+                double cantidadTotalLitros;
 
             if (!double.TryParse(txtCantidadTotalLitros.Text, out cantidadTotalLitros))
             {
@@ -285,6 +314,11 @@ namespace CMYK
             BtnRGB.PerformClick();
             PanelColordef.BackColor = clr;
             lbcodigo.Text = $": {Decimal.Text}";
+            if (txtCantidadTotalLitros.SelectedIndex >= 0)
+            {
+                // Simular un clic en el botón btnCalcular
+                btnCalcular.PerformClick();
+            }
 
 
 
@@ -308,11 +342,231 @@ namespace CMYK
 
 
         }
+        public DataTable ObtenerTodosLosInventarios()
+        {
+            string query = "SELECT  Nombre='Lata', precio FROM Productos";
+            DAL.DAL dal = new();
+            return dal.Consulta(query);
+        }
+
+        private void BtnEnviaraCarrito_Click(object sender, EventArgs e)
+        {
+            if (EsNumeroMayorACero(txtCantidadTotalLitros.Text))
+            {
+
+                // Obtener los datos necesarios
+                string producto = lbcodigo.Text;
+                decimal cantidad = Convert.ToDecimal(txtCantidadTotalLitros.Text);
+
+                // Obtener el precio desde la base de datos
+                DataTable dt = ObtenerTodosLosInventarios();
+
+                // Obtener la ruta del archivo en la carpeta del ejecutable
+                string nombreArchivo = "Carrito.xlsx";
+                string rutaCompleta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, nombreArchivo);
+
+                // Actualizar el archivo Excel existente o crear uno nuevo si no existe
+                ActualizarArchivoExcel(producto, cantidad, dt, rutaCompleta);
+                Application.Exit();
+            }
+            else
+            {
+                // Mostrar un mensaje de error o tomar alguna otra acción si la validación falla
+                MessageBox.Show("Ingrese un numero de litros mayor a 0.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // También puedes deshabilitar el botón si la validación falla (opcional)
+                // BtnEnviaraCarrito.Enabled = false;
+            }
+        }
+        private bool EsNumeroMayorACero(string input)
+        {
+            // Verificar si la cadena es un número y si ese número es mayor a 0
+            if (int.TryParse(input, out int numero) && numero > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void ActualizarArchivoExcel(string producto, decimal cantidad, DataTable dt, string rutaCompleta)
+        {
+            Excel.Application excelApp = new Excel.Application();
+
+            // Establecer Visible a false para que Excel no se abra en pantalla
+            excelApp.Visible = false;
 
 
+            // Intentar abrir un archivo existente
+            Excel.Workbook workbook = null;
+            try
+            {
+                workbook = excelApp.Workbooks.Open(rutaCompleta);
+            }
+            catch
+            {
+                // Si el archivo no existe, crear uno nuevo
+                workbook = excelApp.Workbooks.Add();
+                workbook.SaveAs(rutaCompleta); // Guardar el archivo para asegurar que esté disponible
+            }
+
+            Excel.Worksheet worksheet = workbook.Worksheets[1];
 
 
+            // Verificar si el archivo es nuevo antes de agregar las nuevas columnas
+            if (worksheet.Cells[1, 5].Value == null)
+            {
+                // Agregar nuevas columnas solo si no existen
+                worksheet.Cells[1, 1] = "Producto"; // Añadir o reafirmar el título
+                worksheet.Cells[1, 2] = "Cantidad"; // Añadir o reafirmar el título
+                worksheet.Cells[1, 3] = "Precio";   // Añadir o reafirmar el título
+                worksheet.Cells[1, 4] = "Total";    // Añadir o reafirmar el título
+                worksheet.Cells[1, 5] = "Cyan";    // Nueva columna
+                worksheet.Cells[1, 6] = "Magenta"; // Nueva columna
+                worksheet.Cells[1, 7] = "Yellow";  // Nueva columna
+                worksheet.Cells[1, 8] = "Black";   // Nueva columna
+            }
 
+            // Encontrar la última fila ocupada en la columna A
+            int lastRow = worksheet.Cells[worksheet.Rows.Count, 1].End[Excel.XlDirection.xlUp].Row;
+
+            // Iterar sobre las filas de la DataTable
+            int rowIndex = lastRow + 1; // Comenzar desde la próxima fila disponible
+            foreach (DataRow row in dt.Rows)
+            {
+                // Obtener el precio de la fila actual
+                decimal precio = Convert.ToDecimal(row["precio"]);
+
+                // Realizar el cálculo
+                decimal total = cantidad * precio;
+                // Configurar el formato de celda para la columna "Producto" como texto
+                producto = producto.TrimStart(':'); // Eliminar ":" al principio, si existe
+                worksheet.Cells[rowIndex, 1].NumberFormat = "@"; // Establecer formato de celda como texto
+                worksheet.Cells[rowIndex, 1].Value = producto;
+
+                // Obtener valores de las etiquetas y agregar a las nuevas columnas
+                decimal valorCyan;
+                if (decimal.TryParse(QuitarUnidades(lblResultadoCyan.Text), out valorCyan))
+                {
+                    worksheet.Cells[rowIndex, 5].NumberFormat = "0.00"; // Formato de celda para Cyan
+                    worksheet.Cells[rowIndex, 5] = valorCyan;
+                }
+                else
+                {
+                    // Manejar el caso en que la conversión no sea exitosa
+                    MessageBox.Show("El valor en lblResultadoCyan no es válido para la conversión a decimal.", "Error de conversión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                decimal valorMagenta;
+                if (decimal.TryParse(QuitarUnidades(lblResultadoMagenta.Text), out valorMagenta))
+                {
+                    worksheet.Cells[rowIndex, 6].NumberFormat = "0.00"; // Formato de celda para Magenta
+                    worksheet.Cells[rowIndex, 6] = valorMagenta;
+                }
+                else
+                {
+                    // Manejar el caso en que la conversión no sea exitosa
+                    MessageBox.Show("El valor en lblResultadoMagenta no es válido para la conversión a decimal.", "Error de conversión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                decimal valorYellow;
+                if (decimal.TryParse(QuitarUnidades(lblResultadoYellow.Text), out valorYellow))
+                {
+                    worksheet.Cells[rowIndex, 7].NumberFormat = "0.00"; // Formato de celda para Yellow
+                    worksheet.Cells[rowIndex, 7] = valorYellow;
+                }
+                else
+                {
+                    // Manejar el caso en que la conversión no sea exitosa
+                    MessageBox.Show("El valor en lblResultadoYellow no es válido para la conversión a decimal.", "Error de conversión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                decimal valorBlack;
+                if (decimal.TryParse(QuitarUnidades(lblResultadoBlack.Text), out valorBlack))
+                {
+                    worksheet.Cells[rowIndex, 8].NumberFormat = "0.00"; // Formato de celda para Black
+                    worksheet.Cells[rowIndex, 8] = valorBlack;
+                }
+                else
+                {
+                    // Manejar el caso en que la conversión no sea exitosa
+                    MessageBox.Show("El valor en lblResultadoBlack no es válido para la conversión a decimal.", "Error de conversión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Agregar datos restantes
+                worksheet.Cells[rowIndex, 1].NumberFormat = "000000"; // Formato de celda para productos con 6 dígitos y ceros iniciales
+                worksheet.Cells[rowIndex, 1] = producto;
+
+                // Formatear cantidad como cadena con 6 dígitos
+                string cantidadFormateada = cantidad.ToString("0.00").PadLeft(6, '0');
+
+                worksheet.Cells[rowIndex, 2].NumberFormat = "0.00"; // Formato de celda para cantidad
+                worksheet.Cells[rowIndex, 2] = cantidadFormateada;
+
+                worksheet.Cells[rowIndex, 3].NumberFormat = "0.00"; // Formato de celda para precio
+                worksheet.Cells[rowIndex, 3] = precio;
+
+                worksheet.Cells[rowIndex, 4].NumberFormat = "0.00"; // Formato de celda para total
+                worksheet.Cells[rowIndex, 4] = total;
+
+                // Incrementar el índice de fila
+                rowIndex++;
+            }
+            excelApp.DisplayAlerts = false;
+            workbook.Save();
+            excelApp.DisplayAlerts = true;
+
+            workbook.Close();
+            CerrarExcel();
+        }
+        private string QuitarUnidades(string input)
+        {
+            // Mantener solo caracteres numéricos y un punto decimal
+            return new string(input.Where(c => char.IsDigit(c) || c == '.').ToArray());
+        }
+
+        private void CerrarExcel()
+        {
+            try
+            {
+                // Guardar los cambios en el archivo
+                workbook?.SaveAs(rutaCompleta);
+
+                // Cerrar el libro de trabajo y la aplicación de Excel
+                workbook?.Close();
+                excelApp?.Quit();
+
+                // Liberar los objetos de Excel para evitar la acumulación de instancias
+                if (worksheet != null)
+                {
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+                    worksheet = null;
+                }
+
+                if (workbook != null)
+                {
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+                    workbook = null;
+                }
+
+                if (excelApp != null)
+                {
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+                    excelApp = null;
+                }
+
+                // Forzar la recolección de basura para liberar inmediatamente los recursos
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción, por ejemplo, mostrar un mensaje de error
+                MessageBox.Show($"Error al cerrar Excel: {ex.Message}");
+            }
+        }
 
 
         private void txtCantidadTotalMl_TextChanged(object sender, EventArgs e)
@@ -359,6 +613,7 @@ namespace CMYK
 
         }
 
+       
     }
 
 }
