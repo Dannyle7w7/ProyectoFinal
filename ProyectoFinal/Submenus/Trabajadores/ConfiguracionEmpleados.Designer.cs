@@ -60,7 +60,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAgregar.Location = new System.Drawing.Point(161, 463);
+            this.btnAgregar.Location = new System.Drawing.Point(204, 454);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(201, 78);
             this.btnAgregar.TabIndex = 1;
@@ -282,7 +282,7 @@
             this.rjMostrar.UseVisualStyleBackColor = true;
             this.rjMostrar.CheckedChanged += new System.EventHandler(this.rjToggleButton1_CheckedChanged);
             // 
-            // ModificacionTrabajadores
+            // Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -309,7 +309,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "ModificacionTrabajadores";
+            this.Name = "Configuracion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta de empleados";
             this.Load += new System.EventHandler(this.ModificacionTrabajadores_Load);

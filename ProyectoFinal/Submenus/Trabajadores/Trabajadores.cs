@@ -31,12 +31,12 @@ namespace ProyectoFinal.Submenus.Trabajadores
         private void btAgregar_Click(object sender, EventArgs e)
         {
             BLTienda bl =new BLTienda();
-           /* Configuracion form = new ModificacionTrabajadores();
+           Configuracion form = new Configuracion();
             form.ID = bl.ConsultaultimoID()+1;
             form.btnModificar.Enabled = false;
             form.btnModificar.Hide();
             form.ShowDialog();
-           */
+           
             if (txtBusqueda.Text == "Búsqueda")
             {
                 if (rdTodos.Checked == true)
@@ -175,8 +175,8 @@ namespace ProyectoFinal.Submenus.Trabajadores
                 string idValue = row.Cells[0].Value.ToString();
 
                 BLTienda bl = new BLTienda();
-                /*
-                Configuracion form = new ModificacionTrabajadores();
+                
+                Configuracion form = new Configuracion();
                 
                 form.ID = Convert.ToInt32(idValue);
                 form.btnAgregar.Hide();
@@ -185,7 +185,7 @@ namespace ProyectoFinal.Submenus.Trabajadores
                 form.txtUsuario.ForeColor = Color.Black;
                 form.txtContra.ForeColor = Color.Black;
                 form.ShowDialog();
-                */
+                
                 if (txtBusqueda.Text == "Búsqueda")
                 {
                     if (rdTodos.Checked == true)

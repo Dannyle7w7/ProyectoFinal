@@ -163,6 +163,28 @@ namespace ProyectoFinal
 
             ActualizarEmpleado(id ,usuario, contraseña, nombre, imagenBytes, estado, puesto);
         }
+
+        public void PushActualizarEmpleadousu(string id, string contraseña, System.Drawing.Image foto)
+        {
+            // Convertimos la imagen a un arreglo de bytes
+            byte[] imagenBytes = ImageToByteArray(foto);
+
+            ActualizarEmpleadousu(id, contraseña,  imagenBytes);
+        }
+
+        private void ActualizarEmpleadousu(string id, string contraseña, byte[] imagen)
+        {
+            string query = "UPDATE Empleados SET Contraseña = @contraseña, Foto = @foto WHERE IdEmpleados = @id";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+      
+        new SqlParameter("@contraseña", contraseña),
+        new SqlParameter("@foto", SqlDbType.VarBinary) { Value = imagen },
+        new SqlParameter("@id", id)
+            };
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros); // Utilizamos el método de transacción del DAL
+        }
         // Convierte una imagen a un arreglo de bytes
         private byte[] ImageToByteArray(System.Drawing.Image imagen)
         {
@@ -232,6 +254,34 @@ namespace ProyectoFinal
             return getIDFoto(ID);
         }
 
+        private System.Drawing.Image getUsuFoto(String usu)
+        {
+            string query = "SELECT Foto FROM Empleados WHERE Usuario = @usu ";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@usu", usu)
+             };
+            DAL.DAL dal = new DAL.DAL();
+            byte[] imagenBytes = dal.ConsultaEscalar(query, parametros) as byte[];
+
+            if (imagenBytes != null && imagenBytes.Length > 0)
+            {
+                // Ahora, convertimos el arreglo de bytes a una imagen
+                System.Drawing.Image foto = ByteArrayToImage(imagenBytes);
+                return foto;
+            }
+            else
+            {
+                // Si no se encontró ninguna imagen, puedes devolver null o algún valor predeterminado.
+                return null;
+            }
+        }
+
+        public System.Drawing.Image ConsulaFotousu(String usu)
+        {
+            return getUsuFoto(usu);
+        }
+
         public System.Drawing.Image ByteArrayToImage(byte[] byteArray)
         {
             System.IO.MemoryStream ms = new System.IO.MemoryStream(byteArray);
@@ -289,7 +339,18 @@ namespace ProyectoFinal
                 new SqlParameter("@id", ID)
              };
             DAL.DAL dal = new DAL.DAL();
-            return dal.Consulta(query,parametros);
+            return dal.Consulta(query, parametros);
+        }
+
+        public DataTable ObtenerEmpleadousuDparaUPDATE(string usu)
+        {
+            string query = "Select  IdEmpleados,Nombre,Contraseña from Empleados where Usuario=@usu ";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@usu", usu)
+             };
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query, parametros);
         }
         //Estos son para todos sin buscar
         public DataTable ObtenerTodosLosEmpleados()

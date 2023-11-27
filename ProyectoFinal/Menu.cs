@@ -40,7 +40,7 @@ namespace ProyectoFinal
         CompraProveedores formCompras = new CompraProveedores();
 
         public bool ConfiguracionAbierta = false;
-        Configuracion formConfiguracion = new Configuracion();
+        Perfil formConfiguracion = new Perfil();
 
 
         public Menu()
@@ -215,18 +215,9 @@ namespace ProyectoFinal
 
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
-            EsconderTodosLosMDIChildren();
-            if (ConfiguracionAbierta == false)
-            {
-                formConfiguracion.MdiParent = this;
-                formConfiguracion.WindowState = FormWindowState.Maximized;
-                ConfiguracionAbierta = true;
-                formConfiguracion.Show();
-            }
-            else
-            {
-                formConfiguracion.Show();
-            }
+            formConfiguracion.txtUsuario.Text =lblUsuario.Text;
+            formConfiguracion.ShowDialog();
+
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
