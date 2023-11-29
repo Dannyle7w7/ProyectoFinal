@@ -60,9 +60,10 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAgregar.Location = new System.Drawing.Point(161, 463);
+            this.btnAgregar.Location = new System.Drawing.Point(107, 301);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(201, 78);
+            this.btnAgregar.Size = new System.Drawing.Size(134, 51);
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Registrar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -71,9 +72,10 @@
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnModificar.Location = new System.Drawing.Point(204, 454);
+            this.btnModificar.Location = new System.Drawing.Point(136, 295);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(201, 78);
+            this.btnModificar.Size = new System.Drawing.Size(134, 51);
             this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -83,9 +85,10 @@
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.txtUsuario.ForeColor = System.Drawing.Color.Gray;
-            this.txtUsuario.Location = new System.Drawing.Point(219, 178);
+            this.txtUsuario.Location = new System.Drawing.Point(146, 116);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(276, 39);
+            this.txtUsuario.Size = new System.Drawing.Size(185, 29);
             this.txtUsuario.TabIndex = 4;
             this.txtUsuario.Text = "Usuario";
             this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
@@ -96,9 +99,10 @@
             // 
             this.txtNombre.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.txtNombre.ForeColor = System.Drawing.Color.Gray;
-            this.txtNombre.Location = new System.Drawing.Point(220, 296);
+            this.txtNombre.Location = new System.Drawing.Point(147, 192);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(276, 39);
+            this.txtNombre.Size = new System.Drawing.Size(185, 29);
             this.txtNombre.TabIndex = 5;
             this.txtNombre.Text = "Nombre";
             this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
@@ -108,18 +112,20 @@
             // 
             this.txtID.Enabled = false;
             this.txtID.Font = new System.Drawing.Font("Nirmala UI", 12F);
-            this.txtID.Location = new System.Drawing.Point(219, 120);
+            this.txtID.Location = new System.Drawing.Point(146, 78);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(276, 39);
+            this.txtID.Size = new System.Drawing.Size(185, 29);
             this.txtID.TabIndex = 6;
             // 
             // txtContra
             // 
             this.txtContra.Font = new System.Drawing.Font("Nirmala UI", 12F);
             this.txtContra.ForeColor = System.Drawing.Color.Gray;
-            this.txtContra.Location = new System.Drawing.Point(219, 354);
+            this.txtContra.Location = new System.Drawing.Point(146, 230);
+            this.txtContra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtContra.Name = "txtContra";
-            this.txtContra.Size = new System.Drawing.Size(276, 39);
+            this.txtContra.Size = new System.Drawing.Size(185, 29);
             this.txtContra.TabIndex = 11;
             this.txtContra.Text = "Contraseña";
             this.txtContra.Enter += new System.EventHandler(this.txtContra_Enter);
@@ -129,9 +135,10 @@
             // 
             this.btnFoto.AutoSize = true;
             this.btnFoto.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnFoto.Location = new System.Drawing.Point(12, 314);
+            this.btnFoto.Location = new System.Drawing.Point(8, 204);
+            this.btnFoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFoto.Name = "btnFoto";
-            this.btnFoto.Size = new System.Drawing.Size(150, 76);
+            this.btnFoto.Size = new System.Drawing.Size(100, 50);
             this.btnFoto.TabIndex = 15;
             this.btnFoto.Text = "Cargar \r\nImagen";
             this.btnFoto.UseVisualStyleBackColor = true;
@@ -141,11 +148,12 @@
             // 
             this.pbFoto.Image = ((System.Drawing.Image)(resources.GetObject("pbFoto.Image")));
             this.pbFoto.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbFoto.InitialImage")));
-            this.pbFoto.Location = new System.Drawing.Point(12, 120);
-            this.pbFoto.MaximumSize = new System.Drawing.Size(150, 180);
-            this.pbFoto.MinimumSize = new System.Drawing.Size(150, 180);
+            this.pbFoto.Location = new System.Drawing.Point(8, 78);
+            this.pbFoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbFoto.MaximumSize = new System.Drawing.Size(100, 117);
+            this.pbFoto.MinimumSize = new System.Drawing.Size(100, 117);
             this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(150, 180);
+            this.pbFoto.Size = new System.Drawing.Size(100, 117);
             this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFoto.TabIndex = 16;
             this.pbFoto.TabStop = false;
@@ -158,9 +166,10 @@
             this.lblTitulo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lblTitulo.Font = new System.Drawing.Font("Nirmala UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.Beige;
-            this.lblTitulo.Location = new System.Drawing.Point(109, 29);
+            this.lblTitulo.Location = new System.Drawing.Point(73, 19);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(315, 45);
+            this.lblTitulo.Size = new System.Drawing.Size(216, 30);
             this.lblTitulo.TabIndex = 19;
             this.lblTitulo.Text = "Registro de Usuario";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,16 +180,18 @@
             this.pnlTitulo.Controls.Add(this.lblTitulo);
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
+            this.pnlTitulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(578, 100);
+            this.pnlTitulo.Size = new System.Drawing.Size(385, 65);
             this.pnlTitulo.TabIndex = 20;
             // 
             // pbID
             // 
             this.pbID.Image = ((System.Drawing.Image)(resources.GetObject("pbID.Image")));
-            this.pbID.Location = new System.Drawing.Point(174, 119);
+            this.pbID.Location = new System.Drawing.Point(116, 77);
+            this.pbID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbID.Name = "pbID";
-            this.pbID.Size = new System.Drawing.Size(39, 35);
+            this.pbID.Size = new System.Drawing.Size(26, 23);
             this.pbID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbID.TabIndex = 21;
             this.pbID.TabStop = false;
@@ -188,9 +199,10 @@
             // pbUsu
             // 
             this.pbUsu.Image = ((System.Drawing.Image)(resources.GetObject("pbUsu.Image")));
-            this.pbUsu.Location = new System.Drawing.Point(174, 178);
+            this.pbUsu.Location = new System.Drawing.Point(116, 116);
+            this.pbUsu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbUsu.Name = "pbUsu";
-            this.pbUsu.Size = new System.Drawing.Size(39, 35);
+            this.pbUsu.Size = new System.Drawing.Size(26, 23);
             this.pbUsu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbUsu.TabIndex = 22;
             this.pbUsu.TabStop = false;
@@ -203,17 +215,19 @@
             this.cbNivel.Items.AddRange(new object[] {
             "Empleado",
             "Jefe"});
-            this.cbNivel.Location = new System.Drawing.Point(219, 236);
+            this.cbNivel.Location = new System.Drawing.Point(146, 153);
+            this.cbNivel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbNivel.Name = "cbNivel";
-            this.cbNivel.Size = new System.Drawing.Size(276, 40);
+            this.cbNivel.Size = new System.Drawing.Size(185, 29);
             this.cbNivel.TabIndex = 23;
             // 
             // pbNombre
             // 
             this.pbNombre.Image = ((System.Drawing.Image)(resources.GetObject("pbNombre.Image")));
-            this.pbNombre.Location = new System.Drawing.Point(174, 296);
+            this.pbNombre.Location = new System.Drawing.Point(116, 192);
+            this.pbNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbNombre.Name = "pbNombre";
-            this.pbNombre.Size = new System.Drawing.Size(39, 35);
+            this.pbNombre.Size = new System.Drawing.Size(26, 23);
             this.pbNombre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbNombre.TabIndex = 24;
             this.pbNombre.TabStop = false;
@@ -221,9 +235,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(174, 355);
+            this.pictureBox3.Location = new System.Drawing.Point(116, 231);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(39, 35);
+            this.pictureBox3.Size = new System.Drawing.Size(26, 23);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 25;
             this.pictureBox3.TabStop = false;
@@ -231,9 +246,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(174, 237);
+            this.pictureBox1.Location = new System.Drawing.Point(116, 154);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 35);
+            this.pictureBox1.Size = new System.Drawing.Size(26, 23);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
@@ -242,9 +258,10 @@
             // 
             this.lblActivo.AutoSize = true;
             this.lblActivo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblActivo.Location = new System.Drawing.Point(248, 407);
+            this.lblActivo.Location = new System.Drawing.Point(165, 265);
+            this.lblActivo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblActivo.Name = "lblActivo";
-            this.lblActivo.Size = new System.Drawing.Size(177, 32);
+            this.lblActivo.Size = new System.Drawing.Size(118, 21);
             this.lblActivo.TabIndex = 29;
             this.lblActivo.Text = "Estado: Activo";
             // 
@@ -253,14 +270,15 @@
             this.rdActivo.AutoSize = true;
             this.rdActivo.Checked = true;
             this.rdActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.rdActivo.Location = new System.Drawing.Point(174, 406);
-            this.rdActivo.MinimumSize = new System.Drawing.Size(68, 33);
+            this.rdActivo.Location = new System.Drawing.Point(116, 264);
+            this.rdActivo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdActivo.MinimumSize = new System.Drawing.Size(45, 21);
             this.rdActivo.Name = "rdActivo";
             this.rdActivo.OffBackColor = System.Drawing.Color.Gray;
             this.rdActivo.OffToggleColor = System.Drawing.Color.Gainsboro;
             this.rdActivo.OnBackColor = System.Drawing.Color.MediumSlateBlue;
             this.rdActivo.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.rdActivo.Size = new System.Drawing.Size(68, 33);
+            this.rdActivo.Size = new System.Drawing.Size(45, 21);
             this.rdActivo.TabIndex = 28;
             this.rdActivo.UseVisualStyleBackColor = true;
             this.rdActivo.CheckedChanged += new System.EventHandler(this.rdActivo_CheckedChanged);
@@ -270,24 +288,25 @@
             this.rjMostrar.AutoSize = true;
             this.rjMostrar.Checked = true;
             this.rjMostrar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.rjMostrar.Location = new System.Drawing.Point(501, 357);
-            this.rjMostrar.MinimumSize = new System.Drawing.Size(68, 33);
+            this.rjMostrar.Location = new System.Drawing.Point(334, 232);
+            this.rjMostrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rjMostrar.MinimumSize = new System.Drawing.Size(45, 21);
             this.rjMostrar.Name = "rjMostrar";
             this.rjMostrar.OffBackColor = System.Drawing.Color.Gray;
             this.rjMostrar.OffToggleColor = System.Drawing.Color.Gainsboro;
             this.rjMostrar.OnBackColor = System.Drawing.Color.MediumSlateBlue;
             this.rjMostrar.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.rjMostrar.Size = new System.Drawing.Size(68, 33);
+            this.rjMostrar.Size = new System.Drawing.Size(45, 21);
             this.rjMostrar.TabIndex = 27;
             this.rjMostrar.UseVisualStyleBackColor = true;
             this.rjMostrar.CheckedChanged += new System.EventHandler(this.rjToggleButton1_CheckedChanged);
             // 
-            // ModificacionTrabajadores
+            // Configuracion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(578, 544);
+            this.ClientSize = new System.Drawing.Size(385, 354);
             this.Controls.Add(this.lblActivo);
             this.Controls.Add(this.rdActivo);
             this.Controls.Add(this.rjMostrar);
@@ -308,8 +327,9 @@
             this.Controls.Add(this.btnModificar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
-            this.Name = "ModificacionTrabajadores";
+            this.Name = "Configuracion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta de empleados";
             this.Load += new System.EventHandler(this.ModificacionTrabajadores_Load);
