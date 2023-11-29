@@ -151,6 +151,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Submenus\Trabajadores\ModificacionTrabajadores.resx">
       <DependentUpon>ModificacionTrabajadores.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Submenus\Trabajadores\Trabajadores.resx">
       <DependentUpon>Trabajadores.cs</DependentUpon>
