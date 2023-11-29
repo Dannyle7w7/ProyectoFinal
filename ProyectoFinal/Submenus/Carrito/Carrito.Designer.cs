@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Carrito));
             this.plTop = new System.Windows.Forms.Panel();
             this.DvgAcomulacioncarrito = new System.Windows.Forms.DataGridView();
             this.DvgClientesLista = new System.Windows.Forms.DataGridView();
             this.TxtCodigo = new System.Windows.Forms.TextBox();
             this.BtnCodigo = new System.Windows.Forms.Button();
-            this.txtClientes = new System.Windows.Forms.TextBox();
+            this.TxtClientes = new System.Windows.Forms.TextBox();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.BtnProductos = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
@@ -106,20 +106,20 @@
             this.DvgAcomulacioncarrito.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DvgAcomulacioncarrito.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(214)))), ((int)(((byte)(180)))));
             this.DvgAcomulacioncarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DvgAcomulacioncarrito.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DvgAcomulacioncarrito.DefaultCellStyle = dataGridViewCellStyle1;
             this.DvgAcomulacioncarrito.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DvgAcomulacioncarrito.Location = new System.Drawing.Point(3, 42);
             this.DvgAcomulacioncarrito.Name = "DvgAcomulacioncarrito";
             this.DvgAcomulacioncarrito.Size = new System.Drawing.Size(790, 242);
             this.DvgAcomulacioncarrito.TabIndex = 17;
-            this.DvgAcomulacioncarrito.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DvgAcomulacioncarrito_CellContentClick);
+            this.DvgAcomulacioncarrito.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DvgAcomulacioncarrito_CellClick);
             // 
             // DvgClientesLista
             // 
@@ -132,6 +132,7 @@
             this.DvgClientesLista.Name = "DvgClientesLista";
             this.DvgClientesLista.Size = new System.Drawing.Size(790, 123);
             this.DvgClientesLista.TabIndex = 18;
+            this.DvgClientesLista.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DvgClientesLista_CellContentDoubleClick);
             // 
             // TxtCodigo
             // 
@@ -158,15 +159,15 @@
             this.BtnCodigo.UseVisualStyleBackColor = false;
             this.BtnCodigo.Click += new System.EventHandler(this.BtnCodigo_Click);
             // 
-            // txtClientes
+            // TxtClientes
             // 
-            this.txtClientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.TxtClientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtClientes.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.txtClientes.Location = new System.Drawing.Point(117, 5);
-            this.txtClientes.Name = "txtClientes";
-            this.txtClientes.Size = new System.Drawing.Size(670, 29);
-            this.txtClientes.TabIndex = 21;
+            this.TxtClientes.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
+            this.TxtClientes.Location = new System.Drawing.Point(117, 5);
+            this.TxtClientes.Name = "TxtClientes";
+            this.TxtClientes.Size = new System.Drawing.Size(670, 29);
+            this.TxtClientes.TabIndex = 21;
             // 
             // BtnAgregar
             // 
@@ -213,6 +214,7 @@
             this.BtnEliminar.TabIndex = 25;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // label1
             // 
@@ -290,7 +292,7 @@
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.43209F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.56792F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel12.Controls.Add(this.txtClientes, 1, 0);
+            this.tableLayoutPanel12.Controls.Add(this.TxtClientes, 1, 0);
             this.tableLayoutPanel12.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 337);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -705,7 +707,7 @@
         private System.Windows.Forms.DataGridView DvgClientesLista;
         private System.Windows.Forms.TextBox TxtCodigo;
         private System.Windows.Forms.Button BtnCodigo;
-        private System.Windows.Forms.TextBox txtClientes;
+        private System.Windows.Forms.TextBox TxtClientes;
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.Button BtnProductos;
         private System.Windows.Forms.Button BtnEliminar;

@@ -28,6 +28,9 @@ namespace ProyectoFinal.Submenus.Trabajadores
         private double sumaYellow = 0.0;
         private double sumaBlack = 0.0;
         private bool ventanaProductosAbierta = false;
+        private DataView _dvClientes; // Variable para almacenar la vista filtrada de los clientes
+        private DataTable dtClientes; // Variable para almacenar todos los clientes
+   
         public Carrito()
         {
             InitializeComponent();
@@ -40,6 +43,9 @@ namespace ProyectoFinal.Submenus.Trabajadores
             TxtCodigo.TextChanged += TxtCodigo_TextChanged;
             Txtingdinero.TextChanged += Txtingdinero_TextChanged;
             RbTarjeta.CheckedChanged += RbTarjeta_CheckedChanged;
+            DvgClientesLista.CellDoubleClick += DvgClientesLista_CellDoubleClick;
+            TxtClientes.TextChanged += TxtClientes_TextChanged;
+            EliminarArchivoExcel();
 
 
         }
@@ -232,11 +238,49 @@ namespace ProyectoFinal.Submenus.Trabajadores
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-            EliminarArchivoExcel();
-            BLTienda bl = new BLTienda();
-            DvgClientesLista.DataSource = bl.ObtenerTodosLosClientes();
-            CargarDatosDesdeExcel();
+            // Obtener todos los clientes al cargar el formulario
+            dtClientes = ObtenerTodosLosClientes();
+            _dvClientes = new DataView(dtClientes);
 
+            DvgClientesLista.DataSource = _dvClientes;
+            // Otros métodos de carga...
+        }
+        private DataTable ObtenerTodosLosClientes()
+        {
+            string query = "SELECT IdClientes,Nombre,RFC,[Razon Social],Calle,NumExt,NumInt,Colonia,Municipio,[Codigo Postal],Estado,[Regimen Fiscal],[Uso de CFDI],Telefono,Correo FROM Clientes";
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query);
+        }
+
+
+        private void TxtClientes_TextChanged(object sender, EventArgs e)
+        {
+            // Filtrar DataView basado en el texto en TxtClientes
+            string filtro = TxtClientes.Text.Trim();
+
+            if (!string.IsNullOrEmpty(filtro))
+            {
+                // Filtrar solo por el campo 'Nombre'
+                _dvClientes.RowFilter = $"Nombre LIKE '%{filtro}%'";
+            }
+            else
+            {
+                _dvClientes.RowFilter = string.Empty;
+            }
+
+            // Actualizar el DataGridView
+            DvgClientesLista.Refresh();
+        }
+
+        private void DvgClientesLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = DvgClientesLista.Rows[e.RowIndex];
+                int idCliente = Convert.ToInt32(row.Cells["IdClientes"].Value);
+                // Realiza la acción que necesites con el idCliente
+                MessageBox.Show($"Haz seleccionado un cliente");
+            }
         }
         private void OnTimerElapsed(object sender, ElapsedEventArgs e)
         {
@@ -370,7 +414,7 @@ namespace ProyectoFinal.Submenus.Trabajadores
                 if (File.Exists(rutaAlEjecutable))
                 {
                     // Iniciar el proceso del otro programa
-                   
+
                 }
                 else
                 {
@@ -483,13 +527,13 @@ namespace ProyectoFinal.Submenus.Trabajadores
         {
             // Llama al método para restablecer los campos a sus valores iniciales
             RestablecerCampos();
-            EliminarArchivoExcel();
+
         }
 
         private void RestablecerCampos()
         {
             // Restablece el contenido de los campos a cero o valores predeterminados
-            txtClientes.Text = "";
+            TxtClientes.Text = "";
             TxtCodigo.Text = "";
             lblTotalPag.Text = "0.00";
             TxtCodigo.Text = "";
@@ -500,7 +544,7 @@ namespace ProyectoFinal.Submenus.Trabajadores
             RbTarjeta.Checked = false;
             RbEfectivo.Checked = false;
             MessageBox.Show("La compra ha sido cancelada.", "Cancelación de Compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            EliminarArchivoExcel();
 
         }
 
@@ -555,6 +599,138 @@ namespace ProyectoFinal.Submenus.Trabajadores
             AbrirVentanaProductos();
         }
 
+        private void DvgClientesLista_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < DvgClientesLista.Rows.Count)
+            {
+                DataGridViewRow filaSeleccionada = DvgClientesLista.Rows[e.RowIndex];
+                int idCliente = Convert.ToInt32(filaSeleccionada.Cells["IdClientes"].Value);
+                MessageBox.Show($"Doble clic en el cliente con ID: {idCliente}");
+            }
+        }
+
+
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (DvgAcomulacioncarrito.CurrentCell != null && DvgAcomulacioncarrito.SelectedCells.Count > 0)
+            {
+                int rowIndex = DvgAcomulacioncarrito.CurrentCell.RowIndex;
+
+                // Obtiene la fila seleccionada
+                DataGridViewRow selectedRow = DvgAcomulacioncarrito.Rows[rowIndex];
+
+                // Obtén los datos de la fila
+                string producto = selectedRow.Cells["Producto"].Value.ToString();
+                int cantidad = Convert.ToInt32(selectedRow.Cells["Cantidad"].Value);
+                double total = Convert.ToDouble(selectedRow.Cells["Total"].Value);
+
+                // Llama a la función para eliminar la fila del Excel
+                EliminarFilaDeExcel(producto, cantidad);
+                CargarDatosDesdeExcel();
+
+                // Elimina la fila seleccionada del DataGridView
+
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una fila para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void EliminarFilaDeExcel(string producto, int cantidad)
+        {
+            try
+            {
+                // Obtén la ruta al archivo Excel
+                string directorioEjecutable = AppDomain.CurrentDomain.BaseDirectory;
+                string rutaDeCaja = Path.Combine(directorioEjecutable, "..", "..", "..", "CMYK", "CMYK", "bin", "Debug", "net6.0-windows", "Carrito.xlsx");
+
+                // Crea una aplicación Excel
+                Excel.Application excelApp = new Excel.Application();
+                Excel.Workbook workbook = excelApp.Workbooks.Open(rutaDeCaja);
+                Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Sheets[1]; // Asume que los datos están en la primera hoja
+
+                // Buscar la fila que coincide con los datos en el Excel y eliminarla
+                for (int row = 2; row <= worksheet.UsedRange.Rows.Count; row++)
+                {
+                    string excelProducto = Convert.ToString(worksheet.Cells[row, 1].Value);
+                    int excelCantidad = Convert.ToInt32(worksheet.Cells[row, 2].Value);
+
+        
+
+                    // Comparar con los valores del DataGridView
+                    if (excelProducto == producto && excelCantidad == cantidad)
+                    {
+                        // Eliminar la fila
+                        worksheet.Rows[row].Delete();
+                    
+                        // Guardar los cambios y cerrar Excel
+                        workbook.Save();
+                        workbook.Close();
+                        excelApp.Quit();
+
+                        // Actualizar el DataGridView después de eliminar la fila
+                        CargarDatosDesdeExcel();
+
+                        
+                        return;
+                    }
+                }
+
+                // Cerrar Excel si no se encontró la fila
+                workbook.Close();
+                excelApp.Quit();
+                MessageBox.Show("No se encontró la fila en el Excel");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar la fila del Excel: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void GuardarDataTableEnExcel(System.Data.DataTable dataTable, string rutaDeCaja)
+        {
+            // Crear una aplicación Excel
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook = excelApp.Workbooks.Add();
+            Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Sheets[1];
+
+            // Llenar la hoja de cálculo con los datos del DataTable
+            for (int i = 0; i < dataTable.Columns.Count; i++)
+            {
+                worksheet.Cells[1, i + 1] = dataTable.Columns[i].ColumnName;
+            }
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataTable.Columns.Count; j++)
+                {
+                    worksheet.Cells[i + 2, j + 1] = dataTable.Rows[i][j];
+                }
+            }
+
+            // Guardar el archivo Excel
+            workbook.SaveAs(rutaDeCaja);
+
+            // Cerrar la aplicación Excel
+            excelApp.Quit();
+        }
+
+        private void DvgAcomulacioncarrito_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = DvgAcomulacioncarrito.Rows[e.RowIndex];
+
+                // Obtén los datos de la fila
+                string producto = row.Cells["Producto"].Value.ToString();
+                int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
+                double total = Convert.ToDouble(row.Cells["Total"].Value);
+
+            }
+        }
     }
 }
 
