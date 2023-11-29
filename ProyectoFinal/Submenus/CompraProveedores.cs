@@ -39,7 +39,7 @@ namespace ProyectoFinal.Submenus
                 if (!string.IsNullOrEmpty(idproducto) && !string.IsNullOrEmpty(idprovedor) && !string.IsNullOrEmpty(cantidad) && !string.IsNullOrEmpty(costo))
                 {
                     BLTienda tienda = new BLTienda();
-                    tienda.AgregarCompra(idproducto, idprovedor, cantidad, costo);
+                    //tienda.AgregarCompra(idproducto, idprovedor, cantidad, costo);
 
                     // Actualizar el DataGridView después de agregar un inventario
                     DataTable dtProveedores = tienda.ObtenerTodosLosInventarios();

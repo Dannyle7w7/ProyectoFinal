@@ -662,19 +662,19 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
             SqlParameter[] parametros = new SqlParameter[]
             {
         new SqlParameter("@nombre", nombre),
-        new SqlParameter("@rfc", rfc),
-        new SqlParameter("@razonSocial", razonSocial),
-        new SqlParameter("@calle", calle),
-        new SqlParameter("@numeroExt", numeroExt),
-        new SqlParameter("@numeroInt", numeroInt),
-        new SqlParameter("@colonia", colonia),
-        new SqlParameter("@municipio", municipio),
-        new SqlParameter("@cp", cp),
-        new SqlParameter("@estado", estado),
-        new SqlParameter("@regimenFiscal", regimenFiscal),
-        new SqlParameter("@cfdi", cfdi),
-        new SqlParameter("@telefono", telefono),
-        new SqlParameter("@correo", correo),
+        new SqlParameter("@rfc", Rfc),
+        new SqlParameter("@razonSocial", RazonSocial),
+        new SqlParameter("@calle", Calle),
+        new SqlParameter("@numeroExt", NumeroExterior),
+        new SqlParameter("@numeroInt", NumeroInterior),
+        new SqlParameter("@colonia", Colonia),
+        new SqlParameter("@municipio", Municipio),
+        new SqlParameter("@cp", CP),
+        new SqlParameter("@estado", Estado),
+        new SqlParameter("@regimenFiscal", RegimenFiscal),
+        new SqlParameter("@cfdi", CFDI),
+        new SqlParameter("@telefono", Telefono),
+        new SqlParameter("@correo", Correo),
         new SqlParameter("@idCliente", idClientes)
             };
 
