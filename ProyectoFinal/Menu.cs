@@ -58,11 +58,10 @@ namespace ProyectoFinal
             {
                 btnEquipo.Enabled = false;
                 btnEquipo.Visible= false;   
+                btnProveedores.Enabled = false;
+                btnProveedores.Visible = false;
             }
-            else
-            {
-
-            }
+           
         }
 
        

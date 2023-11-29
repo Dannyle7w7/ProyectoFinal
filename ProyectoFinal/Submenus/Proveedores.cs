@@ -106,16 +106,21 @@ namespace ProyectoFinal.Submenus
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(TxtID.Text, out int id) && !string.IsNullOrEmpty(TxtNombre.Text) && !string.IsNullOrEmpty(TxtDireccion.Text))
+            if (int.TryParse(TxtID.Text, out int id))
             {
                 // Verificar si el proveedor con el ID dado existe antes de intentar modificarlo
                 BLTienda tienda = new BLTienda();
                 if (tienda.ExisteProveedor(id))
                 {
-                    string nombre = TxtNombre.Text;
-                    string direccion = TxtDireccion.Text;
+                    // Obtener los datos actuales del proveedor
+                    string nombreActual = tienda.ObtenerNombreProveedor(id);
+                    string direccionActual = tienda.ObtenerDireccionProveedor(id);
 
-                    tienda.ModificarProveedor(id, nombre, direccion);
+                    // Obtener los nuevos datos de los TextBox
+                    string nuevoNombre = string.IsNullOrEmpty(TxtNombre.Text) ? nombreActual : TxtNombre.Text;
+                    string nuevaDireccion = string.IsNullOrEmpty(TxtDireccion.Text) ? direccionActual : TxtDireccion.Text;
+
+                    tienda.ModificarProveedor(id, nuevoNombre, nuevaDireccion);
 
                     // Actualizar el DataGridView después de modificar un proveedor
                     DataTable dtProveedores = tienda.ObtenerProveedores();
@@ -128,7 +133,6 @@ namespace ProyectoFinal.Submenus
 
                     // Mostrar mensaje de éxito
                     MessageBox.Show("Proveedor modificado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
                 else
                 {
@@ -137,7 +141,7 @@ namespace ProyectoFinal.Submenus
             }
             else
             {
-                MessageBox.Show("Por favor, ingresa un ID válido, nombre y dirección para modificar el proveedor.");
+                MessageBox.Show("Por favor, ingresa un ID válido para modificar el proveedor.");
             }
         }
 
