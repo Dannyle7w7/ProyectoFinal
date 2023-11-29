@@ -80,6 +80,12 @@
     <Compile Include="Submenus\Carrito\Carrito.Designer.cs">
       <DependentUpon>Carrito.cs</DependentUpon>
     </Compile>
+    <Compile Include="Submenus\Carrito\Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Submenus\Carrito\Productos.Designer.cs">
+      <DependentUpon>Productos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Submenus\Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </Compile>
     <EmbeddedResource Include="Submenus\Carrito\Carrito.resx">
       <DependentUpon>Carrito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Submenus\Carrito\Productos.resx">
+      <DependentUpon>Productos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Submenus\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>

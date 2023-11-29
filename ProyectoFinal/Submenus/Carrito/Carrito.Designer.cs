@@ -37,11 +37,10 @@
             this.BtnCodigo = new System.Windows.Forms.Button();
             this.txtClientes = new System.Windows.Forms.TextBox();
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.BtnModificar = new System.Windows.Forms.Button();
+            this.BtnProductos = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
@@ -164,9 +163,9 @@
             this.txtClientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtClientes.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.txtClientes.Location = new System.Drawing.Point(115, 5);
+            this.txtClientes.Location = new System.Drawing.Point(117, 5);
             this.txtClientes.Name = "txtClientes";
-            this.txtClientes.Size = new System.Drawing.Size(573, 29);
+            this.txtClientes.Size = new System.Drawing.Size(670, 29);
             this.txtClientes.TabIndex = 21;
             // 
             // BtnAgregar
@@ -181,13 +180,13 @@
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(167, 33);
             this.BtnAgregar.TabIndex = 23;
-            this.BtnAgregar.Text = "Agregar";
+            this.BtnAgregar.Text = "Agregar Color";
             this.BtnAgregar.UseVisualStyleBackColor = false;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // BtnModificar
+            // BtnProductos
             // 
-            this.BtnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.BtnProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnModificar.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -233,25 +232,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label2.Location = new System.Drawing.Point(23, 12);
+            this.label2.Location = new System.Drawing.Point(25, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 32);
             this.label2.TabIndex = 27;
             this.label2.Text = "Nombre";
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.button2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(694, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 28);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel9
             // 
@@ -301,12 +286,11 @@
             this.tableLayoutPanel12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel12.ColumnCount = 3;
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.19753F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.41772F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.40506F));
+            this.tableLayoutPanel12.ColumnCount = 2;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.43209F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.56792F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel12.Controls.Add(this.txtClientes, 1, 0);
-            this.tableLayoutPanel12.Controls.Add(this.button2, 2, 0);
             this.tableLayoutPanel12.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 337);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -322,7 +306,7 @@
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.5249F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel11.Controls.Add(this.BtnAgregar, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.BtnModificar, 1, 0);
+            this.tableLayoutPanel11.Controls.Add(this.BtnProductos, 1, 0);
             this.tableLayoutPanel11.Controls.Add(this.BtnEliminar, 2, 0);
             this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 290);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
@@ -723,11 +707,10 @@
         private System.Windows.Forms.Button BtnCodigo;
         private System.Windows.Forms.TextBox txtClientes;
         private System.Windows.Forms.Button BtnAgregar;
-        private System.Windows.Forms.Button BtnModificar;
+        private System.Windows.Forms.Button BtnProductos;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;

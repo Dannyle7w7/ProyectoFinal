@@ -13,6 +13,7 @@ using System.Timers;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using Excel = Microsoft.Office.Interop.Excel;
+using ProyectoFinal.Submenus.Carrito;
 
 namespace ProyectoFinal.Submenus.Trabajadores
 {
@@ -20,11 +21,13 @@ namespace ProyectoFinal.Submenus.Trabajadores
     {
         private System.Timers.Timer timerEliminarContenido;
         private Tarjeta ventanaTarjeta;
+        Productos ventanaProductos;
         private double sumaTotal = 0.0;
         private double sumaCyan = 0.0;
         private double sumaMagenta = 0.0;
         private double sumaYellow = 0.0;
         private double sumaBlack = 0.0;
+        private bool ventanaProductosAbierta = false;
         public Carrito()
         {
             InitializeComponent();
@@ -37,6 +40,7 @@ namespace ProyectoFinal.Submenus.Trabajadores
             TxtCodigo.TextChanged += TxtCodigo_TextChanged;
             Txtingdinero.TextChanged += Txtingdinero_TextChanged;
             RbTarjeta.CheckedChanged += RbTarjeta_CheckedChanged;
+
 
         }
 
@@ -446,6 +450,8 @@ namespace ProyectoFinal.Submenus.Trabajadores
             }
         }
 
+
+
         private void DeshabilitarBotones()
         {
             // Iterar a través de todos los controles en el formulario Carrito
@@ -472,10 +478,12 @@ namespace ProyectoFinal.Submenus.Trabajadores
             }
         }
 
+
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             // Llama al método para restablecer los campos a sus valores iniciales
             RestablecerCampos();
+            EliminarArchivoExcel();
         }
 
         private void RestablecerCampos()
@@ -495,6 +503,58 @@ namespace ProyectoFinal.Submenus.Trabajadores
 
 
         }
+
+        private void AbrirVentanaProductos()
+        {
+            if (!ventanaProductosAbierta)
+            {
+                // Deshabilitar todos los botones en el formulario Carrito
+                DeshabilitarBotones();
+
+                // Crear una nueva instancia de la ventana Productos
+                ventanaProductos = new Productos();
+
+                // Suscribirse al evento Closed para saber cuando se cierra la ventana
+                ventanaProductos.FormClosed += ProductosClosed;
+
+                // Mostrar la ventana
+                ventanaProductos.Show();
+
+                ventanaProductosAbierta = true;
+            }
+            else
+            {
+                // La ventana ya está abierta, puedes realizar alguna acción adicional si es necesario
+                MessageBox.Show("La ventana Productos ya está abierta.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void ProductosClosed(object sender, FormClosedEventArgs e)
+        {
+            // Este método se ejecutará cuando la ventana Productos se cierre
+
+            // Realizar acciones adicionales aquí, por ejemplo, recargar datos o habilitar ciertos controles
+            CargarDatosDesdeExcel();
+
+            // Asignar null a la instancia de ventanaProductos
+            ventanaProductos = null;
+
+            // Indicar que la ventana ya no está abierta
+            ventanaProductosAbierta = false;
+
+            // Habilitar todos los botones en el formulario Carrito al cerrar la ventana
+            HabilitarBotones();
+        }
+
+
+        // ... (Resto de tu código)
+
+        private void BtnProductos_Click(object sender, EventArgs e)
+        {
+            // Llamar al método para abrir la ventana de productos
+            AbrirVentanaProductos();
+        }
+
     }
 }
 

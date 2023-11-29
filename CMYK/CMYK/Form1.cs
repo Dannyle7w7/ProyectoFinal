@@ -344,10 +344,11 @@ namespace CMYK
         }
         public DataTable ObtenerTodosLosInventarios()
         {
-            string query = "SELECT  Nombre='Lata', precio FROM Productos";
+            string query = "SELECT Nombre, precio FROM Productos WHERE Nombre = 'Pintura'";
             DAL.DAL dal = new();
             return dal.Consulta(query);
         }
+
 
         private void BtnEnviaraCarrito_Click(object sender, EventArgs e)
         {
