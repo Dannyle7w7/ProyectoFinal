@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using ProyectoFinal.Submenus;
+using ProyectoFinal.Submenus.Trabajadores;
 
 namespace ProyectoFinal
 {
@@ -32,6 +33,7 @@ namespace ProyectoFinal
         {
             return getConsultaAcceso(usu, pass);
         }
+
         public int UsuarioExistencia(String usu)
         {
             string query = "SELECT COUNT(*) FROM Empleados WHERE Usuario = @nombreUsuario ";
@@ -45,6 +47,7 @@ namespace ProyectoFinal
 
             return resultado;
         }
+
         public int UsuarioExistenciaconmismoID(String usu,String id)
         {
             string query = "SELECT COUNT(*) FROM Empleados WHERE Usuario = @nombreUsuario and IdEmpleados= @id ";
@@ -58,6 +61,7 @@ namespace ProyectoFinal
 
             return resultado;
         }
+
         private int getConsultaPuesto(String usu, String pass)
         {
             string query = "SELECT Puesto FROM Empleados WHERE Usuario = @nombreUsuario AND Contraseña = @contraseña";
@@ -192,12 +196,14 @@ namespace ProyectoFinal
             imagen.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
             return ms.ToArray();
         }
+
         public int ConsultaultimoID() {
             string query = "SELECT MAX(IdEmpleados) FROM Empleados";
             DAL.DAL dal = new DAL.DAL();
             int resultado = Convert.ToInt32(dal.ConsultaEscalar(query));
             return resultado;
         }
+
         private System.Drawing.Image getFoto(String usu)
         {
             string query = "SELECT Foto FROM Empleados WHERE Usuario = @nombreUsuario ";
@@ -320,6 +326,7 @@ namespace ProyectoFinal
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
         }
+
         public bool ExistenciaID(string ID)
         {
             string query = "SELECT COUNT(*) AS Existencia FROM Empleados WHERE IdEmpleados = @id ";
@@ -527,6 +534,15 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
         }
 
 
+        // PARTE COMPRA
+
+        public DataTable ObtenerCompraProvedores()
+        {
+            string query = "SELECT * FROM DetalleProveedores";
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query);
+        }
+
 
         //ESTA PARTE ES PARA LA TABLA DE PROVEEDORES
 
@@ -578,6 +594,40 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
             dal.Transaccion(query, parametros);
         }
 
+        public string ObtenerNombreProveedor(int idProveedor)
+        {
+            string query = "SELECT Nombre FROM Proveedores WHERE IdProveedores = @idProveedor";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+            new SqlParameter("@idProveedor", idProveedor)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            return dal.ConsultaEscalar(query, parametros) as string;
+        }
+
+        public string ObtenerDireccionProveedor(int idProveedor)
+        {
+            string query = "SELECT Dirrecion FROM Proveedores WHERE IdProveedores = @idProveedor";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+            new SqlParameter("@idProveedor", idProveedor)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            return dal.ConsultaEscalar(query, parametros) as string;
+        }
+
+
+
+
+
+
+
+
+
+
+
         public DataRow ObtenerInventarioPorID(int idInventario)
         {
             string query = "SELECT * FROM Productos WHERE idProductos = @idInventario";
@@ -621,27 +671,29 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
                 return null; // No se encontró ningún proveedor para el ID proporcionado
             }
         }
+
         public DataRow ObtenerClientePorId(int idcliente)
         {
-            string query = "SELECT * FROM Clientes WHERE IdClientes = @idCliente";
+            string query = "SELECT * FROM Clientes WHERE IdClientes = @idClientes";
             SqlParameter[] parametros = new SqlParameter[]
             {
-        new SqlParameter("@idCliente", idcliente)
+        new SqlParameter("@idClientes", idcliente)
             };
 
             DAL.DAL dal = new DAL.DAL();
             DataTable resultado = dal.Consulta(query, parametros);
 
-            // Verificar si se encontró algún proveedor
+            // Verificar si se encontró algún cliente
             if (resultado.Rows.Count > 0)
             {
                 return resultado.Rows[0];
             }
             else
             {
-                return null; // No se encontró ningún proveedor para el ID proporcionado
+                return null; // No se encontró ningún cliente para el ID proporcionado
             }
         }
+
         public DataTable ObtenerClientes()
         {
             string query = "SELECT * FROM Clientes";
@@ -650,23 +702,40 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
         }
         public void ModificarCliente(int idClientes, string nombre, string Rfc, string RazonSocial, string Calle, string NumeroExterior, string NumeroInterior, string Colonia, string Municipio, string CP, string Estado, string RegimenFiscal, string CFDI, string Telefono, string Correo )
         {
-            string query = "UPDATE Clientes SET Nombre = @nombre, RFC = @Rfc, [Razon Social] = @RaSocial, Calle = @Calle, NumExt = @NumExt, NumInt = @NumInt, Colonia = @Colonia, Municipio = @Municipio, [Codigo Postal] = @CP, Estado = @Estado, [Regimen Fiscal] = @RegimenFiscal, [Uso de CFDI] = @CFDI, Telefono = @Telefono, Correo = @Correo,  WHERE IdClientes = @idclientes";
+            string query = @"UPDATE Clientes
+                    SET Nombre = @nombre,
+                        RFC = @rfc,
+                        [Razon Social] = @razonSocial,
+                        Calle = @calle,
+                        NumExt = @numeroExt,
+                        NumInt = @numeroInt,
+                        Colonia = @colonia,
+                        Municipio = @municipio,
+                        [Codigo Postal] = @cp,
+                        Estado = @estado,
+                        [Regimen Fiscal] = @regimenFiscal,
+                        [Uso de CFDI] = @cfdi,
+                        Telefono = @telefono,
+                        Correo = @correo
+                    WHERE IdClientes = @idCliente";
+
             SqlParameter[] parametros = new SqlParameter[]
             {
         new SqlParameter("@nombre", nombre),
-        new SqlParameter("@Rfc", Rfc),
-        new SqlParameter("@RaSocial", RazonSocial),
-        new SqlParameter("@Calle", Calle),
-        new SqlParameter("@NumExt", NumeroExterior),
-        new SqlParameter("@NumInt", NumeroInterior),
-        new SqlParameter("@Colonia", Colonia),
-        new SqlParameter("@Municipio", Municipio),
-        new SqlParameter("@CP", CP),
-        new SqlParameter("@Estado", Estado),
-        new SqlParameter("@RegimenFiscal", RegimenFiscal),
-        new SqlParameter("@CFDI", CFDI),
-        new SqlParameter("@Telefono", Telefono),
-        new SqlParameter("@Correo", Correo)
+        new SqlParameter("@rfc", Rfc),
+        new SqlParameter("@razonSocial", RazonSocial),
+        new SqlParameter("@calle", Calle),
+        new SqlParameter("@numeroExt", NumeroExterior),
+        new SqlParameter("@numeroInt", NumeroInterior),
+        new SqlParameter("@colonia", Colonia),
+        new SqlParameter("@municipio", Municipio),
+        new SqlParameter("@cp", CP),
+        new SqlParameter("@estado", Estado),
+        new SqlParameter("@regimenFiscal", RegimenFiscal),
+        new SqlParameter("@cfdi", CFDI),
+        new SqlParameter("@telefono", Telefono),
+        new SqlParameter("@correo", Correo),
+        new SqlParameter("@idCliente", idClientes)
             };
 
             DAL.DAL dal = new DAL.DAL();

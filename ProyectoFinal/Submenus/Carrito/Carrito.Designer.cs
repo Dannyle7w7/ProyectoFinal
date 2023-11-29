@@ -96,9 +96,9 @@
             this.plTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
             this.plTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.plTop.Location = new System.Drawing.Point(0, 0);
-            this.plTop.Margin = new System.Windows.Forms.Padding(2);
+            this.plTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.plTop.Name = "plTop";
-            this.plTop.Size = new System.Drawing.Size(1196, 98);
+            this.plTop.Size = new System.Drawing.Size(1595, 121);
             this.plTop.TabIndex = 15;
             // 
             // DvgAcomulacioncarrito
@@ -176,7 +176,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnAgregar.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BtnAgregar.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnAgregar.Location = new System.Drawing.Point(3, 3);
+            this.BtnAgregar.Location = new System.Drawing.Point(4, 4);
+            this.BtnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(167, 33);
             this.BtnAgregar.TabIndex = 23;
@@ -191,7 +192,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnModificar.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BtnModificar.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnModificar.Location = new System.Drawing.Point(176, 3);
+            this.BtnModificar.Location = new System.Drawing.Point(234, 4);
+            this.BtnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(168, 33);
             this.BtnModificar.TabIndex = 24;
@@ -205,7 +207,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnEliminar.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BtnEliminar.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnEliminar.Location = new System.Drawing.Point(350, 3);
+            this.BtnEliminar.Location = new System.Drawing.Point(467, 4);
+            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(169, 33);
             this.BtnEliminar.TabIndex = 25;
@@ -220,7 +223,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label1.Location = new System.Drawing.Point(10, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 25);
+            this.label1.Size = new System.Drawing.Size(96, 32);
             this.label1.TabIndex = 26;
             this.label1.Text = "Codigo";
             // 
@@ -232,7 +235,7 @@
             this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label2.Location = new System.Drawing.Point(23, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 25);
+            this.label2.Size = new System.Drawing.Size(108, 32);
             this.label2.TabIndex = 27;
             this.label2.Text = "Nombre";
             // 
@@ -325,7 +328,7 @@
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(522, 39);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(696, 48);
             this.tableLayoutPanel11.TabIndex = 54;
             // 
             // label8
@@ -335,7 +338,7 @@
             this.label8.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label8.Location = new System.Drawing.Point(3, 296);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(123, 37);
+            this.label8.Size = new System.Drawing.Size(151, 46);
             this.label8.TabIndex = 36;
             this.label8.Text = "Cambio:";
             // 
@@ -346,7 +349,7 @@
             this.label5.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label5.Location = new System.Drawing.Point(3, 103);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(253, 37);
+            this.label5.Size = new System.Drawing.Size(312, 46);
             this.label5.TabIndex = 31;
             this.label5.Text = "Cantidad a recibir:";
             // 
@@ -355,9 +358,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 20F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Location = new System.Drawing.Point(4, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(192, 37);
+            this.label3.Size = new System.Drawing.Size(235, 46);
             this.label3.TabIndex = 29;
             this.label3.Text = "Total a Pagar:";
             // 
@@ -380,9 +384,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Location = new System.Drawing.Point(4, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 41);
+            this.label4.Size = new System.Drawing.Size(36, 50);
             this.label4.TabIndex = 30;
             this.label4.Text = "$";
             // 
@@ -409,7 +414,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(304, 38);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(405, 47);
             this.tableLayoutPanel4.TabIndex = 52;
             // 
             // RbTarjeta
@@ -418,7 +423,7 @@
             this.RbTarjeta.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Bold);
             this.RbTarjeta.Location = new System.Drawing.Point(51, 3);
             this.RbTarjeta.Name = "RbTarjeta";
-            this.RbTarjeta.Size = new System.Drawing.Size(95, 32);
+            this.RbTarjeta.Size = new System.Drawing.Size(115, 39);
             this.RbTarjeta.TabIndex = 33;
             this.RbTarjeta.TabStop = true;
             this.RbTarjeta.Text = "Tarjeta";
@@ -428,9 +433,10 @@
             // 
             this.RbEfectivo.AutoSize = true;
             this.RbEfectivo.Font = new System.Drawing.Font("Nirmala UI", 15F, System.Drawing.FontStyle.Bold);
-            this.RbEfectivo.Location = new System.Drawing.Point(194, 3);
+            this.RbEfectivo.Location = new System.Drawing.Point(259, 4);
+            this.RbEfectivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RbEfectivo.Name = "RbEfectivo";
-            this.RbEfectivo.Size = new System.Drawing.Size(107, 32);
+            this.RbEfectivo.Size = new System.Drawing.Size(131, 39);
             this.RbEfectivo.TabIndex = 35;
             this.RbEfectivo.TabStop = true;
             this.RbEfectivo.Text = "Efectivo";
@@ -447,7 +453,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(304, 53);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(405, 65);
             this.tableLayoutPanel3.TabIndex = 52;
             // 
             // label6
@@ -455,9 +461,10 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Location = new System.Drawing.Point(4, 0);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 41);
+            this.label6.Size = new System.Drawing.Size(31, 50);
             this.label6.TabIndex = 34;
             this.label6.Text = "$";
             // 
@@ -486,16 +493,17 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(304, 47);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(405, 58);
             this.tableLayoutPanel6.TabIndex = 54;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 28);
+            this.pictureBox2.Size = new System.Drawing.Size(55, 34);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 45;
             this.pictureBox2.TabStop = false;
@@ -505,9 +513,10 @@
             this.pictureBox3.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.ErrorImage")));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(50, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(67, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(38, 28);
+            this.pictureBox3.Size = new System.Drawing.Size(51, 34);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 48;
             this.pictureBox3.TabStop = false;
@@ -517,9 +526,10 @@
             this.pictureBox4.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.ErrorImage")));
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.InitialImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(94, 3);
+            this.pictureBox4.Location = new System.Drawing.Point(126, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(40, 28);
+            this.pictureBox4.Size = new System.Drawing.Size(53, 34);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 46;
             this.pictureBox4.TabStop = false;
@@ -529,9 +539,10 @@
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(221, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(295, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 28);
+            this.pictureBox1.Size = new System.Drawing.Size(85, 34);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 49;
             this.pictureBox1.TabStop = false;
@@ -541,9 +552,10 @@
             this.pictureBox5.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.ErrorImage")));
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(140, 3);
+            this.pictureBox5.Location = new System.Drawing.Point(187, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(44, 28);
+            this.pictureBox5.Size = new System.Drawing.Size(59, 34);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 50;
             this.pictureBox5.TabStop = false;
@@ -559,7 +571,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(200, 50);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(267, 62);
             this.tableLayoutPanel7.TabIndex = 54;
             // 
             // lblCambio
@@ -578,7 +590,8 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Nirmala UI", 22F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(3, 0);
+            this.label7.Location = new System.Drawing.Point(4, 0);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(27, 41);
             this.label7.TabIndex = 37;
@@ -618,7 +631,8 @@
             this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnCancelar.Font = new System.Drawing.Font("Nirmala UI", 20F, System.Drawing.FontStyle.Bold);
             this.BtnCancelar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtnCancelar.Location = new System.Drawing.Point(155, 3);
+            this.BtnCancelar.Location = new System.Drawing.Point(206, 4);
+            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(146, 48);
             this.BtnCancelar.TabIndex = 41;
@@ -661,13 +675,14 @@
             // 
             // Carrito
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1196, 654);
+            this.ClientSize = new System.Drawing.Size(1595, 805);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel10);
             this.Controls.Add(this.plTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Carrito";
             this.Text = "Carrito";
             this.Load += new System.EventHandler(this.Clientes_Load);
