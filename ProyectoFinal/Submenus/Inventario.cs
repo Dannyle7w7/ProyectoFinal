@@ -24,10 +24,6 @@ namespace ProyectoFinal.Submenus
             dgvDatos.DataSource = bl.ObtenerTodosLosInventarios();
         }
 
-        private void TxtID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void TxtID_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -37,11 +33,6 @@ namespace ProyectoFinal.Submenus
                 e.Handled = true;
                 return;
             }
-        }
-
-        private void txtBusqueda_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
