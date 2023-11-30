@@ -9,6 +9,7 @@ namespace ProyectoFinal.Submenus
     public partial class Tarjeta : Form
     {
         private string directorioImagenes;
+        public bool Cancelado { get; private set; }
 
 
         public Tarjeta()
@@ -56,7 +57,7 @@ namespace ProyectoFinal.Submenus
             // Continuar con la compra si pasa todas las validaciones
             if (ValidarInformacionTarjeta(numeroTarjeta, fechaVencimiento, codigoSeguridad))
             {
-                MessageBox.Show("Compra realizada con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {
@@ -283,6 +284,7 @@ namespace ProyectoFinal.Submenus
         private void BtnCancelarcom_Click(object sender, EventArgs e)
         {
             this.Close();
+            Cancelado = true;
         }
     }
 }

@@ -14,6 +14,8 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 using Excel = Microsoft.Office.Interop.Excel;
 using ProyectoFinal.Submenus.Carrito;
+using System.Data.SqlClient;
+
 
 namespace ProyectoFinal.Submenus.Trabajadores
 {
@@ -30,7 +32,9 @@ namespace ProyectoFinal.Submenus.Trabajadores
         private bool ventanaProductosAbierta = false;
         private DataView _dvClientes; // Variable para almacenar la vista filtrada de los clientes
         private DataTable dtClientes; // Variable para almacenar todos los clientes
-   
+        private int idCliente;
+
+
         public Carrito()
         {
             InitializeComponent();
@@ -213,6 +217,7 @@ namespace ProyectoFinal.Submenus.Trabajadores
 
             }
         }
+
         private void ActualizarLabelSumaTotal()
         {
             // Asegúrate de realizar esta operación en el hilo principal
@@ -341,7 +346,7 @@ namespace ProyectoFinal.Submenus.Trabajadores
                     procesoCMYK.EnableRaisingEvents = true;
                     procesoCMYK.Exited += (s, args) =>
                     {
-                        // Llamar a la función CargarDatosDesdeExcel cuando CMYK se cierra
+                        // Llamar a la función CargarDatosDesdeExcel cuando CMYK se cierra me ayudo el isai
                         CargarDatosDesdeExcel();
 
 
@@ -435,20 +440,40 @@ namespace ProyectoFinal.Submenus.Trabajadores
                 // Validar que lblCambio sea mayor o igual a 0
                 if (lblCambio.Text != "" && Convert.ToDouble(lblCambio.Text) >= 0)
                 {
-                    // Validar si está seleccionado RbTarjeta
                     if (RbTarjeta.Checked)
                     {
-                        AbrirVentanaTarjeta();
+                        // Crear una instancia del formulario Tarjeta
+                        using (Tarjeta formularioTarjeta = new Tarjeta())
+                        {
+                            // Suscribirse al evento FormClosed
+                            formularioTarjeta.FormClosed += (senderForm, eForm) =>
+                            {
+                                // Verificar si se cerró debido al botón de cancelar
+                                if (!formularioTarjeta.Cancelado)
+                                {
+                                    InsertarVentaEnBD();
+                                    ActualizarCantidadProductosEnBD();
+                                    RestablecerCampos();
+                                    ProcesarVentas();
+                                    MessageBox.Show("La compra ha sido completada.", "Compra Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            };
+
+                            // Mostrar el formulario Tarjeta
+                            formularioTarjeta.ShowDialog();
+                        }
                     }
                     else if (RbEfectivo.Checked)
                     {
-                        // Aquí puedes agregar la lógica para el caso de RbEfectivo
-                        // Por ejemplo, podrías abrir otro formulario o realizar alguna acción específica.
-                        // ...
+                        // Resto de la lógica aquí...
+                        InsertarVentaEnBD();
+                        ActualizarCantidadProductosEnBD();
+                        RestablecerCampos();
+                        ProcesarVentas();
+                        MessageBox.Show("La compra ha sido completada.", "Compra Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        // Mostrar un mensaje indicando que se debe seleccionar una opción
                         MessageBox.Show("Por favor, selecciona un método de pago.");
                     }
                 }
@@ -527,6 +552,7 @@ namespace ProyectoFinal.Submenus.Trabajadores
         {
             // Llama al método para restablecer los campos a sus valores iniciales
             RestablecerCampos();
+            MessageBox.Show("La compra ha sido cancelada.", "Cancelación de Compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
@@ -543,7 +569,6 @@ namespace ProyectoFinal.Submenus.Trabajadores
             DvgAcomulacioncarrito.Rows.Clear();
             RbTarjeta.Checked = false;
             RbEfectivo.Checked = false;
-            MessageBox.Show("La compra ha sido cancelada.", "Cancelación de Compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
             EliminarArchivoExcel();
 
         }
@@ -599,13 +624,23 @@ namespace ProyectoFinal.Submenus.Trabajadores
             AbrirVentanaProductos();
         }
 
+
         private void DvgClientesLista_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < DvgClientesLista.Rows.Count)
             {
                 DataGridViewRow filaSeleccionada = DvgClientesLista.Rows[e.RowIndex];
-                int idCliente = Convert.ToInt32(filaSeleccionada.Cells["IdClientes"].Value);
-                MessageBox.Show($"Doble clic en el cliente con ID: {idCliente}");
+                object idClienteValue = filaSeleccionada.Cells["IdClientes"].Value;
+
+                if (idClienteValue != null && int.TryParse(idClienteValue.ToString(), out int result))
+                {
+                    idCliente = result;
+                    MessageBox.Show($"Doble clic en el cliente con ID: {idCliente}");
+                }
+                else
+                {
+                    MessageBox.Show("Error: Unable to retrieve valid ID from selected row.");
+                }
             }
         }
 
@@ -718,6 +753,13 @@ namespace ProyectoFinal.Submenus.Trabajadores
             excelApp.Quit();
         }
 
+        private DataTable ObtenerProductosDesdeSQL()
+        {
+            string query = "SELECT IdProductos, Cantidad, Nombre, Precio, Descuento, Descripcion, Marca FROM Productos";
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query);
+        }
+
         private void DvgAcomulacioncarrito_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -731,6 +773,229 @@ namespace ProyectoFinal.Submenus.Trabajadores
 
             }
         }
+
+        private void ActualizarCantidadProductosEnBD()
+        {
+            // Obtén la cantidad actual de productos de cada color desde la base de datos
+            DataTable productos = ObtenerProductosDesdeSQL();
+
+            // Actualizar la cantidad de productos en base a los valores sumaCyan, sumaMagenta, sumaYellow, sumaBlack
+            ActualizarCantidadProducto(productos, "Cyan", sumaCyan);
+            ActualizarCantidadProducto(productos, "Magenta", sumaMagenta);
+            ActualizarCantidadProducto(productos, "Yellow", sumaYellow);
+            ActualizarCantidadProducto(productos, "Black", sumaBlack);
+
+            // Actualizar la base de datos con las nuevas cantidades
+            ActualizarBaseDeDatos(productos);
+        }
+
+        private void ActualizarCantidadProducto(DataTable productos, string color, double cantidadARestar)
+        {
+            DataRow[] filas = productos.Select($"Nombre = '{color}'");
+            if (filas.Length > 0)
+            {
+                // Restar la cantidad correspondiente
+                double cantidadActual = Convert.ToDouble(filas[0]["Cantidad"]);
+                filas[0]["Cantidad"] = Math.Max(0, cantidadActual - cantidadARestar);
+            }
+        }
+
+        private void ActualizarBaseDeDatos(DataTable productos)
+        {
+            // Recorrer la tabla actualizada y aplicar los cambios en la base de datos
+            foreach (DataRow fila in productos.Rows)
+            {
+                int idProducto = Convert.ToInt32(fila["IdProductos"]);
+                string cantidad = fila["Cantidad"].ToString();
+                string nombre = fila["Nombre"].ToString();
+                string precio = fila["Precio"].ToString();
+                string descuento = fila["Descuento"].ToString();
+                string descripcion = fila["Descripcion"].ToString();
+                string marca = fila["Marca"].ToString();
+
+                ModificarInventario(idProducto, cantidad, nombre, precio, descuento, descripcion, marca);
+            }
+        }
+
+        public void ModificarInventario(int id, string cantidad, string nombre, string precio, string descuento, string descripcion, string marca)
+        {
+            string query = "UPDATE Productos SET Cantidad = @cantidad, Nombre = @nombre, Precio = @precio, Descuento = @descuento, Descripcion = @Descripcion, Marca = @marca WHERE idProductos = @idProductos";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@cantidad", cantidad),
+                new SqlParameter("@nombre", nombre),
+                new SqlParameter("@precio", precio),
+                new SqlParameter("@descuento", descuento),
+                new SqlParameter("@descripcion", descripcion),
+                new SqlParameter("@marca", marca),
+                new SqlParameter("@idProductos", id)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
+
+        private string ObtenerMetodoPagoSeleccionado()
+        {
+            if (RbTarjeta.Checked)
+            {
+                return RbTarjeta.Text;
+            }
+            else if (RbEfectivo.Checked)
+            {
+                return RbEfectivo.Text;
+            }
+
+            throw new InvalidOperationException("Ningún método de pago seleccionado.");
+        }
+        private void InsertarVentaEnBD()
+        {
+            // Obtener valores necesarios
+            DateTime fecha = DateTime.Now; // Puedes ajustar esto según tus necesidades
+            decimal total = Convert.ToDecimal(lblTotalPag.Text);
+            string metodoPago = ObtenerMetodoPagoSeleccionado();
+            string productos = ObtenerProductosDesdeGrida(DvgAcomulacioncarrito); // Asume que tienes una función para obtener los productos desde el grid
+
+            // Crear la consulta SQL
+            string query = @"INSERT INTO Compras (Fecha, Total, IdClientes, IdEmpleados, IdMetodoPago, IdDetalleCompras)
+                     VALUES (@Fecha, @Total, @IdClientes, @IdEmpleados, @IdMetodoPago, @IdDetalleCompras);";
+
+            // Crear los parámetros
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@Fecha", fecha),
+        new SqlParameter("@Total", total),
+        new SqlParameter("@IdClientes", idCliente),
+        new SqlParameter("@IdEmpleados", 1), // Cambiar si es necesario
+        new SqlParameter("@IdMetodoPago", metodoPago),
+        new SqlParameter("@IdDetalleCompras", productos)
+            };
+
+            // Insertar en la base de datos
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
+        private List<string> ObtenerProductosDesdeGrid(DataGridView dataGridView)
+{
+    List<string> productos = new List<string>();
+
+    foreach (DataGridViewRow row in dataGridView.Rows)
+    {
+        string producto = Convert.ToString(row.Cells["Producto"].Value).Trim();
+        if (!string.IsNullOrEmpty(producto))
+        {
+            productos.Add(producto);
+        }
+    }
+
+    return productos;
+}
+
+        private string ObtenerProductosDesdeGrida(DataGridView dataGridView)
+        {
+            // Aquí obtendrás los productos de la columna "Producto" del DataGridView
+            // Asume que la columna se llama "Producto"
+
+            List<string> productos = new List<string>();
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                // Asume que la columna es la primera (índice 0) y contiene cadenas
+                string producto = row.Cells["Producto"].Value?.ToString();
+
+                if (!string.IsNullOrEmpty(producto))
+                {
+                    productos.Add(producto);
+                }
+            }
+
+            // Combina los productos en una sola cadena separada por comas
+            return string.Join(",", productos);
+        }
+
+        private DataTable ObtenerTodasLasVentas(string query)
+        {
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query);
+        }
+
+        private void ProcesarVentas()
+        {
+            // Obtener el IdCompras más alto
+            DataTable idComprasTable = ObtenerTodasLasVentas("SELECT MAX(IdCompras) AS MaxId FROM Compras");
+
+            // Verificar si hay alguna venta
+            if (idComprasTable.Rows.Count > 0 && idComprasTable.Rows[0]["MaxId"] != DBNull.Value)
+            {
+                int maxId = Convert.ToInt32(idComprasTable.Rows[0]["MaxId"]);
+
+                // Obtener la venta con el IdCompras más alto
+                DataTable ventas = ObtenerTodasLasVentas($"SELECT IdCompras, Fecha, Total, IdClientes, IdEmpleados, IdMetodoPago, IdDetalleCompras FROM Compras WHERE IdCompras = {maxId}");
+
+                // Verificar si hay alguna venta
+                if (ventas.Rows.Count > 0)
+                {
+                    DataRow venta = ventas.Rows[0];
+
+                    int idCompra = Convert.ToInt32(venta["IdCompras"]);
+                    DateTime fecha = Convert.ToDateTime(venta["Fecha"]);
+                    decimal total = Convert.ToDecimal(venta["Total"]);
+                    int idCliente = Convert.ToInt32(venta["IdClientes"]);
+                    int idEmpleado = Convert.ToInt32(venta["IdEmpleados"]);
+                    string metodoPago = Convert.ToString(venta["IdMetodoPago"]);
+                    string detalleCompras = Convert.ToString(venta["IdDetalleCompras"]);
+
+                    // Convertir la cadena de productos a una lista
+                    List<string> productos = detalleCompras.Split(',').ToList();
+
+                    // Generar el recibo con los datos de la venta
+                    GenerarRecibo(idCompra, fecha, total, idCliente, idEmpleado, metodoPago, productos);
+
+                    MessageBox.Show("Recibo generado exitosamente.");
+                }
+                else
+                {
+                    MessageBox.Show("No hay ventas para procesar.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay ventas para procesar.");
+            }
+        }
+
+        private void GenerarRecibo(int idCompra, DateTime fecha, decimal total, int idCliente, int idEmpleado, string metodoPago, List<string> productos)
+        {
+            // Generar el recibo con los datos de la venta
+            string contenidoRecibo = $"Recibo de Compra\n\n" +
+                                     $"ID Compra: {idCompra}\n" +
+                                     $"Fecha: {fecha}\n" +
+                                     $"Total: {total}\n" +
+                                     $"ID Cliente: {idCliente}\n" +
+                                     $"ID Empleado: {idEmpleado}\n" +
+                                     $"Método de Pago: {metodoPago}\n" +
+                                     $"Detalle de Compras: {string.Join(", ", productos)}";
+
+            // Obtener la ruta del directorio Debug del proyecto
+            string directorioDebug = AppDomain.CurrentDomain.BaseDirectory;
+
+            // Combina la ruta del directorio Debug con el nombre del archivo de recibo
+            string rutaRecibo = Path.Combine(directorioDebug, $"Recibo_Compra_{idCompra}.txt");
+
+            // Escribe el contenido del recibo en el archivo de texto
+            using (StreamWriter sw = new StreamWriter(rutaRecibo))
+            {
+                sw.Write(contenidoRecibo);
+            }
+
+            
+        }
+        public void OperacionesDespuesDeCierre()
+        {
+            // Realizar las operaciones necesarias después de que se cierra el formulario Tarjeta
+           
+        }
+
     }
 }
 

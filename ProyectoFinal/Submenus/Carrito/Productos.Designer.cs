@@ -32,7 +32,6 @@
             this.btnEnviaAcarrito = new System.Windows.Forms.Button();
             this.DvgProductos = new System.Windows.Forms.DataGridView();
             this.plTop = new System.Windows.Forms.Panel();
-            this.BtnBuscar = new System.Windows.Forms.Button();
             this.TxtProducto = new System.Windows.Forms.TextBox();
             this.lblProducto = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -93,28 +92,13 @@
             this.plTop.Size = new System.Drawing.Size(1020, 42);
             this.plTop.TabIndex = 21;
             // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BtnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(121)))), ((int)(((byte)(107)))));
-            this.BtnBuscar.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
-            this.BtnBuscar.Location = new System.Drawing.Point(873, 74);
-            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(135, 30);
-            this.BtnBuscar.TabIndex = 22;
-            this.BtnBuscar.TabStop = false;
-            this.BtnBuscar.Text = "Buscar";
-            this.BtnBuscar.UseVisualStyleBackColor = false;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
-            // 
             // TxtProducto
             // 
             this.TxtProducto.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
             this.TxtProducto.Location = new System.Drawing.Point(16, 77);
             this.TxtProducto.Margin = new System.Windows.Forms.Padding(4);
             this.TxtProducto.Name = "TxtProducto";
-            this.TxtProducto.Size = new System.Drawing.Size(847, 25);
+            this.TxtProducto.Size = new System.Drawing.Size(991, 25);
             this.TxtProducto.TabIndex = 23;
             // 
             // lblProducto
@@ -216,7 +200,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblProducto);
             this.Controls.Add(this.TxtProducto);
-            this.Controls.Add(this.BtnBuscar);
             this.Controls.Add(this.plTop);
             this.Controls.Add(this.DvgProductos);
             this.Controls.Add(this.BtnCancelar);
@@ -238,7 +221,6 @@
         private System.Windows.Forms.Button btnEnviaAcarrito;
         private System.Windows.Forms.DataGridView DvgProductos;
         private System.Windows.Forms.Panel plTop;
-        private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.TextBox TxtProducto;
         private System.Windows.Forms.Label lblProducto;
         private System.Windows.Forms.Label label1;
