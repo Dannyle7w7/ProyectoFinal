@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
@@ -536,11 +537,103 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
 
         // PARTE COMPRA
 
+        public DataTable LlenaComboProducto()
+        {
+            string query = "Select IdProductos, Nombre From Productos";
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query);
+        }
+
+        public DataTable LlenaComboProveedores()
+        {
+            string query = "Select IdProveedores, Nombre From Proveedores";
+            DAL.DAL dal = new DAL.DAL();
+            return dal.Consulta(query);
+        }
+
+
         public DataTable ObtenerCompraProvedores()
         {
             string query = "SELECT * FROM DetalleProveedores";
             DAL.DAL dal = new DAL.DAL();
             return dal.Consulta(query);
+        }
+
+
+        public void AgregarCompraProvedor(string idproducto, string idprovedor, string cantidad, string costo)
+        {
+            string query = "INSERT INTO DetalleProveedores (IdProducto, IdProveedores, Cantidad, Costo) VALUES (@idproducto, @idpeoveedores, @cantidad, @costo)";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@idproducto", idproducto),
+                new SqlParameter("@idpeoveedores", idprovedor),
+                new SqlParameter("@cantidad", cantidad),
+                new SqlParameter("@costo", costo)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
+
+        public void EliminarCompraProvedor(int IdDetalleProveedores)
+        {
+            string query = "DELETE FROM DetalleProveedores WHERE IdDetalleProveedores = @IdDetalleProveedores";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@IdDetalleProveedores", IdDetalleProveedores)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
+
+        public void ModificarCompraProveedor(string IdDetalleProveedores, string idproducto, string idprovedor, string cantidad, string costo)
+        {
+            string query = "UPDATE DetalleProveedores SET idproducto = @idproducto, idpeoveedores = @idprovedor, cantidad = @cantidad, costo = @costo  WHERE IdDetalleProveedores = @IdDetalleProveedores";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@idproducto", idproducto),
+                new SqlParameter("@idpeoveedores", idprovedor),
+                new SqlParameter("@cantidad", cantidad),
+                new SqlParameter("@costo", costo),
+                new SqlParameter("@IdDetalleProveedores", IdDetalleProveedores)
+
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            dal.Transaccion(query, parametros);
+        }
+
+        public DataRow ObtenerDetalleCompraPorID(int IdDetalleProveedores)
+        {
+            string query = "SELECT * FROM DetalleProveedores WHERE IdDetalleProveedores = @IdDetalleProveedores";
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@IdDetalleProveedores", IdDetalleProveedores)
+            };
+
+            DAL.DAL dal = new DAL.DAL();
+            DataTable resultado = dal.Consulta(query, parametros);
+
+            // Verificar si se encontró algún proveedor
+            if (resultado.Rows.Count > 0)
+            {
+                return resultado.Rows[0];
+            }
+            else
+            {
+                return null; // No se encontró ningún proveedor para el ID proporcionado
+            }
+        }
+
+        public bool ExisteDetalleProveedor(int id)
+        {
+            // Lógica para verificar si el proveedor con el ID dado existe en la base de datos
+            // Aquí asumimos que tienes un método ObtenerProveedorPorId en tu clase BLTienda
+            DataRow proveedor = ObtenerDetalleCompraPorID(id);
+
+            // Devolver true si el proveedor existe, false en caso contrario
+            return proveedor != null;
         }
 
 
@@ -585,9 +678,9 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
             string query = "UPDATE Proveedores SET Nombre = @nombre, Dirrecion = @direccion WHERE IdProveedores = @idProveedor";
             SqlParameter[] parametros = new SqlParameter[]
             {
-        new SqlParameter("@nombre", nombre),
-        new SqlParameter("@direccion", direccion),
-        new SqlParameter("@idProveedor", idProveedor)
+                 new SqlParameter("@nombre", nombre),
+                 new SqlParameter("@direccion", direccion),
+                 new SqlParameter("@idProveedor", idProveedor)
             };
 
             DAL.DAL dal = new DAL.DAL();
@@ -617,16 +710,6 @@ CASE WHEN Puesto = 0 THEN 'Empleado' ELSE 'Jefe' END AS Puesto
             DAL.DAL dal = new DAL.DAL();
             return dal.ConsultaEscalar(query, parametros) as string;
         }
-
-
-
-
-
-
-
-
-
-
 
         public DataRow ObtenerInventarioPorID(int idInventario)
         {

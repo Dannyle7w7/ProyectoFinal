@@ -38,7 +38,6 @@
             this.BtnCargar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.CmbIdProvedor = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,8 +46,9 @@
             this.TxtCosto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.CmbIdProducto = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.TxtIdProducto = new System.Windows.Forms.TextBox();
+            this.TxtIdProveedor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -178,7 +178,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.CmbIdProvedor, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.TxtID, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
@@ -187,7 +186,8 @@
             this.tableLayoutPanel2.Controls.Add(this.TxtCosto, 0, 10);
             this.tableLayoutPanel2.Controls.Add(this.label6, 0, 9);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.CmbIdProducto, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.TxtIdProducto, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.TxtIdProveedor, 0, 5);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -206,15 +206,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(203, 364);
             this.tableLayoutPanel2.TabIndex = 26;
-            // 
-            // CmbIdProvedor
-            // 
-            this.CmbIdProvedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbIdProvedor.FormattingEnabled = true;
-            this.CmbIdProvedor.Location = new System.Drawing.Point(3, 149);
-            this.CmbIdProvedor.Name = "CmbIdProvedor";
-            this.CmbIdProvedor.Size = new System.Drawing.Size(192, 21);
-            this.CmbIdProvedor.TabIndex = 28;
             // 
             // label1
             // 
@@ -301,15 +292,6 @@
             this.label7.TabIndex = 26;
             this.label7.Text = "ID Provedor";
             // 
-            // CmbIdProducto
-            // 
-            this.CmbIdProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbIdProducto.FormattingEnabled = true;
-            this.CmbIdProducto.Location = new System.Drawing.Point(3, 88);
-            this.CmbIdProducto.Name = "CmbIdProducto";
-            this.CmbIdProducto.Size = new System.Drawing.Size(192, 21);
-            this.CmbIdProducto.TabIndex = 27;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -319,6 +301,24 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 20);
             this.label4.TabIndex = 28;
+            // 
+            // TxtIdProducto
+            // 
+            this.TxtIdProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TxtIdProducto.Location = new System.Drawing.Point(2, 87);
+            this.TxtIdProducto.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtIdProducto.Name = "TxtIdProducto";
+            this.TxtIdProducto.Size = new System.Drawing.Size(193, 26);
+            this.TxtIdProducto.TabIndex = 27;
+            // 
+            // TxtIdProveedor
+            // 
+            this.TxtIdProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TxtIdProveedor.Location = new System.Drawing.Point(2, 148);
+            this.TxtIdProveedor.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtIdProveedor.Name = "TxtIdProveedor";
+            this.TxtIdProveedor.Size = new System.Drawing.Size(193, 26);
+            this.TxtIdProveedor.TabIndex = 28;
             // 
             // CompraProveedores
             // 
@@ -364,8 +364,8 @@
         private System.Windows.Forms.TextBox TxtCantidad;
         private System.Windows.Forms.TextBox TxtCosto;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox CmbIdProvedor;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox CmbIdProducto;
+        private System.Windows.Forms.TextBox TxtIdProducto;
+        private System.Windows.Forms.TextBox TxtIdProveedor;
     }
 }
